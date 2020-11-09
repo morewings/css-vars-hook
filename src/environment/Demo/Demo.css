@@ -1,0 +1,16 @@
+.demo label {
+  display: block;
+  margin-bottom: 12px;
+}
+
+.demo button {
+  margin-left: 6px;
+}
+
+.box {
+  margin-top: 24px;
+  background: var(--boxColor);
+  width: 120px;
+  height: 120px;
+  border: 1px solid black;
+}
