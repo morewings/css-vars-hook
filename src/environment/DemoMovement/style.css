@@ -20,9 +20,11 @@
 }
 
 .demo-movement .box {
-  background: var(--boxColor);
+  --leftPosition: calc(var(--shift) * 1px);
+
   border: 1px solid black;
   height: 120px;
+  left: var(--leftPosition);
   margin-top: 24px;
   position: relative;
   width: 120px;

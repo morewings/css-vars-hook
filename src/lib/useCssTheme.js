@@ -15,21 +15,24 @@ export const useCssTheme = ({theme}) => {
   const setVariable = setCSSVariable(ref.current);
   const getVariable = getCSSVariable(ref.current);
   const style = createStyleObject(theme);
-  const setRef = useCallback(element => {
-    if (ref.current) {
-      // Make sure to cleanup any events/references added to the last instance
-    }
+  const setRef = useCallback(
+    element => {
+      if (ref.current) {
+        // Make sure to cleanup any events/references added to the last instance
+      }
 
-    if (element) {
-      Object.keys(theme).forEach(key => {
-        const isEqual = getCSSVariable(element)(key) === theme[key];
-        !isEqual && setCSSVariable(element)(key, theme[key]);
-      });
-    }
+      if (element) {
+        Object.keys(theme).forEach(key => {
+          const isEqual = getCSSVariable(element)(key) === theme[key];
+          !isEqual && setCSSVariable(element)(key, theme[key]);
+        });
+      }
 
-    // Save a reference to the node
-    ref.current = element;
-  }, []);
+      // Save a reference to the node
+      ref.current = element;
+    },
+    [theme]
+  );
 
   return {ref, setRef, style, setVariable, getVariable};
 };

@@ -25,5 +25,4 @@ export const removeCSSVariable = (element, variableName) => {
  * @param {HTMLElement} element - HTML element to contain variable
  * @return {function(string): string}
  */
-export const getCSSVariable = element => variableName =>
-  element && element.style.getPropertyValue(`--${variableName}`);
+export const getCSSVariable = element => variableName => element && element.style.getPropertyValue(`--${variableName}`);

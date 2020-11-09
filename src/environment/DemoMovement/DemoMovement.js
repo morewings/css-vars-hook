@@ -1,14 +1,19 @@
-import React, {useLayoutEffect, useState} from 'react';
+import React, {useLayoutEffect, useEffect, useState, useReducer} from 'react';
+import {getCSSVariable, setCSSVariable} from 'lib/utils';
 import {useCssTheme} from 'lib';
 import './style.css';
 
-const theme = {boxColor: 'yellow'};
+const theme = {shift: 1};
 let renderCount = 0;
 
 export const DemoMovement = () => {
-  const [colorValue, setColorValue] = useState(theme.boxColor);
-  const [shift, setShift] = useState(theme.boxColor);
-  const {setRef, setVariable} = useCssTheme({theme});
+  const {setRef, ref} = useCssTheme({theme});
+  useEffect(() => {
+    setInterval(() => {
+      const current = parseInt(getCSSVariable(ref.current)('shift'), 10);
+      setCSSVariable(ref.current)('shift', current + 1);
+    }, 500);
+  }, [ref]);
   useLayoutEffect(() => {
     // eslint-disable-next-line fp/no-mutation
     renderCount += 1;
@@ -18,20 +23,6 @@ export const DemoMovement = () => {
       <fieldset>
         {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
         <label>Click the button to move box</label>
-        <button
-          onClick={() => {
-            setVariable('boxColor', colorValue);
-          }}
-          type="button">
-          Move right
-        </button>
-        <button
-          onClick={() => {
-            setVariable('boxColor', colorValue);
-          }}
-          type="button">
-          Stop
-        </button>
         <div className="box" />
         <div className="count">
           Render count: <strong>{renderCount}</strong>
