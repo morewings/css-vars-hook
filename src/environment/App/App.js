@@ -1,10 +1,12 @@
 import React from 'react';
-import {Demo} from 'environment/Demo';
+import {DemoColor} from 'environment/DemoColor';
+import {DemoMovement} from 'environment/DemoMovement';
 import classes from './App.module.css';
 
 const App = () => (
   <div className={classes.container}>
-    <Demo />
+    <DemoColor />
+    <DemoMovement />
   </div>
 );
 

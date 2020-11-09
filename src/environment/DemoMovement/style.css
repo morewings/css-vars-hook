@@ -1,10 +1,26 @@
+.demo {
+  font-size: 16px;
+}
+
 .demo label {
   display: block;
+  font-size: inherit;
   margin-bottom: 12px;
 }
 
+.demo input {
+  font-size: inherit;
+}
+
 .demo button {
+  font-size: inherit;
   margin-left: 6px;
+
+  /* background-color: blue; */
+
+  /* color: white; */
+
+  /* border: none; */
 }
 
 .box {
@@ -12,5 +28,6 @@
   border: 1px solid black;
   height: 120px;
   margin-top: 24px;
+  position: relative;
   width: 120px;
 }
