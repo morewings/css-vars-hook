@@ -8,7 +8,6 @@ import peerDepsExternal from 'rollup-plugin-peer-deps-external';
 import autoprefixer from 'autoprefixer';
 import stylelint from 'rollup-plugin-stylelint';
 import postcssPresetEnv from 'postcss-preset-env';
-import {terser} from 'rollup-plugin-terser';
 import pkg from './package.json';
 
 const outputs = [
@@ -67,7 +66,6 @@ const config = outputs.map(({file, format}) => ({
       browser: true,
     }),
     commonjs(),
-    terser(),
     filesize(),
   ],
 }));
