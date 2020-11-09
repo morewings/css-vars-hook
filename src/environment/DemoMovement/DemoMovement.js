@@ -2,7 +2,7 @@ import React, {useLayoutEffect, useEffect, useState} from 'react';
 import {useCssTheme} from 'lib';
 import './style.css';
 
-const theme = {shift: 1};
+const theme = {shift: 0};
 let renderCount = 0;
 
 export const DemoMovement = () => {
@@ -18,7 +18,7 @@ export const DemoMovement = () => {
     return () => {
       clearInterval(interval);
     };
-  }, [ref, stop]);
+  }, [ref, stop, setVariable, getVariable]);
   useLayoutEffect(() => {
     // eslint-disable-next-line fp/no-mutation
     renderCount += 1;

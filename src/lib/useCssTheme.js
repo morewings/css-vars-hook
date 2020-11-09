@@ -1,19 +1,11 @@
 import {useRef, useCallback} from 'react';
-import {setCSSVariable, getCSSVariable} from 'lib/utils';
-
-const createStyleObject = theme => {
-  const keys = Object.keys(theme);
-  const result = {};
-  keys.forEach(key => {
-    result[`--${key}`] = theme.key;
-  });
-  return result;
-};
+import {setCSSVariable, getCSSVariable, createStyleObject, removeCSSVariable} from 'lib/utils';
 
 export const useCssTheme = ({theme}) => {
   const ref = useRef(null);
   const setVariable = setCSSVariable(ref);
   const getVariable = getCSSVariable(ref);
+  const removeVariable = removeCSSVariable(ref);
   const style = createStyleObject(theme);
   const setRef = useCallback(
     element => {
@@ -34,5 +26,5 @@ export const useCssTheme = ({theme}) => {
     [theme]
   );
 
-  return {ref, setRef, style, setVariable, getVariable};
+  return {ref, setRef, style, setVariable, getVariable, removeVariable};
 };
