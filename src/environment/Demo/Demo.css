@@ -8,9 +8,9 @@
 }
 
 .box {
-  margin-top: 24px;
   background: var(--boxColor);
-  width: 120px;
-  height: 120px;
   border: 1px solid black;
+  height: 120px;
+  margin-top: 24px;
+  width: 120px;
 }
