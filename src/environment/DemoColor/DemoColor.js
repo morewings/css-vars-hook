@@ -11,11 +11,12 @@ export const DemoColor = () => {
   const {setRef, setVariable} = useCssTheme({theme});
 
   useLayoutEffect(() => {
+    // eslint-disable-next-line fp/no-mutation
     renderCount += 1;
   });
 
   return (
-    <div className="demo" ref={setRef}>
+    <div className="demo-color" ref={setRef}>
       <fieldset>
         {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
         <label htmlFor="colorName">Set box color. Needs to be a valid CSS color (name, HEX, rgba etc).</label>
@@ -35,7 +36,9 @@ export const DemoColor = () => {
           Set
         </button>
         <div className="box" />
-        <div className="count">Render count: {renderCount}</div>
+        <div className="count">
+          Render count: <strong>{renderCount}</strong>
+        </div>
       </fieldset>
     </div>
   );
