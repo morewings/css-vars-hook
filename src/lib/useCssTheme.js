@@ -12,8 +12,8 @@ const createStyleObject = theme => {
 
 export const useCssTheme = ({theme}) => {
   const ref = useRef(null);
-  const setVariable = setCSSVariable(ref.current);
-  const getVariable = getCSSVariable(ref.current);
+  const setVariable = setCSSVariable(ref);
+  const getVariable = getCSSVariable(ref);
   const style = createStyleObject(theme);
   const setRef = useCallback(
     element => {
@@ -23,8 +23,8 @@ export const useCssTheme = ({theme}) => {
 
       if (element) {
         Object.keys(theme).forEach(key => {
-          const isEqual = getCSSVariable(element)(key) === theme[key];
-          !isEqual && setCSSVariable(element)(key, theme[key]);
+          const isEqual = getCSSVariable({current: element})(key) === theme[key];
+          !isEqual && setCSSVariable({current: element})(key, theme[key]);
         });
       }
 

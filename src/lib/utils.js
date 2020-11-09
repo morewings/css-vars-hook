@@ -4,7 +4,8 @@
  * @param {HTMLElement} element - HTML element to contain variable
  * @return {function(string, string): void}
  */
-export const setCSSVariable = element => (variableName, value) => {
+export const setCSSVariable = ref => (variableName, value) => {
+  const element = ref.current;
   element && element.style.setProperty(`--${variableName}`, value);
 };
 
@@ -25,4 +26,7 @@ export const removeCSSVariable = (element, variableName) => {
  * @param {HTMLElement} element - HTML element to contain variable
  * @return {function(string): string}
  */
-export const getCSSVariable = element => variableName => element && element.style.getPropertyValue(`--${variableName}`);
+export const getCSSVariable = ref => variableName => {
+  const element = ref.current;
+  return element && element.style.getPropertyValue(`--${variableName}`);
+};
