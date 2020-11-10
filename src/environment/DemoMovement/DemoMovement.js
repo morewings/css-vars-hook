@@ -1,12 +1,11 @@
 import React, {useLayoutEffect, useEffect, useState} from 'react';
-import {useCssTheme} from 'lib';
+import {useVariable} from 'lib';
 import './style.css';
 
-const theme = {shift: 0};
 let renderCount = 0;
 
 export const DemoMovement = () => {
-  const {setRef, ref, setVariable, getVariable} = useCssTheme({theme});
+  const {setRef, ref, setVariable, getVariable} = useVariable('shift', 0);
   const [stop, setStop] = useState('false');
   useEffect(() => {
     const interval = setInterval(() => {

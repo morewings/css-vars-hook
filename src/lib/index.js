@@ -1,1 +1,2 @@
-export {useCssTheme} from './useCssTheme';
+export {useTheme} from './useTheme';
+export {useVariable} from './useVariable';

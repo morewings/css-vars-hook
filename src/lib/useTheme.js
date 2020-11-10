@@ -1,7 +1,7 @@
 import {useRef, useCallback} from 'react';
 import {setCSSVariable, getCSSVariable, createStyleObject, removeCSSVariable} from 'lib/utils';
 
-export const useCssTheme = ({theme}) => {
+export const useTheme = theme => {
   const ref = useRef(null);
   const setVariable = setCSSVariable(ref);
   const getVariable = getCSSVariable(ref);

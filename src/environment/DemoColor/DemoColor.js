@@ -1,5 +1,5 @@
 import React, {useState, useLayoutEffect} from 'react';
-import {useCssTheme} from 'lib';
+import {useTheme} from 'lib';
 import './style.css';
 
 const theme = {boxColor: 'yellow'};
@@ -8,7 +8,7 @@ let renderCount = 0;
 
 export const DemoColor = () => {
   const [colorValue, setColorValue] = useState(theme.boxColor);
-  const {setRef, setVariable} = useCssTheme({theme});
+  const {setRef, setVariable} = useTheme(theme);
 
   useLayoutEffect(() => {
     // eslint-disable-next-line fp/no-mutation
