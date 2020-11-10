@@ -1,8 +1,6 @@
 import {useRef, useCallback} from 'react';
 import {setCSSVariable, getCSSVariable, createStyleObject, removeCSSVariable} from 'lib/utils';
 
-/***/
-
 /**
  * @typedef {Object} UseThemeInterface
  * @property {MutableRefObject<null>} ref - React ref. Use as theme container element getter only.

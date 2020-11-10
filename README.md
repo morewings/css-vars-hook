@@ -8,13 +8,13 @@
 
 # CSS Variables React hook
 
-[css-vars-hook](https://github.com/morewings/css-vars-hook) contains React hooks to set and manipulate CSS custom properties from component.
+[css-vars-hook](https://github.com/morewings/css-vars-hook) contains React hooks to set and manipulate CSS custom properties from React component.
 
 ## Usage
 
 ```shell script
 npm install css-vars-hook
-``` 
+```
 Or
 ```shell script
 yarn add css-vars-hook
