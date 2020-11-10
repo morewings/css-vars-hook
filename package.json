@@ -1,9 +1,37 @@
 {
   "name": "css-vars-hook",
   "version": "0.1.0",
+  "license": "MIT",
   "private": false,
+  "engines": {
+    "node": ">=10"
+  },
+  "description": "css-vars-hook contains React hooks to set and manipulate CSS custom properties from React component.",
+  "keywords": [
+    "react",
+    "reactjs",
+    "hooks",
+    "css",
+    "css-vars",
+    "css-in-js"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/morewings/css-vars-hook",
+    "directory": "/"
+  },
+  "homepage": "https://github.com/morewings/css-vars-hook",
+  "bugs": {
+    "url": "https://github.com/morewings/css-vars-hook/issues"
+  },
+  "main": "lib/index.js",
+  "module": "lib/index.esm.js",
+  "browser": "lib/index.js",
+  "files": [
+    "lib"
+  ],
+  "sideEffects": false,
   "dependencies": {
-    "prop-types": "^15.7.2",
     "react": "^17.0.1",
     "react-dom": "^17.0.1"
   },
@@ -35,9 +63,6 @@
       "last 1 safari version"
     ]
   },
-  "main": "lib/index.cjs.js",
-  "module": "lib/index.esm.js",
-  "style": "lib/default.css",
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged",
@@ -95,11 +120,5 @@
   "peerDependencies": {
     "react": ">=16.8.0",
     "react-dom": ">=16.8.0"
-  },
-  "files": [
-    "lib"
-  ],
-  "engines": {
-    "node": ">=10"
   }
 }
