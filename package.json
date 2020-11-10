@@ -32,8 +32,8 @@
   ],
   "sideEffects": false,
   "dependencies": {
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1"
+    "react": ">=16.8.0",
+    "react-dom": ">=16.8.0"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -118,7 +118,7 @@
     "stylelint-order": "4.1.0"
   },
   "peerDependencies": {
-    "react": "^16.8.0 || ^17.0.1",
-    "react-dom": "^16.8.0 || ^17.0.1"
+    "react": ">=16.8.0",
+    "react-dom": ">=16.8.0"
   }
 }
