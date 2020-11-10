@@ -42,7 +42,7 @@ export const createStyleObject = theme => {
   const result = {};
   keys.forEach(key => {
     // eslint-disable-next-line fp/no-mutation
-    result[`--${key}`] = theme.key;
+    result[`--${key}`] = theme[key];
   });
   return result;
 };
