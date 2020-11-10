@@ -1,7 +1,7 @@
 /** @function
  * @name setCSSVariable
  * @description Set CSS variable
- * @param {Object} ref - React ref
+ * @param {MutableRefObject<null>} ref - React ref
  * @return {function(string, string): void}
  */
 export const setCSSVariable = ref => (variableName, value) => {
@@ -12,7 +12,7 @@ export const setCSSVariable = ref => (variableName, value) => {
 /** @function
  * @name removeCSSVariable
  * @description Remove CSS variable
- * @param {HTMLElement} ref - React ref
+ * @param {MutableRefObject<null>} ref - React ref
  * @return {function(string): void}
  */
 export const removeCSSVariable = ref => variableName => {
@@ -23,7 +23,7 @@ export const removeCSSVariable = ref => variableName => {
 /** @function
  * @name getCSSVariable
  * @description Get CSS variable value
- * @param {Object} ref - React ref
+ * @param {MutableRefObject<null>} ref - React ref
  * @return {function(string): string}
  */
 export const getCSSVariable = ref => variableName => {
