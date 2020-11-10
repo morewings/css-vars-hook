@@ -1,5 +1,5 @@
 {
-  "name": "react-css-variables",
+  "name": "css-vars-hook",
   "version": "0.1.0",
   "private": false,
   "dependencies": {
