@@ -21,7 +21,6 @@ deploy:
     keep_history: false
     local_dir: build
     on:
-      tags: true
       branch: master
   - provider: npm
     edge: true
@@ -29,6 +28,7 @@ deploy:
     api_key: "$NPM_TOKEN"
     skip_cleanup: true
     on:
+      tags: true
       branch: master
 
 notifications:
