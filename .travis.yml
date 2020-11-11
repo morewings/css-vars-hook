@@ -1,0 +1,36 @@
+language: node_js
+
+version: 1.0
+
+node_js: "10"
+
+cache:
+  directories:
+    - node_modules
+
+script:
+  - yarn lint:js
+  - yarn lint:style
+  - yarn build
+  - yarn build:lib
+
+deploy:
+  - provider: pages
+    skip_cleanup: true
+    github_token: $GITHUB_TOKEN
+    keep_history: false
+    local_dir: build
+    on:
+      tags: true
+      branch: master
+  - provider: npm
+    edge: true
+    email: "$NPM_EMAIL"
+    api_key: "$NPM_TOKEN"
+    skip_cleanup: true
+    on:
+      tags: true
+      branch: master
+
+notifications:
+  email: false
