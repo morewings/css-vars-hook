@@ -1,6 +1,6 @@
 {
   "name": "css-vars-hook",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "license": "MIT",
   "private": false,
   "engines": {
@@ -28,8 +28,10 @@
   "module": "lib/index.esm.js",
   "browser": "lib/index.js",
   "files": [
-    "lib"
+    "lib",
+    "types"
   ],
+  "types": "types/index.d.ts",
   "sideEffects": false,
   "dependencies": {},
   "scripts": {
