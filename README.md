@@ -11,7 +11,7 @@
 
 [Demo](https://morewings.github.io/css-vars-hook/)
 
-## Usage
+## Install
 
 ```shell script
 npm install css-vars-hook
@@ -27,7 +27,7 @@ yarn add css-vars-hook
 - Apply CSS themes (multiple variables) to any HTMLElement.
 - Typescript friendly, with type definitions included.
 
-## Description
+## Usage
 
 `css-vars-hook` exposes two hooks: `useTheme` and `useVariable`.
 
