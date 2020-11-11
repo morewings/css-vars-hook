@@ -25,6 +25,7 @@ yarn add css-vars-hook
 
 - Set, modify and delete [CSS Custom Properties](https://developer.mozilla.org/en-US/docs/Web/CSS/--*) inside React components.
 - Apply CSS themes (multiple variables) to any HTMLElement.
+- Typescript friendly, with type definitions included.
 
 ## Description
 

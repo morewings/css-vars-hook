@@ -16,7 +16,7 @@ import {useTheme} from 'lib/useTheme';
  * @name useTheme
  * @description React hook to apply multiple CSS variables and manipulate them.
  * @param {string} name - Name of the variable, without `--`.
- * @param {string} value - value of the variable.
+ * @param {string|number} value - value of the variable.
  * @return {UseThemeInterface}
  */
 

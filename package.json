@@ -28,8 +28,10 @@
   "module": "lib/index.esm.js",
   "browser": "lib/index.js",
   "files": [
-    "lib"
+    "lib",
+    "types"
   ],
+  "types": "types/index.d.ts",
   "sideEffects": false,
   "dependencies": {},
   "scripts": {
