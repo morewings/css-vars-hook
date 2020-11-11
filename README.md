@@ -81,25 +81,25 @@ export const DemoColor = () => {
     boxSize: '120px',
   };
 
-  const [colorValue, setColorValue] = useState(theme.boxColor);
+  const [boxColor, setBoxColor] = useState(theme.boxColor);
 
   const {setRef, setVariable} = useTheme(theme);
 
   return (
-    <div className="demo-color" ref={setRef}>
+    <div ref={setRef}>
       <fieldset>
-        <label htmlFor="colorName">Set box color. Needs to be a valid CSS color (name, HEX, rgba etc).</label>
+        <label htmlFor="boxColor">Set box color. Needs to be a valid CSS color (name, HEX, rgba etc).</label>
         <input
-          value={colorValue}
-          id="colorName"
+          value={boxColor}
+          id="boxColor"
           type="text"
           onChange={e => {
-            setColorValue(e.target.value);
+            setBoxColor(e.target.value);
           }}
         />
         <button
           onClick={() => {
-            setVariable('boxColor', colorValue);
+            setVariable('boxColor', boxColor);
           }}
           type="button">
           Set
