@@ -42,7 +42,8 @@ const {
   /* React ref. Use as theme container element getter only. */
   ref,
   /* Object containing style properties {'--foo': 'bar'}. Apply on target element
-  to prevent flash of unstyled content during server-side rendering. <div style={style} ref={setRef} /> */
+  to prevent flash of unstyled content during server-side rendering.
+  <div style={style} ref={setRef} /> */
   style,
   /* Get variable value. function(variableName: string) => string */
   getVariable,
@@ -58,7 +59,14 @@ const {
 ```js
 import {useVariable} from 'css-vars-hook';
 
-const {ref, setRef, style, setVariable, getVariable, removeVariable} = useVariable('foo', 'bar');
+const {
+  ref,
+  setRef,
+  style,
+  setVariable,
+  getVariable, 
+  removeVariable
+} = useVariable('foo', 'bar');
 ```
 
 ## Example
@@ -88,7 +96,9 @@ export const DemoColor = () => {
   return (
     <div ref={setRef}>
       <fieldset>
-        <label htmlFor="boxColor">Set box color. Needs to be a valid CSS color (name, HEX, rgba etc).</label>
+        <label htmlFor="boxColor">
+          Set box color. Needs to be a valid CSS color (name, HEX, rgba etc).
+        </label>
         <input
           value={boxColor}
           id="boxColor"
