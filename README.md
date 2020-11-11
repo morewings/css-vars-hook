@@ -26,7 +26,7 @@ yarn add css-vars-hook
 
 ## Description
 
-`css-vars-hook` exposes two hooks: `useTheme` and `useVariable`. 
+`css-vars-hook` exposes two hooks: `useTheme` and `useVariable`.
 
 `useTheme` applies multiple css properties to given HtmlElement.
 
@@ -38,9 +38,9 @@ const {
   setRef,
   /* React ref. Use as theme container element getter only. */
   ref,
-  /* Object containing style properties {'--foo': 'bar'}. Apply on target element 
+  /* Object containing style properties {'--foo': 'bar'}. Apply on target element
   to prevent flash of unstyled content during server-side rendering. <div style={style} ref={setRef} /> */
-  style, 
+  style,
   /* Get variable value. function(variableName: string) => string */
   getVariable,
   /* Set variable value. function(variableName: string, value: (string|number)) => void */
@@ -64,10 +64,6 @@ const {ref, setRef, style, setVariable, getVariable, removeVariable} = useVariab
 /* style.css */
 .box {
   background: var(--boxColor);
-  border: 1px solid black;
-  height: 120px;
-  margin-top: 24px;
-  position: relative;
   width: var(--boxSize);
 }
 ```
