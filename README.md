@@ -9,6 +9,8 @@
 
 [css-vars-hook](https://github.com/morewings/css-vars-hook) contains React hooks to set and manipulate CSS custom properties from React component.
 
+[Demo](https://morewings.github.io/css-vars-hook/)
+
 ## Usage
 
 ```shell script

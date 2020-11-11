@@ -11,7 +11,7 @@ cache:
 script:
   - yarn lint:js
   - yarn lint:style
-  - yarn build
+  - PUBLIC_URL=https://morewings.github.io/css-vars-hook yarn build
   - yarn build:lib
 
 deploy:
