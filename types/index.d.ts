@@ -6,8 +6,8 @@ declare module 'css-vars-hook' {
   type Value = string | number;
 
   interface HookInterface {
-    ref: React.RefObject<HTMLInputElement>;
-    setRef: (element: HTMLElement) => void;
+    ref: React.RefObject<HTMLElement>;
+    setRef: (element: HTMLElement | null) => void;
     style: ThemeObject;
     setVariable: (variableName: string, value: Value) => void;
     getVariable: (variableName: string) => string;
