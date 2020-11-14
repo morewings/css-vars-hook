@@ -11,8 +11,12 @@ cache:
 script:
   - yarn lint:js
   - yarn lint:style
+  - yarn test --coverage
   - PUBLIC_URL=https://morewings.github.io/css-vars-hook yarn build
   - yarn build:lib
+
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
 
 deploy:
   - provider: pages

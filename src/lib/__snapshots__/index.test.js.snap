@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`lib exports shape has useTheme 1`] = `[Function]`;
+
+exports[`lib exports shape has useTheme 2`] = `
+Object {
+  "getVariable": [Function],
+  "ref": Object {
+    "current": null,
+  },
+  "removeVariable": [Function],
+  "setRef": [Function],
+  "setVariable": [Function],
+  "style": Object {},
+}
+`;
+
+exports[`lib exports shape has useVariable 1`] = `[Function]`;
+
+exports[`lib exports shape has useVariable 2`] = `
+Object {
+  "getVariable": [Function],
+  "ref": Object {
+    "current": null,
+  },
+  "removeVariable": [Function],
+  "setRef": [Function],
+  "setVariable": [Function],
+  "style": Object {
+    "--foo": "bar",
+  },
+}
+`;

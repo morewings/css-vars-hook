@@ -4,7 +4,7 @@ import {setCSSVariable, getCSSVariable, createStyleObject, removeCSSVariable} fr
 /**
  * @typedef {Object} UseThemeInterface
  * @property {MutableRefObject<HTMLElement>} ref - React ref. Use as theme container element getter only.
- * @property {function(HTMLElement | null): void} setRef - Theme container element setter.
+ * @property {function(element: (HTMLElement | null)): void} setRef - Theme container element setter.
  * @property {Object<string, string>} style - Theme object with all property names prefixed `--`.
  * @property {function(string): string} getVariable - Get variable value. getCSSVariable with bound ref.
  * @see src/lib/utils.js
