@@ -1,5 +1,6 @@
 [![Build Status](https://travis-ci.com/morewings/css-vars-hook.svg?branch=master)](https://travis-ci.com/morewings/css-vars-hook)
 [![dependencies Status](https://david-dm.org/morewings/css-vars-hook/status.svg)](https://david-dm.org/morewings/css-vars-hook)
+[![codecov](https://codecov.io/gh/morewings/css-vars-hook/branch/master/graph/badge.svg)](https://codecov.io/gh/morewings/css-vars-hook)
 [![yarn version](https://badge.fury.io/js/css-vars-hook.svg)](https://www.npmjs.com/package/css-vars-hook)
 [![npm](https://img.shields.io/npm/dm/css-vars-hook)](http://npm-stats.org/#/css-vars-hook)
 [![types included](https://badgen.net/npm/types/tslib)](https://github.com/morewings/css-vars-hook/blob/master/types/index.d.ts)
@@ -64,7 +65,7 @@ const {
   setRef,
   style,
   setVariable,
-  getVariable, 
+  getVariable,
   removeVariable
 } = useVariable('foo', 'bar');
 ```
