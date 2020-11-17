@@ -55,7 +55,7 @@ const {
 } = useTheme({foo: 'bar'});
 ```
 
-`useTheme` applies single css property to given HtmlElement.
+`useVariable` applies single css property to given HtmlElement.
 
 ```js
 import {useVariable} from 'css-vars-hook';
