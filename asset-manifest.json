@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "https://morewings.github.io/css-vars-hook/static/css/main.ba0043a0.chunk.css",
+    "main.js": "https://morewings.github.io/css-vars-hook/static/js/main.7f5889d1.chunk.js",
+    "main.js.map": "https://morewings.github.io/css-vars-hook/static/js/main.7f5889d1.chunk.js.map",
+    "runtime-main.js": "https://morewings.github.io/css-vars-hook/static/js/runtime-main.cb87515b.js",
+    "runtime-main.js.map": "https://morewings.github.io/css-vars-hook/static/js/runtime-main.cb87515b.js.map",
+    "static/js/2.8b1c1e0b.chunk.js": "https://morewings.github.io/css-vars-hook/static/js/2.8b1c1e0b.chunk.js",
+    "static/js/2.8b1c1e0b.chunk.js.map": "https://morewings.github.io/css-vars-hook/static/js/2.8b1c1e0b.chunk.js.map",
+    "index.html": "https://morewings.github.io/css-vars-hook/index.html",
+    "static/css/main.ba0043a0.chunk.css.map": "https://morewings.github.io/css-vars-hook/static/css/main.ba0043a0.chunk.css.map",
+    "static/js/2.8b1c1e0b.chunk.js.LICENSE.txt": "https://morewings.github.io/css-vars-hook/static/js/2.8b1c1e0b.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.cb87515b.js",
+    "static/js/2.8b1c1e0b.chunk.js",
+    "static/css/main.ba0043a0.chunk.css",
+    "static/js/main.7f5889d1.chunk.js"
+  ]
+}
