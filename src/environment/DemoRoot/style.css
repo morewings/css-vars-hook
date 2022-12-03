@@ -1,37 +1,26 @@
-.demo-movement {
+.demo-root {
   flex: 0 0 auto;
   font-size: 16px;
   margin-bottom: 24px;
   width: 100%;
 }
 
-.demo-movement label {
+.demo-root label {
   display: block;
   font-size: inherit;
   margin-bottom: 12px;
 }
 
-.demo-movement input {
-  font-size: inherit;
-}
-
-.demo-movement button {
+.demo-root button {
   font-size: inherit;
   margin-left: 6px;
 }
 
-.demo-movement .box {
-  --leftPosition: calc(var(--shift) * 1px);
-
+.demo-root .box {
+  background: var(--boxColor);
   border: 1px solid black;
   height: 120px;
-  left: var(--leftPosition);
   margin-top: 24px;
   position: relative;
   width: 120px;
-}
-
-.demo-movement .count {
-  margin-top: 12px;
-  text-align: right;
 }

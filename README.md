@@ -32,7 +32,7 @@ yarn add css-vars-hook
 
 ## Usage
 
-`css-vars-hook` exposes two hooks: `useTheme` and `useVariable`.
+`css-vars-hook` exposes three hooks: `useTheme`, `useRootTheme` and `useVariable`.
 
 `useTheme` applies multiple css properties to given HtmlElement.
 
@@ -55,6 +55,21 @@ const {
   /* Remove variable. function(variableName: string) => void */
   removeVariable
 } = useTheme({foo: 'bar'});
+```
+
+`useRootTheme` applies multiple css properties to given [Root element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/html). Thus it makes CSS variables available to any element on the page.
+
+**NB!** `setRootVariable` is not possible since it will show previous value.
+
+```js
+import {useRootTheme} from 'css-vars-hook';
+
+const {
+  /* Set variable value. function(variableName: string, value: (string|number)) => void */
+  setRootVariable,
+  /* Remove variable. function(variableName: string) => void */
+  removeRootVariable
+} = useRootTheme({foo: 'bar'});
 ```
 
 `useVariable` applies single css property to given HtmlElement.
