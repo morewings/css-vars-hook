@@ -6,14 +6,14 @@ declare module 'css-vars-hook' {
    * Use module augmentation to append your own type definition in a your_custom_type.d.ts file.
    * https://www.typescriptlang.org/docs/handbook/declaration-merging.html#module-augmentation
    */
-  interface ThemeObject extends Record<string, string> { }
+  interface ThemeObject extends Record<string, string> {}
 
   type Value = string | number;
 
   interface HookInterface<ThemeType = ThemeObject> {
     ref: React.RefObject<HTMLElement>;
     setRef: (element: HTMLElement | null) => void;
-    style: ThemeType;
+    style: CSSProperties;
     setVariable: (variableName: keyof ThemeType, value: Value) => void;
     getVariable: (variableName: keyof ThemeType) => string;
     removeVariable: (variableName: keyof ThemeType) => void;
