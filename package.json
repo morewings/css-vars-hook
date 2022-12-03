@@ -44,7 +44,8 @@
     "lint:js": "npx eslint ./src/",
     "lint:style": "npx stylelint ./src/",
     "fix:style": "npx stylelint ./src/ --fix",
-    "prepublishOnly": "yarn build:lib"
+    "prepublishOnly": "yarn build:lib",
+    "prepare": "is-ci || husky install"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -61,12 +62,6 @@
       "last 1 safari version"
     ]
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged",
-      "pre-push": "CI=true yarn test --passWithNoTests"
-    }
-  },
   "devDependencies": {
     "@babel/cli": "7.12.1",
     "@babel/core": "7.20.5",
@@ -79,11 +74,11 @@
     "@rollup/plugin-node-resolve": "15.0.1",
     "@testing-library/jest-dom": "5.16.5",
     "@testing-library/react": "13.4.0",
-    "@testing-library/react-hooks": "^8.0.1",
+    "@testing-library/react-hooks": "8.0.1",
     "@testing-library/user-event": "14.4.3",
     "autoprefixer": "9.8.8",
     "eslint-config-airbnb": "19.0.4",
-    "eslint-config-prettier": "6.15.0",
+    "eslint-config-prettier": "8.5.0",
     "eslint-config-react-app": "7.0.1",
     "eslint-plugin-fp": "2.3.0",
     "eslint-plugin-import": "2.26.0",
@@ -92,12 +87,13 @@
     "eslint-plugin-react": "7.31.11",
     "eslint-plugin-react-hooks": "4.6.0",
     "husky": "8.0.2",
+    "is-ci": "3.0.1",
     "lint-staged": "13.0.4",
     "npm-run-all": "4.1.5",
-    "postcss-preset-env": "6.7.1",
+    "postcss-preset-env": "7.8.3",
     "prettier": "2.1.2",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
     "react-scripts": "5.0.1",
     "react-test-renderer": "18.2.0",
     "recursive-copy": "2.0.14",
