@@ -22,4 +22,6 @@ declare module 'css-vars-hook' {
   export function useTheme<ThemeType = ThemeObject>(theme: ThemeType): HookInterface<ThemeType>;
 
   export function useVariable(name: string, value: Value): HookInterface<Record<string, Value>>;
+
+  export function useRootTheme(name: string, value: Value): Pick<HookInterface<Record<string, Value>>, 'setVariable' | 'removeVariable'>;
 }

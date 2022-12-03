@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`useRootTheme renders and applies theme 1`] = `
+Object {
+  "removeRootVariable": [Function],
+  "setRootVariable": [Function],
+}
+`;
+
+exports[`useRootTheme renders and applies theme 2`] = `"visibility: visible; --foo: bar;"`;
