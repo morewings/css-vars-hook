@@ -57,7 +57,7 @@ const {
 
 `useRootTheme` applies multiple css properties to given [Root element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/html). Thus it makes CSS variables available to any element on the page.
 
-**NB!** `setRootVariable` is not possible since it will show previous value.
+**NB!** `getRootVariable` is not possible since it will show previous value.
 
 ```js
 import {useRootTheme} from 'css-vars-hook';
