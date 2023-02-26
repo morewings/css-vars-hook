@@ -24,6 +24,13 @@ export const useTheme = theme => {
   const setVariable = setCSSVariable(ref);
   const getVariable = getCSSVariable(ref);
   const removeVariable = removeCSSVariable(ref);
+  const getTheme = () => () => theme;
+  const setTheme = nextTheme => {
+    Object.keys(nextTheme).forEach(key => {
+      const isEqual = getCSSVariable(ref)(key) === theme[key];
+      !isEqual && setCSSVariable(ref)(key, theme[key]);
+    });
+  };
   const style = createStyleObject(theme);
   const setRef = useCallback(
     element => {
@@ -44,5 +51,5 @@ export const useTheme = theme => {
     [theme]
   );
 
-  return {ref, setRef, style, setVariable, getVariable, removeVariable};
+  return {ref, setRef, style, setVariable, getVariable, removeVariable, getTheme, setTheme};
 };
