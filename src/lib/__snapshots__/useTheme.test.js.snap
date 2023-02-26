@@ -8,12 +8,14 @@ Object {
 
 exports[`useTheme renders 1`] = `
 Object {
+  "getTheme": [Function],
   "getVariable": [Function],
   "ref": Object {
     "current": null,
   },
   "removeVariable": [Function],
   "setRef": [Function],
+  "setTheme": [Function],
   "setVariable": [Function],
   "style": Object {
     "--foo": "bar",
