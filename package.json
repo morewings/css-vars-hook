@@ -4,7 +4,7 @@
   "license": "MIT",
   "private": false,
   "engines": {
-    "node": ">=10"
+    "node": ">=16"
   },
   "description": "css-vars-hook contains React hooks to set and manipulate CSS custom properties from React component.",
   "keywords": [

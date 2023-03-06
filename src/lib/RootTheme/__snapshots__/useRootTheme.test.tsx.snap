@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`useRootTheme renders 1`] = `
+Object {
+  "getTheme": [Function],
+  "getVariable": [Function],
+  "removeVariable": [Function],
+  "setTheme": [Function],
+  "setVariable": [Function],
+}
+`;
