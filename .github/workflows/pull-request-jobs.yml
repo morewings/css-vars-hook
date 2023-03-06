@@ -34,5 +34,5 @@ jobs:
           yarn start --smoke-test
           yarn build:lib --silent
           yarn lint:js --quiet
-          yarn lint:style --quiet
+          yarn lint:tsc
 #          yarn test --silent

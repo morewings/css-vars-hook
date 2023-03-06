@@ -1,10 +1,11 @@
 import {useCallback, useRef} from 'react';
 import {createStyleObject, getRootVariable, removeRootVariable, setRootVariable} from 'lib/utils';
+import type {ThemeType} from 'lib/ThemeType';
 
-export const useRootThemeActions = theme => {
+export const useRootThemeActions = (theme: ThemeType) => {
   const themeRef = useRef(theme);
 
-  const setTheme = useCallback(nextTheme => {
+  const setTheme = useCallback((nextTheme: ThemeType) => {
     Object.keys(nextTheme).forEach(key => {
       setRootVariable(key, nextTheme[key]);
     });
@@ -14,8 +15,8 @@ export const useRootThemeActions = theme => {
 
   const getTheme = useCallback(() => themeRef.current, []);
 
-  const getVariable = useCallback(variableName => getRootVariable(variableName), []);
-  const setVariable = useCallback((variableName, value) => {
+  const getVariable = useCallback((variableName: string) => getRootVariable(variableName), []);
+  const setVariable = useCallback((variableName: string, value: string) => {
     setRootVariable(variableName, value);
     themeRef.current = {
       ...themeRef.current,
@@ -23,10 +24,9 @@ export const useRootThemeActions = theme => {
     };
   }, []);
 
-  const removeVariable = useCallback(variableName => {
+  const removeVariable = useCallback((variableName: string) => {
     removeRootVariable(variableName);
     const nextTheme = {...themeRef.current};
-    // eslint-disable-next-line fp/no-delete
     delete nextTheme[variableName];
     themeRef.current = nextTheme;
   }, []);
