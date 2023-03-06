@@ -7,7 +7,11 @@ import {RootThemeProvider} from 'lib';
 import classes from './App.module.css';
 
 export const App = () => (
-    <RootThemeProvider theme={{}}>
+    <RootThemeProvider
+        theme={{
+            boxColor: 'purple',
+            borderColor: 'violet',
+        }}>
         <div className={classes.container}>
             <DemoColor />
             <DemoMovement />

@@ -4,6 +4,7 @@
     "baseUrl": "src",
     "allowSyntheticDefaultImports" : true,
     "skipLibCheck": true,
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "checkJs": false
   }
 }

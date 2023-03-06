@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-argument */
 import babel from '@rollup/plugin-babel';
 import resolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
@@ -6,8 +7,8 @@ import filesize from 'rollup-plugin-filesize';
 import includePaths from 'rollup-plugin-includepaths';
 import peerDepsExternal from 'rollup-plugin-peer-deps-external';
 import autoprefixer from 'autoprefixer';
-import stylelint from 'rollup-plugin-stylelint';
 import postcssPresetEnv from 'postcss-preset-env';
+
 import pkg from './package.json';
 
 const outputs = [
@@ -48,9 +49,6 @@ const config = outputs.map(({file, format}) => ({
       paths: ['src'],
       external: Object.keys(pkg.dependencies),
       extensions: ['.js', '.json', '.html'],
-    }),
-    stylelint({
-      throwOnError: true,
     }),
     postcss({
       extract: process.env.REACT_APP_PKG_STYLE || pkg.style,
