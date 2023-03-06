@@ -19,7 +19,8 @@ declare module 'css-vars-hook' {
     removeVariable: (variableName: keyof ThemeType) => void;
   }
 
-  export function useTheme<ThemeType = ThemeObject>(theme: ThemeType): HookInterface<ThemeType>;
+  export function useTheme<ThemeType = ThemeObject>(theme: ThemeType): HookInterface<ThemeType> & {getTheme: () => ThemeType;
+    setTheme: (arg0: ThemeType) => void;};
 
   export function useVariable(name: string, value: Value): HookInterface<Record<string, Value>>;
 

@@ -50,7 +50,8 @@
         ]
       }
     ],
-    "react/function-component-definition": [2, { "namedComponents": "arrow-function" }]
+    "react/function-component-definition": [2, { "namedComponents": "arrow-function" }],
+    "react/prop-types": "warn"
   },
   "plugins": ["prettier", "fp"],
   "settings": {

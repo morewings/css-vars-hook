@@ -24,11 +24,11 @@ export const useTheme = theme => {
   const setVariable = setCSSVariable(ref);
   const getVariable = getCSSVariable(ref);
   const removeVariable = removeCSSVariable(ref);
-  const getTheme = () => () => theme;
+  const getTheme = () => theme;
   const setTheme = nextTheme => {
     Object.keys(nextTheme).forEach(key => {
       const isEqual = getCSSVariable(ref)(key) === theme[key];
-      !isEqual && setCSSVariable(ref)(key, theme[key]);
+      !isEqual && setCSSVariable(ref)(key, nextTheme[key]);
     });
   };
   const style = createStyleObject(theme);
