@@ -1,18 +1,21 @@
 import React, {useMemo} from 'react';
 import {ROOT_ID} from 'lib/config';
 import {RootContext} from './RootContext';
-import {useThemeActions} from './useThemeActions';
+import {useRootThemeActions} from './useRootThemeActions';
 
-export const RootThemeProvider = ({children}) => {
-  const theme = {
-    foo: 1,
-  };
+const themeDefault = {
+  foo: 'bar',
+};
 
-  const {setTheme, style, getTheme} = useThemeActions(theme);
+export const RootThemeProvider = ({children, theme = themeDefault}) => {
+  const {setTheme, style, getTheme, getVariable, setVariable, removeVariable} = useRootThemeActions(theme);
 
   const {Provider} = RootContext;
 
-  const actions = useMemo(() => ({setTheme, style, getTheme}), [setTheme, style, getTheme]);
+  const actions = useMemo(
+    () => ({setTheme, style, getTheme, getVariable, setVariable, removeVariable}),
+    [setTheme, style, getTheme, getVariable, setVariable, removeVariable]
+  );
 
   return (
     <Provider value={actions}>
