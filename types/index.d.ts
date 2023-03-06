@@ -1,3 +1,5 @@
+import { ThemeMethods } from "css-vars-hook";
+
 declare module 'css-vars-hook' {
   import * as React from 'react';
 
@@ -19,10 +21,14 @@ declare module 'css-vars-hook' {
     removeVariable: (variableName: keyof ThemeType) => void;
   }
 
-  export function useTheme<ThemeType = ThemeObject>(theme: ThemeType): HookInterface<ThemeType> & {getTheme: () => ThemeType;
-    setTheme: (arg0: ThemeType) => void;};
+  type ThemeMethods<ThemeType> = {
+    getTheme: () => ThemeType;
+    setTheme: (arg0: ThemeType) => void;
+  }
+
+  export function useTheme<ThemeType = ThemeObject>(theme: ThemeType): HookInterface<ThemeType> & ThemeMethods<ThemeType>;
 
   export function useVariable(name: string, value: Value): HookInterface<Record<string, Value>>;
 
-  export function useRootTheme<ThemeType = ThemeObject>(theme: ThemeType): Pick<HookInterface<ThemeType>, 'setVariable' | 'removeVariable'>;
+  export function useRootTheme<ThemeType = ThemeObject>(theme: ThemeType): ThemeMethods<ThemeType> & {style: Record<string, string>};
 }

@@ -1,3 +1,3 @@
 export {useTheme} from './useTheme';
 export {useVariable} from './useVariable';
-export {useRootTheme} from './useRootTheme';
+export {useRootTheme, RootThemeProvider} from './RootTheme';
