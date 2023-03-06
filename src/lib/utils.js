@@ -1,3 +1,5 @@
+import {ROOT_ID} from 'lib/config';
+
 /** @function
  * @name setCSSVariable
  * @description Set CSS variable
@@ -48,17 +50,33 @@ export const createStyleObject = theme => {
 };
 
 /** @function
+ * @name getRootElement
+ * @description Get theme root element in an SSR-safe way
+ * @return {HTMLElement}
+ */
+export const getRootElement = () => document.getElementById(ROOT_ID);
+
+/** @function
  * @name setRootVariable
  * @description Set CSS variable on :root
  * @param {string} variableName - CSS variable name without `--` prefix
  * @param {string} value - CSS variable value
  */
 export const setRootVariable = (variableName, value) => {
-  const root = document.querySelector(':root');
+  const root = getRootElement();
   root.style.setProperty(`--${variableName}`, value);
 };
 
-// getRootVariable not working with `useInsertionEffect`
+/** @function
+ * @name getRootVariable
+ * @description Set CSS variable on :root
+ * @param {string} variableName - CSS variable name without `--` prefix
+ * @return {string} CSS variable value
+ */
+export const getRootVariable = variableName => {
+  const root = getRootElement();
+  return root.style.getPropertyValue(`--${variableName}`);
+};
 
 /** @function
  * @name removeRootVariable
@@ -66,6 +84,6 @@ export const setRootVariable = (variableName, value) => {
  * @param {string} variableName - CSS variable name without `--` prefix
  */
 export const removeRootVariable = variableName => {
-  const root = document.querySelector(':root');
+  const root = getRootElement();
   root.style.removeProperty(`--${variableName}`);
 };

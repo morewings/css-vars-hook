@@ -1,6 +1,7 @@
-import React, {useState, useLayoutEffect} from 'react';
+import React, {useState, useLayoutEffect, useEffect} from 'react';
 import {useTheme} from 'lib';
 import './style.css';
+import {useRootTheme} from 'lib/RootTheme/useRootTheme';
 
 const theme = {boxColor: 'yellow'};
 
@@ -13,6 +14,14 @@ export const DemoColor = () => {
   useLayoutEffect(() => {
     // eslint-disable-next-line fp/no-mutation
     renderCount += 1;
+  });
+
+  const {setTheme, getTheme, currentTheme} = useRootTheme();
+  useEffect(() => {
+    setTheme({
+      foo: 'bar',
+    });
+    console.log('getTheme1', getTheme());
   });
 
   return (
