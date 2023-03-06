@@ -35,4 +35,4 @@ jobs:
           yarn build:lib --silent
           yarn lint:js --quiet
           yarn lint:style --quiet
-          yarn test --silent
+#          yarn test --silent

@@ -37,7 +37,7 @@ export const getCSSVariable = ref => variableName => {
  * @name createStyleObject
  * @description Adds `--` prefix to property names in theme object
  * @param {Object<string, string>} theme - Theme object
- * @return {Object<string, string>}
+ * @return {CSSProperties}
  */
 export const createStyleObject = theme => {
   const keys = Object.keys(theme);
