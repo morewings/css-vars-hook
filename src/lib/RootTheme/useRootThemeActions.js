@@ -6,8 +6,7 @@ export const useRootThemeActions = theme => {
 
   const setTheme = useCallback(nextTheme => {
     Object.keys(nextTheme).forEach(key => {
-      const isEqual = getRootVariable(key) === themeRef.current[key];
-      !isEqual && setRootVariable(key, nextTheme[key]);
+      setRootVariable(key, nextTheme[key]);
     });
 
     themeRef.current = nextTheme;

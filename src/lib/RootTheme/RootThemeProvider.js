@@ -3,11 +3,7 @@ import {ROOT_ID} from 'lib/config';
 import {RootContext} from './RootContext';
 import {useRootThemeActions} from './useRootThemeActions';
 
-const themeDefault = {
-  foo: 'bar',
-};
-
-export const RootThemeProvider = ({children, theme = themeDefault}) => {
+export const RootThemeProvider = ({children, theme = {}}) => {
   const {setTheme, style, getTheme, getVariable, setVariable, removeVariable} = useRootThemeActions(theme);
 
   const {Provider} = RootContext;
