@@ -1,6 +1,6 @@
 import {useRef, useCallback} from 'react';
-import {setCSSVariable, getCSSVariable, createStyleObject, removeCSSVariable} from 'lib/utils';
 
+import {setCSSVariable, getCSSVariable, createStyleObject, removeCSSVariable} from './utils';
 import type {ThemeType} from './ThemeType';
 
 /** @function

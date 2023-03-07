@@ -1,5 +1,6 @@
 import type {MutableRefObject, CSSProperties} from 'react';
-import {ROOT_ID} from 'lib/config';
+
+import {ROOT_ID} from './config';
 
 /** @function
  * @name setCSSVariable

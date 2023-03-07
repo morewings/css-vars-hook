@@ -32,7 +32,7 @@ jobs:
         run: |
           yarn install --frozen-lockfile --silent
           yarn start --smoke-test
-          yarn build:lib --silent
+          yarn build:new
           yarn lint:code --quiet
           yarn lint:tsc
           yarn test --silent

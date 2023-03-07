@@ -1,6 +1,7 @@
 import {useCallback, useRef} from 'react';
-import {createStyleObject, getRootVariable, removeRootVariable, setRootVariable} from 'lib/utils';
-import type {ThemeType} from 'lib/ThemeType';
+
+import type {ThemeType} from '../ThemeType';
+import {createStyleObject, getRootVariable, removeRootVariable, setRootVariable} from '../utils';
 
 export const useRootThemeActions = (theme: ThemeType) => {
   const themeRef = useRef(theme);

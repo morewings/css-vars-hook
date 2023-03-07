@@ -1,0 +1,13 @@
+{
+  "extends" : "./tsconfig.json",
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "ES5",
+    "declaration": true,
+    "outDir": "./lib",
+    "moduleResolution": "node",
+    "lib": ["ES2020", "DOM"]
+  },
+  "include": ["src/lib/**/*", "src/types.d.ts"],
+  "exclude" : ["src/**/*.test.tsx"]
+}

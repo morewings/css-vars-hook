@@ -1,8 +1,8 @@
 import type {FC, ReactNode} from 'react';
 import React, {useMemo} from 'react';
-import {ROOT_ID} from 'lib/config';
-import type {ThemeType} from 'lib/ThemeType';
 
+import {ROOT_ID} from '../config';
+import type {ThemeType} from '../ThemeType';
 import {RootContext} from './RootContext';
 import {useRootThemeActions} from './useRootThemeActions';
 

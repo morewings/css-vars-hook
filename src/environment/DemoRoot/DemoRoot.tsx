@@ -1,5 +1,6 @@
 import React from 'react';
-import {useRootTheme} from 'lib';
+
+import {useRootTheme} from '../../lib';
 import './style.css';
 
 const themeYellow = {

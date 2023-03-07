@@ -25,13 +25,10 @@
     "url": "https://github.com/morewings/css-vars-hook/issues"
   },
   "main": "lib/index.js",
-  "module": "lib/index.esm.js",
-  "browser": "lib/index.js",
+  "types": "lib/index.d.ts",
   "files": [
-    "lib",
-    "types"
+    "lib"
   ],
-  "types": "types/index.d.ts",
   "sideEffects": false,
   "dependencies": {},
   "scripts": {
@@ -40,10 +37,11 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "build:lib": "npx rollup -c",
+    "build:new": "rm -rf lib && tsc --build tsconfig.commonjs.json",
     "lint:code": "npx eslint ./src/",
     "fix:code": "yarn lint:code --fix",
     "lint:tsc": "tsc --pretty --noEmit",
-    "prepublishOnly": "yarn build:lib",
+    "prepublishOnly": "yarn build:new",
     "prepare": "is-ci || husky install"
   },
   "eslintConfig": {
@@ -71,6 +69,7 @@
     "@rollup/plugin-babel": "6.0.3",
     "@rollup/plugin-commonjs": "24.0.1",
     "@rollup/plugin-node-resolve": "15.0.1",
+    "@rollup/plugin-typescript": "^11.0.0",
     "@testing-library/jest-dom": "5.16.5",
     "@testing-library/react": "14.0.0",
     "@testing-library/react-hooks": "8.0.1",

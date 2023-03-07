@@ -1,5 +1,6 @@
 import {renderHook} from '@testing-library/react-hooks';
-import {useVariable, useTheme} from 'lib';
+
+import {useVariable, useTheme} from './../lib';
 
 describe('lib exports shape', () => {
     it('has useTheme', () => {

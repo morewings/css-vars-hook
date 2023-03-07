@@ -1,5 +1,6 @@
 import React, {useState, useLayoutEffect} from 'react';
-import {useTheme} from 'lib';
+
+import {useTheme} from '../../lib';
 import './style.css';
 
 const theme = {boxColor: 'yellow'};

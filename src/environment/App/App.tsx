@@ -1,9 +1,9 @@
 import React from 'react';
-import {DemoColor} from 'environment/DemoColor';
-import {DemoMovement} from 'environment/DemoMovement';
-import {DemoRoot} from 'environment/DemoRoot';
-import {RootThemeProvider} from 'lib';
 
+import {DemoMovement} from '../DemoMovement';
+import {DemoRoot} from '../DemoRoot';
+import {RootThemeProvider} from '../../lib';
+import {DemoColor} from '../DemoColor';
 import classes from './App.module.css';
 
 export const App = () => (

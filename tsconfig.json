@@ -5,6 +5,6 @@
     "allowSyntheticDefaultImports" : true,
     "skipLibCheck": true,
     "esModuleInterop": true,
-    "checkJs": false
+    "checkJs": false,
   }
 }

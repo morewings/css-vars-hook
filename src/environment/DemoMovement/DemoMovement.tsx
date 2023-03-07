@@ -1,5 +1,6 @@
 import React, {useLayoutEffect, useEffect, useState} from 'react';
-import {useVariable} from 'lib';
+
+import {useVariable} from '../../lib';
 import './style.css';
 
 let renderCount = 0;
