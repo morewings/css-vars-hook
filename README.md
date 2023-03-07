@@ -18,6 +18,8 @@
 - Set up and manage CSS themes for the whole application.
 - Apply CSS themes (multiple variables) to any HTMLElement.
 - Written in Typescript.
+- Zero dependencies (React)
+- Small and fast.
 
 ## Install
 
