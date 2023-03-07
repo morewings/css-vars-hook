@@ -31,7 +31,7 @@ export const getCSSVariable = (ref: MutableRefObject<HTMLElement>) => (variableN
 
 /** @function
  * @name createStyleObject
- * @description Add `--` prefix to property names in theme object
+ * @description Add `--` prefix to property names in theme object to make it applicable to DOM node
  */
 export const createStyleObject = (theme: Record<string, string>): CSSProperties => {
   const keys = Object.keys(theme);
