@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    "jsx": "react",
+    "baseUrl": "src",
+    "allowSyntheticDefaultImports" : true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "checkJs": false,
+  }
+}
