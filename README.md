@@ -109,7 +109,7 @@ const Component = () => {
     const {setTheme} = useRootTheme();
 
     // Wrong
-    // This will now work since setTheme is a side effect and will not be available during render stage
+    // This will not work! setTheme is a side effect and will not be available during render stage
     setTheme(theme);
 
     // Correct
@@ -119,7 +119,7 @@ const Component = () => {
     }, [theme, setTheme])
 
     const handleClick = () => {
-        // Or like this. The change will when user clicks the button.
+        // Or like this. The change will happen when user clicks the button.
         setTheme(theme);
     }
 
