@@ -4,7 +4,7 @@ import {ROOT_ID} from './config';
 
 /** @function
  * @name setCSSVariable
- * @description Set CSS variable
+ * @description Set CSS variable at the provided DOM node
  */
 export const setCSSVariable = (ref: MutableRefObject<HTMLElement>) => (variableName: string, value: string) => {
   const element = ref.current;
@@ -13,7 +13,7 @@ export const setCSSVariable = (ref: MutableRefObject<HTMLElement>) => (variableN
 
 /** @function
  * @name removeCSSVariable
- * @description Remove CSS variable
+ * @description Remove CSS variable from the provided DOM node
  */
 export const removeCSSVariable = (ref: MutableRefObject<HTMLElement>) => (variableName: string) => {
   const element = ref.current;
@@ -22,7 +22,7 @@ export const removeCSSVariable = (ref: MutableRefObject<HTMLElement>) => (variab
 
 /** @function
  * @name getCSSVariable
- * @description Get CSS variable value
+ * @description Get CSS variable value at the provided DOM node
  */
 export const getCSSVariable = (ref: MutableRefObject<HTMLElement>) => (variableName: string) => {
   const element = ref.current;
@@ -31,9 +31,7 @@ export const getCSSVariable = (ref: MutableRefObject<HTMLElement>) => (variableN
 
 /** @function
  * @name createStyleObject
- * @description Adds `--` prefix to property names in theme object
- * @param {Object<string, string>} theme - Theme object
- * @return {CSSProperties}
+ * @description Add `--` prefix to property names in theme object
  */
 export const createStyleObject = (theme: Record<string, string>): CSSProperties => {
   const keys = Object.keys(theme);
@@ -52,7 +50,7 @@ export const getRootElement = (): HTMLElement => document.getElementById(ROOT_ID
 
 /** @function
  * @name setRootVariable
- * @description Set CSS variable on :root
+ * @description Set CSS variable on theme root element
  */
 export const setRootVariable = (variableName: string, value: string) => {
   const root = getRootElement();
@@ -61,7 +59,7 @@ export const setRootVariable = (variableName: string, value: string) => {
 
 /** @function
  * @name getRootVariable
- * @description Set CSS variable on :root
+ * @description Get CSS variable on theme root element
  */
 export const getRootVariable = (variableName: string): string => {
   const root = getRootElement();
@@ -70,7 +68,7 @@ export const getRootVariable = (variableName: string): string => {
 
 /** @function
  * @name removeRootVariable
- * @description Remove CSS variable from :root
+ * @description Remove CSS variable from theme root element
  */
 export const removeRootVariable = (variableName: string) => {
   const root = getRootElement();
