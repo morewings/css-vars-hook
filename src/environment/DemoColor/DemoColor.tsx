@@ -37,7 +37,7 @@ export const DemoColor = () => {
                 </button>
                 <div className="box" />
                 <div className="count">
-                    Render count: <strong>{renderCount}</strong>
+                    Rerender count: <strong>{renderCount}</strong>
                 </div>
             </fieldset>
         </div>

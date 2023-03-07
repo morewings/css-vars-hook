@@ -34,5 +34,18 @@ export const useRootThemeActions = (theme: ThemeType) => {
 
   const style = createStyleObject(themeRef.current);
 
-  return {setTheme, style, getTheme, getVariable, setVariable, removeVariable};
+  return {
+    /** Effect to apply new theme to the application */
+    setTheme,
+    /** CSSProperties object to apply to container div */
+    style,
+    /** Get current theme */
+    getTheme,
+    /** Get variable value within active theme */
+    getVariable,
+    /** Effect to set new variable value within active theme */
+    setVariable,
+    /** Effect to remove variable within active theme */
+    removeVariable,
+  };
 };

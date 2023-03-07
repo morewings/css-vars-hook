@@ -12,6 +12,13 @@
 
 [dev.to article](https://dev.to/morewings/how-to-use-css-vars-hook-to-manipulate-css-custom-properties-in-react-38dg)
 
+## Features
+
+- Set, modify and delete [CSS Custom Properties](https://developer.mozilla.org/en-US/docs/Web/CSS/--*) inside React components.
+- Set up and manage CSS themes for the whole application.
+- Apply CSS themes (multiple variables) to any HTMLElement.
+- Written in Typescript.
+
 ## Install
 
 ```shell script
@@ -22,17 +29,107 @@ Or
 yarn add css-vars-hook
 ```
 
-## Features
+## API
 
-- Set, modify and delete [CSS Custom Properties](https://developer.mozilla.org/en-US/docs/Web/CSS/--*) inside React components.
-- Apply CSS themes (multiple variables) to any HTMLElement.
-- Typescript friendly, with type definitions included.
+`css-vars-hook` exposes three hooks: `useRootTheme`, `useTheme` and `useVariable`.
 
-## Usage
+## `useRootTheme`
 
-`css-vars-hook` exposes three hooks: `useTheme`, `useRootTheme` and `useVariable`.
+`useRootTheme` applies application level themes. API consists of two elements: the hook itself and `RootThemeProvider` component which acts as `:root` selector. Directly applying theme to the `:root` is not compatible with Server side rendering (SSR).
 
-`useTheme` applies multiple css properties to given HtmlElement.
+### Set up a global theme
+
+In order to set global theming you need to wrap your application with `RootThemeProvider` on highest possible level.
+
+```jsx
+// App.js
+import React from 'react';
+import {RootThemeProvider} from 'css-vars-hook';
+
+// Theme object contains dictionary of CSS variables you will use later in your application
+const theme = {
+    boxColor: 'purple',
+    borderColor: 'violet',
+}
+
+export const App = () => (
+    <RootThemeProvider
+        theme={theme}>
+        {/*...*/}
+    </RootThemeProvider>
+);
+```
+
+### Consume the theme data
+
+CSS variables set by `RootThemeProvider` are available globally across all application.
+
+```postcss
+// Component.css
+
+.box {
+    background: var(--boxColor);
+    border: 1px solid var(--borderColor)
+}
+```
+
+### Change theme
+
+Themes can be changed dynamically during application runtime. `useRootTheme` hook exposes set of effects to change the theme.
+
+```js
+import {useRootTheme} from 'css-vars-hook';
+
+const {
+    /** Effect to apply new theme to the application */
+    setTheme,
+    /** Get current theme */
+    getTheme,
+    /** Effect to set new variable value within active theme */
+    setVariable,
+    /** Get variable value within active theme */
+    getVariable,
+    /** Effect to remove variable within active theme */
+    removeVariable
+} = useRootTheme();
+```
+
+Theme changing methods (`setTheme`, `setVariable`, `removeVariable`) are implemented as an **effect**, thus they don't trigger React reconciliation and rerender. Also, this allows to be SSR compatible and prevent Flash of unstyled content (FOUC).
+
+```jsx
+// Component.jsx
+import React, {useEffect} from 'react';
+import {useRootTheme} from 'css-vars-hook';
+
+const Component = () => {
+    const theme = {
+        boxColor: 'red',
+        borderColor: 'green',
+    }
+    const {setTheme} = useRootTheme();
+
+    // Wrong
+    // This will now work since setTheme is a side effect and will not be available during render stage
+    setTheme(theme);
+
+    // Correct
+    useEffect(() => {
+        // Theme changing effects can be applied like this. The change will happen after render.
+        setTheme(theme);
+    }, [theme, setTheme])
+
+    const handleClick = () => {
+        // Or like this. The change will when user clicks the button.
+        setTheme(theme);
+    }
+
+    return <button onClick={handleClick}>Change theme</button>
+}
+```
+
+## `useTheme`
+
+`useTheme` applies multiple CSS properties to given `HTMLElement`.
 
 ```js
 import {useTheme} from 'css-vars-hook';
@@ -55,22 +152,9 @@ const {
 } = useTheme({foo: 'bar'});
 ```
 
-`useRootTheme` applies multiple css properties to given [Root element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/html). Thus it makes CSS variables available to any element on the page.
+##
 
-**NB!** `getRootVariable` is not possible since it will show previous value.
-
-```js
-import {useRootTheme} from 'css-vars-hook';
-
-const {
-  /* Set variable value. function(variableName: string, value: (string|number)) => void */
-  setRootVariable,
-  /* Remove variable. function(variableName: string) => void */
-  removeRootVariable
-} = useRootTheme({foo: 'bar'});
-```
-
-`useVariable` applies single css property to given HtmlElement.
+`useVariable` applies single CSS property to given `HTMLElement`.
 
 ```js
 import {useVariable} from 'css-vars-hook';
@@ -83,58 +167,6 @@ const {
   getVariable,
   removeVariable
 } = useVariable('foo', 'bar');
-```
-
-## Example
-
-```css
-/* style.css */
-.box {
-  background: var(--boxColor);
-  width: var(--boxSize);
-}
-```
-
-```jsx
-import {useTheme} from 'css-vars-hook';
-import 'style.css';
-
-export const DemoColor = () => {
-  const theme = {
-    boxColor: 'yellow',
-    boxSize: '120px',
-  };
-
-  const [boxColor, setBoxColor] = useState(theme.boxColor);
-
-  const {setRef, setVariable} = useTheme(theme);
-
-  return (
-    <div ref={setRef}>
-      <fieldset>
-        <label htmlFor="boxColor">
-          Set box color. Needs to be a valid CSS color (name, HEX, rgba etc).
-        </label>
-        <input
-          value={boxColor}
-          id="boxColor"
-          type="text"
-          onChange={e => {
-            setBoxColor(e.target.value);
-          }}
-        />
-        <button
-          onClick={() => {
-            setVariable('boxColor', boxColor);
-          }}
-          type="button">
-          Set
-        </button>
-        <div className="box" />
-      </fieldset>
-    </div>
-  );
-};
 ```
 
 

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useLayoutEffect} from 'react';
 
 import {useRootTheme} from '../../lib';
 import './style.css';
@@ -12,6 +12,8 @@ const themePink = {
     boxColor: 'pink',
     borderColor: 'brown',
 };
+
+let renderCount = 0;
 
 export const DemoRoot = () => {
     const {setTheme, getTheme, setVariable} = useRootTheme();
@@ -30,6 +32,10 @@ export const DemoRoot = () => {
         setVariable('borderColor', 'green');
         console.log('root theme', getTheme());
     };
+
+    useLayoutEffect(() => {
+        renderCount += 1;
+    });
 
     return (
         <div className="demo-root">
@@ -59,6 +65,9 @@ export const DemoRoot = () => {
                     Set --borderColor
                 </button>
                 <div className="box" />
+                <div className="count">
+                    Rerender count: <strong>{renderCount}</strong>
+                </div>
             </fieldset>
         </div>
     );

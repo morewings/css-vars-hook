@@ -24,3 +24,8 @@
   position: relative;
   width: 120px;
 }
+
+.count {
+  margin-top: 12px;
+  text-align: right;
+}

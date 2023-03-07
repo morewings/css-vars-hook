@@ -8,6 +8,7 @@ import {useRootThemeActions} from './useRootThemeActions';
 
 export type ProviderProps = {
     children: ReactNode;
+    /** Provide a theme for your application as a dictionary of CSS variable names without `--` prefix and values */
     theme: ThemeType;
 };
 
