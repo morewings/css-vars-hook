@@ -66,6 +66,8 @@ export const App = () => (
 
 CSS variables set by `RootThemeProvider` are available globally across all application.
 
+#### In CSS
+
 ```postcss
 // Component.css
 
@@ -73,6 +75,22 @@ CSS variables set by `RootThemeProvider` are available globally across all appli
     background: var(--boxColor);
     border: 1px solid var(--borderColor)
 }
+```
+
+#### In JS
+
+```js
+import {useRootTheme} from 'css-vars-hook';
+
+const {
+    /** Get current theme */
+    getTheme,
+    /** Get variable value within active theme */
+    getVariable,
+} = useRootTheme();
+
+console.log(getVariable('boxColor')) // => 'purple'
+console.log(getTheme()) // => theme object
 ```
 
 ### Change theme
@@ -85,12 +103,8 @@ import {useRootTheme} from 'css-vars-hook';
 const {
     /** Effect to apply new theme to the application */
     setTheme,
-    /** Get current theme */
-    getTheme,
     /** Effect to set new variable value within active theme */
     setVariable,
-    /** Get variable value within active theme */
-    getVariable,
     /** Effect to remove variable within active theme */
     removeVariable
 } = useRootTheme();
