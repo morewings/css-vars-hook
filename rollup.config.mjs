@@ -16,14 +16,14 @@ export default [
                 // dir: './lib',
                 exports: 'named',
                 sourcemap: true,
-                file: './lib/index.cjs.js',
+                file: './dist/index.cjs.js',
             },
             {
                 format: 'esm',
                 // dir: './lib',
                 exports: 'named',
                 sourcemap: true,
-                file: './lib/index.esm.js',
+                file: './dist/index.esm.js',
             },
         ],
         // eslint-disable-next-line @typescript-eslint/no-unsafe-call
@@ -33,11 +33,5 @@ export default [
                 tsconfig: 'tsconfig.build.json',
             }),
         ],
-    },
-    {
-        input: './lib/index.d.ts',
-        output: [{file: './lib/types.d.ts', format: 'esm'}],
-        external: external(),
-        plugins: [dts()],
-    },
+    }
 ];

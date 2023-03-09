@@ -4,8 +4,9 @@ import {setCSSVariable, getCSSVariable, createStyleObject, removeCSSVariable} fr
 import type {ThemeType} from './ThemeType';
 
 /** @function
+ * @public
  * @name useTheme
- * @description React hook to apply multiple CSS variables and manipulate them.
+ * @description React hook to apply multiple CSS variables to any div and manipulate them.
  */
 export const useTheme = (theme: ThemeType) => {
   const ref = useRef<HTMLElement>(null);
