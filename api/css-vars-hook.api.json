@@ -189,6 +189,33 @@
       "members": [
         {
           "kind": "Variable",
+          "canonicalReference": "css-vars-hook!ROOT_ID:var",
+          "docComment": "/**\n * Id attribute of the library root div.\n *\n * @public\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "ROOT_ID = "
+            },
+            {
+              "kind": "Content",
+              "text": "\"root-theme\""
+            }
+          ],
+          "fileUrlPath": "types/config.d.ts",
+          "initializerTokenRange": {
+            "startIndex": 1,
+            "endIndex": 2
+          },
+          "isReadonly": true,
+          "releaseTag": "Public",
+          "name": "ROOT_ID",
+          "variableTypeTokenRange": {
+            "startIndex": 0,
+            "endIndex": 0
+          }
+        },
+        {
+          "kind": "Variable",
           "canonicalReference": "css-vars-hook!RootThemeProvider:var",
           "docComment": "/**\n * Root theme context provider also creates div to contain CSS properties.\n *\n * @public\n */\n",
           "excerptTokens": [

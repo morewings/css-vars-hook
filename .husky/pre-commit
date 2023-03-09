@@ -4,3 +4,4 @@
 yarn lint-staged
 yarn lint:tsc
 yarn update:types
+git add .

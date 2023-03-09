@@ -12,6 +12,9 @@ import { MutableRefObject } from 'react';
 import type { ReactNode } from 'react';
 
 // @public
+export const ROOT_ID = "root-theme";
+
+// @public
 export const RootThemeProvider: FC<{
     children: ReactNode;
     theme: ThemeType;
