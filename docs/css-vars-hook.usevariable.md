@@ -4,6 +4,8 @@
 
 ## useVariable variable
 
+React hook to apply single CSS variable and manipulate it.
+
 **Signature:**
 
 ```typescript

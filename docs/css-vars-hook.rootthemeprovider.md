@@ -4,15 +4,13 @@
 
 ## RootThemeProvider variable
 
-RootThemeProvider
+Root theme context provider also creates div to contain CSS properties.
 
 **Signature:**
 
 ```typescript
-RootThemeProvider: FC<ProviderProps>
+RootThemeProvider: FC<{
+    children: ReactNode;
+    theme: ThemeType;
+}>
 ```
-
-## Remarks
-
-Root theme context provider also creates div to contain CSS properties.
-

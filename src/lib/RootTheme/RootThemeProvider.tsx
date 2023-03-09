@@ -8,22 +8,12 @@ import {useRootThemeActions} from './useRootThemeActions';
 
 /**
  * @public
- * @name ProviderProps
- * @description Root theme provider interface.
- */
-export type ProviderProps = {
-    children: ReactNode;
-    /** Provide a theme for your application as a dictionary of CSS variable names without `--` prefix and values */
-    theme: ThemeType;
-};
-
-/**
- * @public
- * RootThemeProvider
- * @remarks
  * Root theme context provider also creates div to contain CSS properties.
  */
-export const RootThemeProvider: FC<ProviderProps> = ({children, theme}) => {
+export const RootThemeProvider: FC<{
+    children: ReactNode;
+    theme: ThemeType;
+}> = ({children, theme}) => {
     const {setTheme, style, getTheme, getVariable, setVariable, removeVariable} = useRootThemeActions(theme);
 
     const {Provider} = RootContext;

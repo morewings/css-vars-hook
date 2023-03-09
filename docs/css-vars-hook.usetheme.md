@@ -4,6 +4,8 @@
 
 ## useTheme variable
 
+React hook to apply multiple CSS variables to any div and manipulate them.
+
 **Signature:**
 
 ```typescript

@@ -4,6 +4,8 @@
 
 ## ThemeType type
 
+Base theme type to extend from.
+
 **Signature:**
 
 ```typescript

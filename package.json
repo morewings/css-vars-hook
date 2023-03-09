@@ -43,7 +43,7 @@
     "lint:tsc": "tsc --pretty --noEmit",
     "clean:types": " rm -rf ./types/ ./temp/",
     "build:types": "yarn clean:types && tsc --project tsconfig.types.json && api-extractor run --config api-extractor-build.json5 && yarn clean:types",
-    "update:types": "yarn clean:types && tsc --project tsconfig.types.json && api-extractor run --local --config api-extractor-update.json5 && yarn clean:types",
+    "update:types": "yarn clean:types && tsc --project tsconfig.types.json && api-extractor run --local --verbose --config api-extractor-update.json5 && yarn clean:types",
     "compile:docs": "api-documenter markdown -i ./api -o ./docs",
     "build:docs": "yarn update:types && yarn compile:docs",
     "prepublishOnly": "yarn build:lib",

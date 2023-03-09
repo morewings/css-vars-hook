@@ -8,15 +8,14 @@
 
 |  Variable | Description |
 |  --- | --- |
-|  [RootThemeProvider](./css-vars-hook.rootthemeprovider.md) | RootThemeProvider |
-|  [useRootTheme](./css-vars-hook.useroottheme.md) |  |
-|  [useTheme](./css-vars-hook.usetheme.md) |  |
-|  [useVariable](./css-vars-hook.usevariable.md) |  |
+|  [RootThemeProvider](./css-vars-hook.rootthemeprovider.md) | Root theme context provider also creates div to contain CSS properties. |
+|  [useRootTheme](./css-vars-hook.useroottheme.md) | React hook to apply multiple CSS variables to theme root and manipulate them. |
+|  [useTheme](./css-vars-hook.usetheme.md) | React hook to apply multiple CSS variables to any div and manipulate them. |
+|  [useVariable](./css-vars-hook.usevariable.md) | React hook to apply single CSS variable and manipulate it. |
 
 ## Type Aliases
 
 |  Type Alias | Description |
 |  --- | --- |
-|  [ProviderProps](./css-vars-hook.providerprops.md) |  |
-|  [ThemeType](./css-vars-hook.themetype.md) |  |
+|  [ThemeType](./css-vars-hook.themetype.md) | Base theme type to extend from. |
 

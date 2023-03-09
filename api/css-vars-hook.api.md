@@ -11,19 +11,16 @@ import type { FC } from 'react';
 import { MutableRefObject } from 'react';
 import type { ReactNode } from 'react';
 
-// @public (undocumented)
-export type ProviderProps = {
+// @public
+export const RootThemeProvider: FC<{
     children: ReactNode;
     theme: ThemeType;
-};
+}>;
 
 // @public
-export const RootThemeProvider: FC<ProviderProps>;
-
-// @public (undocumented)
 export type ThemeType = Record<string, string>;
 
-// @public (undocumented)
+// @public
 export const useRootTheme: () => {
     setTheme: (nextTheme: ThemeType) => void;
     getTheme: () => ThemeType;
@@ -32,7 +29,7 @@ export const useRootTheme: () => {
     removeVariable: (variableName: string) => void;
 };
 
-// @public (undocumented)
+// @public
 export const useTheme: (theme: ThemeType) => {
     ref: MutableRefObject<HTMLElement>;
     setRef: (element: HTMLElement) => void;
@@ -44,7 +41,7 @@ export const useTheme: (theme: ThemeType) => {
     setTheme: (nextTheme: ThemeType) => void;
 };
 
-// @public (undocumented)
+// @public
 export const useVariable: (name: string, value: string) => {
     ref: MutableRefObject<HTMLElement>;
     setRef: (element: HTMLElement) => void;

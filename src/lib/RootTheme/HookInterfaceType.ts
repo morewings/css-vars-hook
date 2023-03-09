@@ -1,6 +1,13 @@
-import type {useRootThemeActions} from './useRootThemeActions';
+import type {ThemeType} from '../ThemeType';
 
-export type HookInterface = Pick<
-  ReturnType<typeof useRootThemeActions>,
-  'setTheme' | 'getTheme' | 'getVariable' | 'setVariable' | 'removeVariable'
->;
+/**
+ * @public
+ * `useRootTheme` return type.
+ */
+export type HookInterface = {
+  setTheme: (nextTheme: ThemeType) => void;
+  getTheme: () => ThemeType;
+  setVariable: (variableName: string, value: string) => void;
+  getVariable: (variableName: string) => string;
+  removeVariable: (variableName: string) => void;
+};

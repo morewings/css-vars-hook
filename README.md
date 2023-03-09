@@ -8,6 +8,8 @@
 
 [css-vars-hook](https://github.com/morewings/css-vars-hook) contains React hooks to set and manipulate CSS custom properties from React component.
 
+[API docs](https://github.com/morewings/css-vars-hook/blob/master/docs/css-vars-hook.md)
+
 [Demo](https://morewings.github.io/css-vars-hook/)
 
 [dev.to article](https://dev.to/morewings/how-to-use-css-vars-hook-to-manipulate-css-custom-properties-in-react-38dg)
@@ -31,13 +33,13 @@ Or
 yarn add css-vars-hook
 ```
 
-## API
+## Usage
 
 `css-vars-hook` exposes three hooks: `useRootTheme`, `useTheme` and `useVariable`.
 
 ## `useRootTheme`
 
-`useRootTheme` applies application level themes. API consists of two elements: the hook itself and `RootThemeProvider` component which acts as `:root` selector. Directly applying theme to the `:root` is not compatible with Server side rendering (SSR).
+`useRootTheme` applies application level themes. API consists of two elements: the hook itself and `RootThemeProvider` component which acts as `:root` selector. Directly applying theme to the `:root` is not compatible with Server side rendering (SSR). See [API docs](https://github.com/morewings/css-vars-hook/blob/master/docs/css-vars-hook.useroottheme.md).
 
 ### Set up a global theme
 
@@ -97,24 +99,11 @@ console.log(getTheme()) // => theme object
 
 Themes can be changed dynamically during application runtime. `useRootTheme` hook exposes set of effects to change the theme.
 
-```js
-import {useRootTheme} from 'css-vars-hook';
-
-const {
-    /** Effect to apply new theme to the application */
-    setTheme,
-    /** Effect to set new variable value within active theme */
-    setVariable,
-    /** Effect to remove variable within active theme */
-    removeVariable
-} = useRootTheme();
-```
-
 Theme changing methods (`setTheme`, `setVariable`, `removeVariable`) are implemented as an **effect**, thus they don't trigger React reconciliation and rerender. Also, this allows to be SSR compatible and prevent Flash of unstyled content (FOUC).
 
 ```jsx
 // Component.jsx
-import React, {useEffect} from 'react';
+import React, {useEffect, Fragment} from 'react';
 import {useRootTheme} from 'css-vars-hook';
 
 const Component = () => {
@@ -122,7 +111,7 @@ const Component = () => {
         boxColor: 'red',
         borderColor: 'green',
     }
-    const {setTheme} = useRootTheme();
+    const {setTheme, setVariable, removeVariable} = useRootTheme();
 
     // Wrong
     // This will not work! setTheme is a side effect and will not be available during render stage
@@ -132,14 +121,23 @@ const Component = () => {
     useEffect(() => {
         // Theme changing effects can be applied like this. The change will happen after render.
         setTheme(theme);
+        setVariable('boxColor', 'pink');
     }, [theme, setTheme])
 
-    const handleClick = () => {
-        // Or like this. The change will happen when user clicks the button.
+    // Or like this. The change(s) will happen when user clicks the button.
+    const handleTheme = () => {
         setTheme(theme);
     }
+    const handleVariable = () => {
+        setVariable('boxColor', 'pink');
+    }
 
-    return <button onClick={handleClick}>Change theme</button>
+    return (
+        <Fragment>
+            <button onClick={handleTheme}>Change theme</button>
+            <button onClick={handleTheme}>Change theme</button>
+        </Fragment>
+    )
 }
 ```
 

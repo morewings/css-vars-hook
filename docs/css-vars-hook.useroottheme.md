@@ -4,6 +4,8 @@
 
 ## useRootTheme variable
 
+React hook to apply multiple CSS variables to theme root and manipulate them.
+
 **Signature:**
 
 ```typescript
