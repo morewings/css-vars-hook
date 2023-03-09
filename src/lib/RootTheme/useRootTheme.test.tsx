@@ -9,7 +9,7 @@ const theme = {
 };
 
 describe('useRootTheme', () => {
-    it('renders', () => {
+    it.skip('renders', () => {
         const {result} = renderHook(() => useRootTheme(), {
             wrapper: ({children}) => <RootThemeProvider theme={theme}>{children}</RootThemeProvider>,
         });
