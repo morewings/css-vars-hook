@@ -33,6 +33,7 @@ jobs:
           yarn install --frozen-lockfile --silent
           yarn start --smoke-test
           yarn build:lib
+          yarn build:docs
           yarn lint:code --quiet
           yarn lint:tsc
           yarn test --silent

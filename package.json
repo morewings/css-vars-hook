@@ -24,11 +24,11 @@
   "bugs": {
     "url": "https://github.com/morewings/css-vars-hook/issues"
   },
-  "main": "lib/index.cjs.js",
-  "module": "lib/index.esm.js",
-  "types": "lib/types.d.ts",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.esm.js",
+  "types": "dist/css-vars-hook.d.ts",
   "files": [
-    "lib"
+    "dist"
   ],
   "sideEffects": false,
   "scripts": {
@@ -36,10 +36,15 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "build:lib": "rm -rf lib && npx rollup -c",
+    "build:code": "rm -rf dist && npx rollup -c",
+    "build:lib": "yarn build:code & yarn extract:types",
     "lint:code": "npx eslint ./src/",
     "fix:code": "yarn lint:code --fix",
     "lint:tsc": "tsc --pretty --noEmit",
+    "clean:types": " rm -rf ./types/ ./temp/",
+    "extract:types": "yarn clean:types && tsc --project tsconfig.types.json && api-extractor run --verbose && yarn clean:types",
+    "compile:docs": "api-documenter markdown -i ./api -o ./docs",
+    "build:docs": "yarn extract:types && yarn compile:docs",
     "prepublishOnly": "yarn build:lib",
     "prepare": "is-ci || husky install"
   },
@@ -57,6 +62,8 @@
   },
   "dependencies": {},
   "devDependencies": {
+    "@microsoft/api-documenter": "^7.21.5",
+    "@microsoft/api-extractor": "^7.34.4",
     "@rollup/plugin-commonjs": "^24.0.1",
     "@rollup/plugin-node-resolve": "^15.0.1",
     "@rollup/plugin-replace": "^5.0.2",

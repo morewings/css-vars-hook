@@ -3,8 +3,8 @@
   "compilerOptions": {
     "module": "esnext",
     "target": "esnext",
-    "declaration": true,
-    "outDir": "./lib",
+    "declaration": false,
+    "outDir": "./dist",
     "moduleResolution": "node",
     "lib": ["ES2020", "DOM"],
     "importHelpers": false,
