@@ -4,6 +4,7 @@ import React, {useMemo} from 'react';
 import {ROOT_ID} from '../config';
 import type {ThemeType} from '../ThemeType';
 import {RootContext} from './RootContext';
+import {Style} from '../Style';
 import {useRootThemeActions} from './useRootThemeActions';
 
 /**
@@ -25,6 +26,7 @@ export const RootThemeProvider: FC<{
 
     return (
         <Provider value={actions}>
+            <Style />
             <div id={ROOT_ID} style={style}>
                 {children}
             </div>
