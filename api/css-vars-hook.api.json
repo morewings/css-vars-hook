@@ -294,7 +294,7 @@
         {
           "kind": "Variable",
           "canonicalReference": "css-vars-hook!useLocalTheme:var",
-          "docComment": "/**\n * React hook to apply multiple CSS variables to generated local root element and manipulate them.\n *\n * @example\n *\n * const {setTheme, getTheme, Component, getVariable, setVariable} = useLocalTheme({foo: 'bar'}); const setThemeIvory = () => { setTheme({foo: 'ivory'}); console.log('full theme', getTheme()) // => {foo: 'ivory'}; console.log('foo value', getVariable('foo')) // => 'ivory'; }; return <Component className=\"demo-local\">//...\n *\n * @public\n */\n",
+          "docComment": "/**\n * React hook to apply multiple CSS variables to generated local root element (LocalRoot) and manipulate them.\n *\n * @example\n *\n * const {setTheme, getTheme, Component, getVariable, setVariable} = useLocalTheme({foo: 'bar'}); const setThemeIvory = () => { setTheme({foo: 'ivory'}); console.log('full theme', getTheme()) // => {foo: 'ivory'}; console.log('foo value', getVariable('foo')) // => 'ivory'; }; return <Component className=\"demo-local\">//...\n *\n * @public\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
@@ -448,7 +448,7 @@
         {
           "kind": "Variable",
           "canonicalReference": "css-vars-hook!useTheme:var",
-          "docComment": "/**\n * React hook to apply multiple CSS variables to any div and manipulate them.\n *\n * @public\n */\n",
+          "docComment": "/**\n * @deprecated\n *\n * `useLocalTheme` is recommended instead\n *\n * @example\n *\n * const {getTheme, setTheme, LocalRoot} = useLocalTheme(theme)\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
@@ -534,7 +534,7 @@
         {
           "kind": "Variable",
           "canonicalReference": "css-vars-hook!useVariable:var",
-          "docComment": "/**\n * React hook to apply single CSS variable and manipulate it.\n *\n * @public\n */\n",
+          "docComment": "/**\n * @deprecated\n *\n * `useLocalTheme` is recommended instead\n *\n * @example\n *\n * const {getVariable, setVariable, LocalRoot} = useLocalTheme(theme)\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",

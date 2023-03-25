@@ -4,7 +4,10 @@
 
 ## useVariable variable
 
-React hook to apply single CSS variable and manipulate it.
+> Warning: This API is now obsolete.
+> 
+> `useLocalTheme` is recommended instead
+> 
 
 **Signature:**
 
@@ -18,3 +21,8 @@ useVariable: (name: string, value: string) => {
     removeVariable: (variableName: string) => void;
 }
 ```
+
+## Example
+
+const {<!-- -->getVariable, setVariable, LocalRoot<!-- -->} = useLocalTheme(theme)
+

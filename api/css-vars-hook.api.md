@@ -46,7 +46,7 @@ export const useRootTheme: () => {
     removeVariable: (variableName: string) => void;
 };
 
-// @public
+// @public @deprecated (undocumented)
 export const useTheme: (theme: ThemeType) => {
     ref: MutableRefObject<HTMLElement>;
     setRef: (element: HTMLElement) => void;
@@ -58,7 +58,7 @@ export const useTheme: (theme: ThemeType) => {
     setTheme: (nextTheme: ThemeType) => void;
 };
 
-// @public
+// @public @deprecated (undocumented)
 export const useVariable: (name: string, value: string) => {
     ref: MutableRefObject<HTMLElement>;
     setRef: (element: HTMLElement) => void;

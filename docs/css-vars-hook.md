@@ -10,10 +10,10 @@
 |  --- | --- |
 |  [ROOT\_ID](./css-vars-hook.root_id.md) | Id attribute of the library root div. |
 |  [RootThemeProvider](./css-vars-hook.rootthemeprovider.md) | Root theme context provider also creates div to contain CSS properties. |
-|  [useLocalTheme](./css-vars-hook.uselocaltheme.md) | React hook to apply multiple CSS variables to generated local root element and manipulate them. |
+|  [useLocalTheme](./css-vars-hook.uselocaltheme.md) | React hook to apply multiple CSS variables to generated local root element (LocalRoot) and manipulate them. |
 |  [useRootTheme](./css-vars-hook.useroottheme.md) | React hook to apply multiple CSS variables to theme root and manipulate them. |
-|  [useTheme](./css-vars-hook.usetheme.md) | React hook to apply multiple CSS variables to any div and manipulate them. |
-|  [useVariable](./css-vars-hook.usevariable.md) | React hook to apply single CSS variable and manipulate it. |
+|  [useTheme](./css-vars-hook.usetheme.md) |  |
+|  [useVariable](./css-vars-hook.usevariable.md) |  |
 
 ## Type Aliases
 

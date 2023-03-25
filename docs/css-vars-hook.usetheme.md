@@ -4,7 +4,10 @@
 
 ## useTheme variable
 
-React hook to apply multiple CSS variables to any div and manipulate them.
+> Warning: This API is now obsolete.
+> 
+> `useLocalTheme` is recommended instead
+> 
 
 **Signature:**
 
@@ -20,3 +23,8 @@ useTheme: (theme: ThemeType) => {
     setTheme: (nextTheme: ThemeType) => void;
 }
 ```
+
+## Example
+
+const {<!-- -->getTheme, setTheme, LocalRoot<!-- -->} = useLocalTheme(theme)
+

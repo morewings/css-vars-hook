@@ -1,8 +1,10 @@
 import {useTheme} from './useTheme';
 
 /**
- * @public
- * React hook to apply single CSS variable and manipulate it.
+ * @deprecated
+ * `useLocalTheme` is recommended instead
+ * @example
+ * const {getVariable, setVariable, LocalRoot} = useLocalTheme(theme)
  */
 export const useVariable = (name: string, value: string) => {
   const {ref, setRef, style, setVariable, getVariable, removeVariable} = useTheme({[name]: value});

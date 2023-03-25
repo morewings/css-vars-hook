@@ -35,7 +35,7 @@ yarn add css-vars-hook
 
 ## Usage
 
-`css-vars-hook` exposes three hooks: `useRootTheme`, `useTheme` and `useVariable`.
+`css-vars-hook` exposes two hooks: `useRootTheme`, `useLocalTheme`.
 
 ## `useRootTheme`
 
@@ -141,9 +141,30 @@ const Component = () => {
 }
 ```
 
-## `useTheme`
+## `useLocalTheme`
 
-`useTheme` applies multiple CSS properties to given `HTMLElement`.
+`useLocalTheme` applies themes one contained by `LocalRoot` component it outputs.
+
+### Set up a local theme
+
+In order to set local theme you need to wrap your component with `LocalRoot` component which is returned by `useLocalThemeHook`.
+
+```jsx
+import {useLocalTheme} from 'css-vars-hook';
+
+const Component = () => {
+    const {LocalRoot, setTheme} = useLocalTheme({boxColor: 'yellow'});
+    const setDarkMode = setTheme({boxColor: 'darkYellow'});
+    return <LocalRoot>{/*...*/}</LocalRoot>
+}
+```
+
+Outside different wrapping strategies this hook is similar to `useRootTheme`.
+
+
+## `useTheme` **DEPRECATED**
+
+`useTheme` applies multiple CSS properties to given `HTMLElement`. See [API docs](https://github.com/morewings/css-vars-hook/blob/master/docs/css-vars-hook.uselocaltheme.md).
 
 ```js
 import {useTheme} from 'css-vars-hook';
@@ -166,7 +187,7 @@ const {
 } = useTheme({foo: 'bar'});
 ```
 
-##
+## `useVariable` **DEPRECATED**
 
 `useVariable` applies single CSS property to given `HTMLElement`.
 

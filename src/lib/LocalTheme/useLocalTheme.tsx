@@ -6,7 +6,7 @@ import {createStyleObject, setCSSVariable} from '../utils';
 
 /**
  * @public
- * React hook to apply multiple CSS variables to generated local root element and manipulate them.
+ * React hook to apply multiple CSS variables to generated local root element (LocalRoot) and manipulate them.
  * @example
  * const {setTheme, getTheme, Component, getVariable, setVariable} = useLocalTheme({foo: 'bar'});
  * const setThemeIvory = () => {
