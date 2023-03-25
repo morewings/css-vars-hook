@@ -293,6 +293,119 @@
         },
         {
           "kind": "Variable",
+          "canonicalReference": "css-vars-hook!useLocalTheme:var",
+          "docComment": "/**\n * React hook to apply multiple CSS variables to generated local root element and manipulate them.\n *\n * @example\n *\n * const {setTheme, getTheme, Component, getVariable, setVariable} = useLocalTheme({foo: 'bar'}); const setThemeIvory = () => { setTheme({foo: 'ivory'}); console.log('full theme', getTheme()) // => {foo: 'ivory'}; console.log('foo value', getVariable('foo')) // => 'ivory'; }; return <Component className=\"demo-local\">//...\n *\n * @public\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "useLocalTheme: "
+            },
+            {
+              "kind": "Content",
+              "text": "(theme: "
+            },
+            {
+              "kind": "Reference",
+              "text": "ThemeType",
+              "canonicalReference": "css-vars-hook!ThemeType:type"
+            },
+            {
+              "kind": "Content",
+              "text": ") => {\n    setTheme: (nextTheme: "
+            },
+            {
+              "kind": "Reference",
+              "text": "ThemeType",
+              "canonicalReference": "css-vars-hook!ThemeType:type"
+            },
+            {
+              "kind": "Content",
+              "text": ") => void;\n    getTheme: () => "
+            },
+            {
+              "kind": "Reference",
+              "text": "ThemeType",
+              "canonicalReference": "css-vars-hook!ThemeType:type"
+            },
+            {
+              "kind": "Content",
+              "text": ";\n    LocalRoot: "
+            },
+            {
+              "kind": "Reference",
+              "text": "FC",
+              "canonicalReference": "@types/react!React.FC:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "JSX.IntrinsicAttributes",
+              "canonicalReference": "@types/react!__global.JSX.IntrinsicAttributes:interface"
+            },
+            {
+              "kind": "Content",
+              "text": " & {\n        children?: "
+            },
+            {
+              "kind": "Reference",
+              "text": "ReactNode",
+              "canonicalReference": "@types/react!React.ReactNode:type"
+            },
+            {
+              "kind": "Content",
+              "text": ";\n        className?: string;\n    }>;\n    ref: "
+            },
+            {
+              "kind": "Reference",
+              "text": "React.MutableRefObject",
+              "canonicalReference": "@types/react!React.MutableRefObject:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "HTMLDivElement",
+              "canonicalReference": "!HTMLDivElement:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ">;\n    getVariable: (variableName: keyof "
+            },
+            {
+              "kind": "Reference",
+              "text": "ThemeType",
+              "canonicalReference": "css-vars-hook!ThemeType:type"
+            },
+            {
+              "kind": "Content",
+              "text": ") => string;\n    setVariable: (variableName: keyof "
+            },
+            {
+              "kind": "Reference",
+              "text": "ThemeType",
+              "canonicalReference": "css-vars-hook!ThemeType:type"
+            },
+            {
+              "kind": "Content",
+              "text": ", variableValue: string) => void;\n}"
+            }
+          ],
+          "fileUrlPath": "types/LocalTheme/useLocalTheme.d.ts",
+          "isReadonly": true,
+          "releaseTag": "Public",
+          "name": "useLocalTheme",
+          "variableTypeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 22
+          }
+        },
+        {
+          "kind": "Variable",
           "canonicalReference": "css-vars-hook!useRootTheme:var",
           "docComment": "/**\n * React hook to apply multiple CSS variables to theme root and manipulate them.\n *\n * @public\n */\n",
           "excerptTokens": [

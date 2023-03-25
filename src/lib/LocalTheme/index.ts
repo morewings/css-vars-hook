@@ -1,0 +1,1 @@
+export {useLocalTheme} from './useLocalTheme';

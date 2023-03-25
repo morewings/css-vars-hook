@@ -9,6 +9,7 @@
 import { CSSProperties } from 'react';
 import type { FC } from 'react';
 import { MutableRefObject } from 'react';
+import { default as React_2 } from 'react';
 import type { ReactNode } from 'react';
 
 // @public
@@ -22,6 +23,19 @@ export const RootThemeProvider: FC<{
 
 // @public
 export type ThemeType = Record<string, string>;
+
+// @public
+export const useLocalTheme: (theme: ThemeType) => {
+    setTheme: (nextTheme: ThemeType) => void;
+    getTheme: () => ThemeType;
+    LocalRoot: FC<JSX.IntrinsicAttributes & {
+        children?: ReactNode;
+        className?: string;
+    }>;
+    ref: React_2.MutableRefObject<HTMLDivElement>;
+    getVariable: (variableName: keyof ThemeType) => string;
+    setVariable: (variableName: keyof ThemeType, variableValue: string) => void;
+};
 
 // @public
 export const useRootTheme: () => {
