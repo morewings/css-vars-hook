@@ -4,6 +4,7 @@ import {DemoMovement} from '../DemoMovement';
 import {DemoRoot} from '../DemoRoot';
 import {RootThemeProvider} from '../../lib';
 import {DemoColor} from '../DemoColor';
+import {DemoLocal} from '../DemoLocal';
 import classes from './App.module.css';
 
 export const App = () => (
@@ -16,6 +17,7 @@ export const App = () => (
             <DemoColor />
             <DemoMovement />
             <DemoRoot />
+            <DemoLocal />
         </div>
     </RootThemeProvider>
 );
