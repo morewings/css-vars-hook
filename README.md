@@ -161,6 +161,19 @@ const Component = () => {
 
 Outside different wrapping strategies this hook is similar to `useRootTheme`.
 
+### Customize `LocalRoot` element
+
+By default `LocalRoot` is rendered as a `div` HTMLElement. You can provide custom element type (`button`, `span`, e. t. c.) as a second parameter to the hook.
+
+```jsx
+import {useLocalTheme} from 'css-vars-hook';
+
+const Component = () => {
+    const {LocalRoot: Button, setTheme} = useLocalTheme({boxColor: 'yellow'}, 'button');
+    const setDarkMode = setTheme({boxColor: 'darkYellow'});
+    return <Button onClick={() => {setDarkMode()}}>Set dark mode</Button>
+}
+```
 
 ## `useTheme` **DEPRECATED**
 

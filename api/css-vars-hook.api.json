@@ -311,7 +311,7 @@
             },
             {
               "kind": "Content",
-              "text": ") => {\n    setTheme: (nextTheme: "
+              "text": ", elementType?: string) => {\n    setTheme: (nextTheme: "
             },
             {
               "kind": "Reference",
@@ -356,11 +356,11 @@
             },
             {
               "kind": "Content",
-              "text": ";\n        className?: string;\n    }>;\n    ref: "
+              "text": ";\n        className?: string;\n    }>;\n    ref: import(\"react\")."
             },
             {
               "kind": "Reference",
-              "text": "React.MutableRefObject",
+              "text": "MutableRefObject",
               "canonicalReference": "@types/react!React.MutableRefObject:interface"
             },
             {

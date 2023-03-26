@@ -1,5 +1,5 @@
 import type {FC, ReactNode} from 'react';
-import React, {useCallback, useRef} from 'react';
+import {useCallback, useRef, createElement} from 'react';
 
 import type {ThemeType} from '../ThemeType';
 import {createStyleObject, setCSSVariable} from '../utils';
@@ -16,7 +16,7 @@ import {createStyleObject, setCSSVariable} from '../utils';
  *};
  * return <Component className="demo-local">//...
  */
-export const useLocalTheme = (theme: ThemeType) => {
+export const useLocalTheme = (theme: ThemeType, elementType: string = 'div') => {
     const themeRef = useRef(theme);
     const elementRef = useRef<HTMLDivElement>(null);
 
@@ -43,11 +43,7 @@ export const useLocalTheme = (theme: ThemeType) => {
         children,
         className,
     }) => {
-        return (
-            <div ref={elementRef} style={style} className={className}>
-                {children}
-            </div>
-        );
+        return createElement(elementType, {className, ref: elementRef, style}, children);
     };
 
     return {
