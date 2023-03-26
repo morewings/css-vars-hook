@@ -135,7 +135,7 @@ const Component = () => {
     return (
         <Fragment>
             <button onClick={handleTheme}>Change theme</button>
-            <button onClick={handleTheme}>Change theme</button>
+            <button onClick={handleVariable}>Change variable</button>
         </Fragment>
     )
 }
