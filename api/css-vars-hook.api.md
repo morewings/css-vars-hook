@@ -26,16 +26,16 @@ export const RootThemeProvider: FC<{
 export type ThemeType = Record<string, string>;
 
 // @public
-export const useLocalTheme: (theme: ThemeType, elementType?: string) => {
-    setTheme: (nextTheme: ThemeType) => void;
-    getTheme: () => ThemeType;
+export const useLocalTheme: <TTheme extends ThemeType_2>(theme: TTheme, elementType?: string) => {
+    setTheme: (nextTheme: TTheme) => void;
+    getTheme: () => TTheme;
     LocalRoot: FC<JSX.IntrinsicAttributes & {
         children?: ReactNode;
         className?: string;
     }>;
-    ref: MutableRefObject<HTMLDivElement>;
-    getVariable: (variableName: keyof ThemeType) => string;
-    setVariable: (variableName: keyof ThemeType, variableValue: string) => void;
+    ref: MutableRefObject<HTMLElement>;
+    getVariable: (variableName: string) => string;
+    setVariable: (variableName: string, variableValue: string) => void;
 };
 
 // @public

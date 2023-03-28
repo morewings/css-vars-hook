@@ -302,34 +302,16 @@
             },
             {
               "kind": "Content",
-              "text": "(theme: "
+              "text": "<TTheme extends "
             },
             {
               "kind": "Reference",
               "text": "ThemeType",
-              "canonicalReference": "css-vars-hook!ThemeType:type"
+              "canonicalReference": "!\"\\\"css-vars-hook\\\"\".ThemeType:type"
             },
             {
               "kind": "Content",
-              "text": ", elementType?: string) => {\n    setTheme: (nextTheme: "
-            },
-            {
-              "kind": "Reference",
-              "text": "ThemeType",
-              "canonicalReference": "css-vars-hook!ThemeType:type"
-            },
-            {
-              "kind": "Content",
-              "text": ") => void;\n    getTheme: () => "
-            },
-            {
-              "kind": "Reference",
-              "text": "ThemeType",
-              "canonicalReference": "css-vars-hook!ThemeType:type"
-            },
-            {
-              "kind": "Content",
-              "text": ";\n    LocalRoot: "
+              "text": ">(theme: TTheme, elementType?: string) => {\n    setTheme: (nextTheme: TTheme) => void;\n    getTheme: () => TTheme;\n    LocalRoot: "
             },
             {
               "kind": "Reference",
@@ -369,30 +351,12 @@
             },
             {
               "kind": "Reference",
-              "text": "HTMLDivElement",
-              "canonicalReference": "!HTMLDivElement:interface"
+              "text": "HTMLElement",
+              "canonicalReference": "!HTMLElement:interface"
             },
             {
               "kind": "Content",
-              "text": ">;\n    getVariable: (variableName: keyof "
-            },
-            {
-              "kind": "Reference",
-              "text": "ThemeType",
-              "canonicalReference": "css-vars-hook!ThemeType:type"
-            },
-            {
-              "kind": "Content",
-              "text": ") => string;\n    setVariable: (variableName: keyof "
-            },
-            {
-              "kind": "Reference",
-              "text": "ThemeType",
-              "canonicalReference": "css-vars-hook!ThemeType:type"
-            },
-            {
-              "kind": "Content",
-              "text": ", variableValue: string) => void;\n}"
+              "text": ">;\n    getVariable: (variableName: string) => string;\n    setVariable: (variableName: string, variableValue: string) => void;\n}"
             }
           ],
           "fileUrlPath": "types/LocalTheme/useLocalTheme.d.ts",
@@ -401,7 +365,7 @@
           "name": "useLocalTheme",
           "variableTypeTokenRange": {
             "startIndex": 1,
-            "endIndex": 22
+            "endIndex": 14
           }
         },
         {

@@ -1,7 +1,7 @@
 import type {FC, ReactNode} from 'react';
 import {useCallback, useRef, createElement} from 'react';
+import type {ThemeType} from 'css-vars-hook';
 
-import type {ThemeType} from '../ThemeType';
 import {createStyleObject, setCSSVariable} from '../utils';
 
 /**
@@ -16,12 +16,12 @@ import {createStyleObject, setCSSVariable} from '../utils';
  *};
  * return <Component className="demo-local">//...
  */
-export const useLocalTheme = (theme: ThemeType, elementType: string = 'div') => {
+export const useLocalTheme = <TTheme extends ThemeType>(theme: TTheme, elementType: string = 'div') => {
     const themeRef = useRef(theme);
-    const elementRef = useRef<HTMLDivElement>(null);
+    const elementRef = useRef<HTMLElement>(null);
 
-    const setTheme = useCallback((nextTheme: ThemeType) => {
-        Object.keys(nextTheme).forEach(key => {
+    const setTheme = useCallback((nextTheme: TTheme) => {
+        Object.keys(nextTheme).forEach((key: string) => {
             setCSSVariable(elementRef)(key, nextTheme[key]);
         });
 
@@ -30,9 +30,9 @@ export const useLocalTheme = (theme: ThemeType, elementType: string = 'div') => 
 
     const getTheme = useCallback(() => themeRef.current, []);
 
-    const getVariable = useCallback((variableName: keyof ThemeType) => themeRef.current[variableName], []);
+    const getVariable = useCallback((variableName: string) => themeRef.current[variableName], []);
 
-    const setVariable = useCallback((variableName: keyof ThemeType, variableValue: string) => {
+    const setVariable = useCallback((variableName: string, variableValue: string) => {
         setCSSVariable(elementRef)(variableName, variableValue);
         themeRef.current = {...themeRef.current, [variableName]: variableValue};
     }, []);
