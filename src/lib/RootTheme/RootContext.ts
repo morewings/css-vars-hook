@@ -4,4 +4,4 @@ import type {HookInterface} from './HookInterfaceType';
 
 export const RootContext = createContext<HookInterface | null>(null);
 
-export const useRootContext = () => useContext(RootContext);
+export const useRootContext = () => useContext<HookInterface>(RootContext);

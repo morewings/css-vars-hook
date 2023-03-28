@@ -1,4 +1,4 @@
-import type {ThemeType} from '../ThemeType';
+import type {ThemeType} from 'css-vars-hook';
 
 /**
  * @public

@@ -244,7 +244,7 @@
             {
               "kind": "Reference",
               "text": "ThemeType",
-              "canonicalReference": "css-vars-hook!ThemeType:type"
+              "canonicalReference": "!\"\\\"css-vars-hook\\\"\".ThemeType:type"
             },
             {
               "kind": "Content",
@@ -415,21 +415,21 @@
             },
             {
               "kind": "Content",
-              "text": "() => {\n    setTheme: (nextTheme: import(\"..\")."
+              "text": "() => {\n    setTheme: (nextTheme: import(\"css-vars-hook\")."
             },
             {
               "kind": "Reference",
               "text": "ThemeType",
-              "canonicalReference": "css-vars-hook!ThemeType:type"
+              "canonicalReference": "!\"\\\"css-vars-hook\\\"\".ThemeType:type"
             },
             {
               "kind": "Content",
-              "text": ") => void;\n    getTheme: () => import(\"..\")."
+              "text": ") => void;\n    getTheme: () => import(\"css-vars-hook\")."
             },
             {
               "kind": "Reference",
               "text": "ThemeType",
-              "canonicalReference": "css-vars-hook!ThemeType:type"
+              "canonicalReference": "!\"\\\"css-vars-hook\\\"\".ThemeType:type"
             },
             {
               "kind": "Content",

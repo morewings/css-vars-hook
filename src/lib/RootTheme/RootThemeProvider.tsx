@@ -1,8 +1,8 @@
 import type {FC, ReactNode} from 'react';
 import React, {useMemo} from 'react';
+import type {ThemeType} from 'css-vars-hook';
 
 import {ROOT_ID} from '../config';
-import type {ThemeType} from '../ThemeType';
 import {RootContext} from './RootContext';
 import {useRootThemeActions} from './useRootThemeActions';
 
@@ -10,10 +10,7 @@ import {useRootThemeActions} from './useRootThemeActions';
  * @public
  * Root theme context provider also creates div to contain CSS properties.
  */
-export const RootThemeProvider: FC<{
-    children: ReactNode;
-    theme: ThemeType;
-}> = ({children, theme}) => {
+export const RootThemeProvider: FC<{children: ReactNode; theme: ThemeType}> = ({children, theme}) => {
     const {setTheme, style, getTheme, getVariable, setVariable, removeVariable} = useRootThemeActions(theme);
 
     const {Provider} = RootContext;
