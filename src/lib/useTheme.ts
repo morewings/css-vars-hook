@@ -2,21 +2,19 @@ import {useRef, useCallback} from 'react';
 
 import {setCSSVariable, getCSSVariable, createStyleObject, removeCSSVariable} from './utils';
 
-type ThemeType = Record<string, string>;
-
 /**
  * @deprecated
  * `useLocalTheme` is recommended instead
  * @example
  * const {getTheme, setTheme, LocalRoot} = useLocalTheme(theme)
  */
-export const useTheme = (theme: ThemeType) => {
+export const useTheme = (theme: Record<string, string>) => {
   const ref = useRef<HTMLElement>(null);
   const setVariable = setCSSVariable(ref);
   const getVariable = getCSSVariable(ref);
   const removeVariable = removeCSSVariable(ref);
   const getTheme = () => theme;
-  const setTheme = (nextTheme: ThemeType) => {
+  const setTheme = (nextTheme: Record<string, string>) => {
     Object.keys(nextTheme).forEach(key => {
       const isEqual = getCSSVariable(ref)(key) === theme[key];
       !isEqual && setCSSVariable(ref)(key, nextTheme[key]);

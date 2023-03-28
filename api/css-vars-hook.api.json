@@ -393,12 +393,12 @@
             },
             {
               "kind": "Reference",
-              "text": "ThemeType",
-              "canonicalReference": "css-vars-hook!~ThemeType:type"
+              "text": "Record",
+              "canonicalReference": "!Record:type"
             },
             {
               "kind": "Content",
-              "text": ") => {\n    ref: import(\"react\")."
+              "text": "<string, string>) => {\n    ref: import(\"react\")."
             },
             {
               "kind": "Reference",
@@ -438,21 +438,21 @@
             },
             {
               "kind": "Reference",
-              "text": "ThemeType",
-              "canonicalReference": "css-vars-hook!~ThemeType:type"
+              "text": "Record",
+              "canonicalReference": "!Record:type"
             },
             {
               "kind": "Content",
-              "text": ";\n    setTheme: (nextTheme: "
+              "text": "<string, string>;\n    setTheme: (nextTheme: "
             },
             {
               "kind": "Reference",
-              "text": "ThemeType",
-              "canonicalReference": "css-vars-hook!~ThemeType:type"
+              "text": "Record",
+              "canonicalReference": "!Record:type"
             },
             {
               "kind": "Content",
-              "text": ") => void;\n}"
+              "text": "<string, string>) => void;\n}"
             }
           ],
           "fileUrlPath": "types/useTheme.d.ts",

@@ -11,7 +11,7 @@ import { CSSProperties } from 'react';
 import type { FC } from 'react';
 import { MutableRefObject } from 'react';
 import type { ReactNode } from 'react';
-import { ThemeType as ThemeType_2 } from 'css-vars-hook';
+import { ThemeType } from 'css-vars-hook';
 
 // @public
 export const ROOT_ID = "root-theme";
@@ -19,11 +19,11 @@ export const ROOT_ID = "root-theme";
 // @public
 export const RootThemeProvider: FC<{
     children: ReactNode;
-    theme: ThemeType_2;
+    theme: ThemeType;
 }>;
 
 // @public
-export const useLocalTheme: <TTheme extends ThemeType_2>(theme: TTheme, elementType?: string) => {
+export const useLocalTheme: <TTheme extends ThemeType>(theme: TTheme, elementType?: string) => {
     setTheme: (nextTheme: TTheme) => void;
     getTheme: () => TTheme;
     LocalRoot: FC<JSX.IntrinsicAttributes & {
@@ -37,25 +37,23 @@ export const useLocalTheme: <TTheme extends ThemeType_2>(theme: TTheme, elementT
 
 // @public
 export const useRootTheme: () => {
-    setTheme: (nextTheme: ThemeType_2) => void;
-    getTheme: () => ThemeType_2;
+    setTheme: (nextTheme: ThemeType) => void;
+    getTheme: () => ThemeType;
     setVariable: (variableName: string, value: string) => void;
     getVariable: (variableName: string) => string;
     removeVariable: (variableName: string) => void;
 };
 
-// Warning: (ae-forgotten-export) The symbol "ThemeType" needs to be exported by the entry point index.d.ts
-//
 // @public @deprecated (undocumented)
-export const useTheme: (theme: ThemeType) => {
+export const useTheme: (theme: Record<string, string>) => {
     ref: MutableRefObject<HTMLElement>;
     setRef: (element: HTMLElement) => void;
     style: CSSProperties;
     setVariable: (variableName: string, value: string) => void;
     getVariable: (variableName: string) => string;
     removeVariable: (variableName: string) => void;
-    getTheme: () => ThemeType;
-    setTheme: (nextTheme: ThemeType) => void;
+    getTheme: () => Record<string, string>;
+    setTheme: (nextTheme: Record<string, string>) => void;
 };
 
 // @public @deprecated (undocumented)
