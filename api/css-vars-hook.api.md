@@ -5,11 +5,13 @@
 ```ts
 
 /// <reference types="react" />
+/// <reference types="types" />
 
 import { CSSProperties } from 'react';
 import type { FC } from 'react';
 import { MutableRefObject } from 'react';
 import type { ReactNode } from 'react';
+import { ThemeType as ThemeType_2 } from 'css-vars-hook';
 
 // @public
 export const ROOT_ID = "root-theme";
@@ -17,7 +19,7 @@ export const ROOT_ID = "root-theme";
 // @public
 export const RootThemeProvider: FC<{
     children: ReactNode;
-    theme: ThemeType;
+    theme: ThemeType_2;
 }>;
 
 // @public
@@ -38,8 +40,8 @@ export const useLocalTheme: (theme: ThemeType, elementType?: string) => {
 
 // @public
 export const useRootTheme: () => {
-    setTheme: (nextTheme: ThemeType) => void;
-    getTheme: () => ThemeType;
+    setTheme: (nextTheme: ThemeType_2) => void;
+    getTheme: () => ThemeType_2;
     setVariable: (variableName: string, value: string) => void;
     getVariable: (variableName: string) => string;
     removeVariable: (variableName: string) => void;
