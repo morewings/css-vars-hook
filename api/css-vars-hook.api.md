@@ -23,9 +23,6 @@ export const RootThemeProvider: FC<{
 }>;
 
 // @public
-export type ThemeType = Record<string, string>;
-
-// @public
 export const useLocalTheme: <TTheme extends ThemeType_2>(theme: TTheme, elementType?: string) => {
     setTheme: (nextTheme: TTheme) => void;
     getTheme: () => TTheme;
@@ -47,6 +44,8 @@ export const useRootTheme: () => {
     removeVariable: (variableName: string) => void;
 };
 
+// Warning: (ae-forgotten-export) The symbol "ThemeType" needs to be exported by the entry point index.d.ts
+//
 // @public @deprecated (undocumented)
 export const useTheme: (theme: ThemeType) => {
     ref: MutableRefObject<HTMLElement>;

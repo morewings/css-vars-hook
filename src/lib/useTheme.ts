@@ -1,7 +1,8 @@
 import {useRef, useCallback} from 'react';
 
 import {setCSSVariable, getCSSVariable, createStyleObject, removeCSSVariable} from './utils';
-import type {ThemeType} from './ThemeType';
+
+type ThemeType = Record<string, string>;
 
 /**
  * @deprecated

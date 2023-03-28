@@ -4,21 +4,21 @@
 
 ## useLocalTheme variable
 
-React hook to apply multiple CSS variables to generated local root element (LocalRoot) and manipulate them.
+React hook to apply multiple CSS variables to generated local root element (LocalRoot) and manipulate them. Theme type is inferred from provided theme parameter.
 
 **Signature:**
 
 ```typescript
-useLocalTheme: (theme: ThemeType, elementType?: string) => {
-    setTheme: (nextTheme: ThemeType) => void;
-    getTheme: () => ThemeType;
+useLocalTheme: <TTheme extends ThemeType>(theme: TTheme, elementType?: string) => {
+    setTheme: (nextTheme: TTheme) => void;
+    getTheme: () => TTheme;
     LocalRoot: FC<JSX.IntrinsicAttributes & {
         children?: ReactNode;
         className?: string;
     }>;
-    ref: import("react").MutableRefObject<HTMLDivElement>;
-    getVariable: (variableName: keyof ThemeType) => string;
-    setVariable: (variableName: keyof ThemeType, variableValue: string) => void;
+    ref: import("react").MutableRefObject<HTMLElement>;
+    getVariable: (variableName: string) => string;
+    setVariable: (variableName: string, variableValue: string) => void;
 }
 ```
 

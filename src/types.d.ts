@@ -4,5 +4,6 @@ declare module '*.module.css' {
 }
 
 declare module 'css-vars-hook' {
+  /** The most common theme type */
   export type ThemeType = Record<string, string>;
 }

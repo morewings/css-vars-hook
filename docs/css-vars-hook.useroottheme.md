@@ -4,14 +4,14 @@
 
 ## useRootTheme variable
 
-React hook to apply multiple CSS variables to theme root and manipulate them.
+React hook to apply multiple CSS variables to theme root and manipulate them. `ThemeType` is defined on project level.
 
 **Signature:**
 
 ```typescript
 useRootTheme: () => {
-    setTheme: (nextTheme: import("..").ThemeType) => void;
-    getTheme: () => import("..").ThemeType;
+    setTheme: (nextTheme: import("css-vars-hook").ThemeType) => void;
+    getTheme: () => import("css-vars-hook").ThemeType;
     setVariable: (variableName: string, value: string) => void;
     getVariable: (variableName: string) => string;
     removeVariable: (variableName: string) => void;

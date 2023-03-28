@@ -3,6 +3,8 @@ import {useRootContext} from './RootContext';
 /**
  * @public
  * React hook to apply multiple CSS variables to theme root and manipulate them.
+ * `ThemeType` is defined on project level.
+ * @see ThemeType
  */
 export const useRootTheme = () => {
   const {setTheme, getTheme, setVariable, getVariable, removeVariable} = useRootContext();

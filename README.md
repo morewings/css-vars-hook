@@ -141,6 +141,20 @@ const Component = () => {
 }
 ```
 
+### Type safety
+
+Global theme type should be defined on a project level. You'll have to redeclare `ThemeType` export from `css-vars-hook`
+
+```ts
+// types.d.ts
+import theme from '@/theme';
+
+declare module 'css-vars-hook' {
+    // Provide your global theme type here
+    export type ThemeType = typeof theme;
+}
+```
+
 ## `useLocalTheme`
 
 `useLocalTheme` applies themes one contained by `LocalRoot` component it outputs.
@@ -174,6 +188,10 @@ const Component = () => {
     return <Button onClick={() => {setDarkMode()}}>Set dark mode</Button>
 }
 ```
+
+### Type safety
+
+Local theme type is inferred from the theme parameter provided to `useLocalTheme`.
 
 ## `useTheme` **DEPRECATED**
 
