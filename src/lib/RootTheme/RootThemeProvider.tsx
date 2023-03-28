@@ -9,6 +9,9 @@ import {useRootThemeActions} from './useRootThemeActions';
 /**
  * @public
  * Root theme context provider also creates div to contain CSS properties.
+ * `ThemeType` is declared globally.
+ * @see ThemeType
+ * @see https://github.com/morewings/css-vars-hook#type-safety
  */
 export const RootThemeProvider: FC<{children: ReactNode; theme: ThemeType}> = ({children, theme}) => {
     const {setTheme, style, getTheme, getVariable, setVariable, removeVariable} = useRootThemeActions(theme);

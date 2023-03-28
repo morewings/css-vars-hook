@@ -217,7 +217,7 @@
         {
           "kind": "Variable",
           "canonicalReference": "css-vars-hook!RootThemeProvider:var",
-          "docComment": "/**\n * Root theme context provider also creates div to contain CSS properties.\n *\n * @public\n */\n",
+          "docComment": "/**\n * Root theme context provider also creates div to contain CSS properties. `ThemeType` is declared globally.\n *\n * @see\n *\n * ThemeType\n *\n * @see\n *\n * https://github.com/morewings/css-vars-hook#type-safety\n *\n * @public\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
@@ -340,7 +340,7 @@
         {
           "kind": "Variable",
           "canonicalReference": "css-vars-hook!useRootTheme:var",
-          "docComment": "/**\n * React hook to apply multiple CSS variables to theme root and manipulate them. `ThemeType` is defined on project level.\n *\n * @see\n *\n * ThemeType\n *\n * @public\n */\n",
+          "docComment": "/**\n * React hook to apply multiple CSS variables to theme root and manipulate them. `ThemeType` is defined on project level.\n *\n * @see\n *\n * ThemeType\n *\n * @see\n *\n * https://github.com/morewings/css-vars-hook#type-safety\n *\n * @public\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",

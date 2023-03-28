@@ -9,7 +9,7 @@
 |  Variable | Description |
 |  --- | --- |
 |  [ROOT\_ID](./css-vars-hook.root_id.md) | Id attribute of the library root div. |
-|  [RootThemeProvider](./css-vars-hook.rootthemeprovider.md) | Root theme context provider also creates div to contain CSS properties. |
+|  [RootThemeProvider](./css-vars-hook.rootthemeprovider.md) | Root theme context provider also creates div to contain CSS properties. <code>ThemeType</code> is declared globally. |
 |  [useLocalTheme](./css-vars-hook.uselocaltheme.md) | React hook to apply multiple CSS variables to generated local root element (LocalRoot) and manipulate them. Theme type is inferred from provided theme parameter. |
 |  [useRootTheme](./css-vars-hook.useroottheme.md) | React hook to apply multiple CSS variables to theme root and manipulate them. <code>ThemeType</code> is defined on project level. |
 |  [useTheme](./css-vars-hook.usetheme.md) |  |

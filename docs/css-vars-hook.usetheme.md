@@ -12,15 +12,15 @@
 **Signature:**
 
 ```typescript
-useTheme: (theme: ThemeType) => {
+useTheme: (theme: Record<string, string>) => {
     ref: import("react").MutableRefObject<HTMLElement>;
     setRef: (element: HTMLElement) => void;
     style: import("react").CSSProperties;
     setVariable: (variableName: string, value: string) => void;
     getVariable: (variableName: string) => string;
     removeVariable: (variableName: string) => void;
-    getTheme: () => ThemeType;
-    setTheme: (nextTheme: ThemeType) => void;
+    getTheme: () => Record<string, string>;
+    setTheme: (nextTheme: Record<string, string>) => void;
 }
 ```
 

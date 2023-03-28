@@ -4,7 +4,7 @@
 
 ## RootThemeProvider variable
 
-Root theme context provider also creates div to contain CSS properties.
+Root theme context provider also creates div to contain CSS properties. `ThemeType` is declared globally.
 
 **Signature:**
 
