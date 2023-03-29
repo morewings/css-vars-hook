@@ -7,13 +7,13 @@ import {useTheme} from './useTheme';
  * const {getVariable, setVariable, LocalRoot} = useLocalTheme(theme)
  */
 export const useVariable = (name: string, value: string) => {
-  const {ref, setRef, style, setVariable, getVariable, removeVariable} = useTheme({[name]: value});
-  return {
-    ref,
-    setRef,
-    style,
-    setVariable,
-    getVariable,
-    removeVariable,
-  };
+    const {ref, setRef, style, setVariable, getVariable, removeVariable} = useTheme({[name]: value});
+    return {
+        ref,
+        setRef,
+        style,
+        setVariable,
+        getVariable,
+        removeVariable,
+    };
 };

@@ -7,8 +7,8 @@ import {ROOT_ID} from './config';
  * @description Set CSS variable at the provided DOM node
  */
 export const setCSSVariable = (ref: MutableRefObject<HTMLElement>) => (variableName: string, value: string) => {
-  const element = ref.current;
-  element && element.style.setProperty(`--${variableName}`, value);
+    const element = ref.current;
+    element && element.style.setProperty(`--${variableName}`, value);
 };
 
 /** @function
@@ -16,8 +16,8 @@ export const setCSSVariable = (ref: MutableRefObject<HTMLElement>) => (variableN
  * @description Remove CSS variable from the provided DOM node
  */
 export const removeCSSVariable = (ref: MutableRefObject<HTMLElement>) => (variableName: string) => {
-  const element = ref.current;
-  element && element.style.removeProperty(`--${variableName}`);
+    const element = ref.current;
+    element && element.style.removeProperty(`--${variableName}`);
 };
 
 /** @function
@@ -25,8 +25,8 @@ export const removeCSSVariable = (ref: MutableRefObject<HTMLElement>) => (variab
  * @description Get CSS variable value at the provided DOM node
  */
 export const getCSSVariable = (ref: MutableRefObject<HTMLElement>) => (variableName: string) => {
-  const element = ref.current;
-  return element && element.style.getPropertyValue(`--${variableName}`);
+    const element = ref.current;
+    return element && element.style.getPropertyValue(`--${variableName}`);
 };
 
 /** @function
@@ -34,12 +34,12 @@ export const getCSSVariable = (ref: MutableRefObject<HTMLElement>) => (variableN
  * @description Add `--` prefix to property names in theme object in order to make it applicable to DOM node
  */
 export const createStyleObject = (theme: Record<string, string>): CSSProperties => {
-  const keys = Object.keys(theme);
-  const result = {};
-  keys.forEach(key => {
-    result[`--${key}`] = theme[key];
-  });
-  return result;
+    const keys = Object.keys(theme);
+    const result = {};
+    keys.forEach(key => {
+        result[`--${key}`] = theme[key];
+    });
+    return result;
 };
 
 /** @function
@@ -53,8 +53,8 @@ export const getRootElement = (): HTMLElement => document.getElementById(ROOT_ID
  * @description Set CSS variable on theme root element
  */
 export const setRootVariable = (variableName: string, value: string) => {
-  const root = getRootElement();
-  root.style.setProperty(`--${variableName}`, value);
+    const root = getRootElement();
+    root.style.setProperty(`--${variableName}`, value);
 };
 
 /** @function
@@ -62,8 +62,8 @@ export const setRootVariable = (variableName: string, value: string) => {
  * @description Get CSS variable on theme root element
  */
 export const getRootVariable = (variableName: string): string => {
-  const root = getRootElement();
-  return root.style.getPropertyValue(`--${variableName}`);
+    const root = getRootElement();
+    return root.style.getPropertyValue(`--${variableName}`);
 };
 
 /** @function
@@ -71,6 +71,6 @@ export const getRootVariable = (variableName: string): string => {
  * @description Remove CSS variable from theme root element
  */
 export const removeRootVariable = (variableName: string) => {
-  const root = getRootElement();
-  root.style.removeProperty(`--${variableName}`);
+    const root = getRootElement();
+    root.style.removeProperty(`--${variableName}`);
 };

@@ -1,9 +1,9 @@
 declare module '*.module.css' {
-  const classes: {[key: string]: string};
-  export default classes;
+    const classes: {[key: string]: string};
+    export default classes;
 }
 
 declare module 'css-vars-hook' {
-  /** The most common theme type */
-  export type ThemeType = Record<string, string>;
+    /** The most common theme type */
+    export type ThemeType = Record<string, string>;
 }
