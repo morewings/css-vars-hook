@@ -7,6 +7,7 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    font-family: 'Helvetica Neue', sans-serif;
 }
 
 .trackingArea {
@@ -18,8 +19,22 @@
     cursor: move;
 }
 
+.trackingArea:after {
+    content: "Mouse tracking: off";
+    position: absolute;
+    bottom: 16px;
+    right: 8px;
+    color: rgba(0,0,0,30%);
+    z-index: 1;
+    font-size: 14px;
+}
+
 .trackingArea:hover {
     background: #d9ffd9;
+}
+
+.trackingArea:hover:after {
+    content: "Mouse tracking: on";
 }
 
 .tracker {
@@ -28,4 +43,5 @@
     position: absolute;
     left: var(--left);
     top: var(--top);
+    z-index: 2;
 }

@@ -5,6 +5,7 @@ import {RootThemeProvider} from '../../lib';
 import {DemoLocal} from '../DemoLocal';
 import {Style} from '../Examples/Style';
 import {Mouse} from '../Examples/Mouse';
+import {Rotation3D} from '../Examples/Rotation3D';
 import classes from './App.module.css';
 
 export const App = () => (
@@ -16,6 +17,7 @@ export const App = () => (
         <div className={classes.container}>
             <Style />
             <Mouse />
+            <Rotation3D />
             <DemoRoot />
             <DemoLocal />
         </div>

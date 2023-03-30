@@ -1,5 +1,5 @@
 import type {FC, MouseEvent} from 'react';
-import React, {useCallback, useState, useRef} from 'react';
+import React, {useCallback, useRef} from 'react';
 
 import {useLocalTheme} from '../../../lib';
 import classes from './Mouse.module.css';
