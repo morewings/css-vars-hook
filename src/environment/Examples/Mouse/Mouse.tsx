@@ -26,7 +26,13 @@ export const Mouse: FC = () => {
     return (
         <div className={classes.box}>
             <LocalRoot onMouseMove={handleMove} className={classes.trackingArea}>
-                <img ref={trackerRef} src={image as string} className={classes.tracker} title="Happy cursor friend" />
+                <img
+                    ref={trackerRef}
+                    src={image as string}
+                    className={classes.tracker}
+                    alt="Happy cursor friend"
+                    title="Happy cursor friend"
+                />
             </LocalRoot>
         </div>
     );
