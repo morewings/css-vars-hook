@@ -6,6 +6,7 @@ import {RootThemeProvider} from '../../lib';
 import {DemoColor} from '../DemoColor';
 import {DemoLocal} from '../DemoLocal';
 import {Style} from '../Examples/Style';
+import {Mouse} from '../Examples/Mouse';
 import classes from './App.module.css';
 
 export const App = () => (
@@ -16,10 +17,11 @@ export const App = () => (
         }}>
         <div className={classes.container}>
             <DemoColor />
-            <DemoMovement />
+            {/*<DemoMovement />*/}
             <DemoRoot />
             <DemoLocal />
             <Style />
+            <Mouse />
         </div>
     </RootThemeProvider>
 );

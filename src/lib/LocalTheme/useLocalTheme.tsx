@@ -1,4 +1,4 @@
-import type {FC, ReactNode} from 'react';
+import type {FC, ReactNode, HTMLAttributes} from 'react';
 import {useCallback, useRef, createElement} from 'react';
 import type {ThemeType} from 'css-vars-hook';
 
@@ -40,11 +40,10 @@ export const useLocalTheme = <TTheme extends ThemeType>(theme: TTheme, elementTy
 
     const style = createStyleObject(themeRef.current);
 
-    const LocalRoot: FC<JSX.IntrinsicAttributes & {children?: ReactNode; className?: string}> = ({
-        children,
-        className,
-    }) => {
-        return createElement(elementType, {className, ref: elementRef, style}, children);
+    const LocalRoot: FC<
+        JSX.IntrinsicAttributes & HTMLAttributes<HTMLElement> & {children?: ReactNode; className?: string}
+    > = ({children, ...restProps}) => {
+        return createElement(elementType, {...restProps, ref: elementRef, style}, children);
     };
 
     return {

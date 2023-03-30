@@ -103,7 +103,7 @@ export const Style: FC = () => {
                     <input
                         defaultValue={initialRadius}
                         min={0}
-                        max={200}
+                        max={100}
                         id="radius-slder"
                         className={classes.input}
                         list="radius-values"
@@ -112,10 +112,10 @@ export const Style: FC = () => {
                     />
                     <datalist id="radius-values" className={classes.scale}>
                         <option className={classes.mark} value="0" label="0"></option>
+                        <option className={classes.mark} value="25" label="25"></option>
                         <option className={classes.mark} value="50" label="50"></option>
+                        <option className={classes.mark} value="75" label="75"></option>
                         <option className={classes.mark} value="100" label="100"></option>
-                        <option className={classes.mark} value="150" label="150"></option>
-                        <option className={classes.mark} value="200" label="200"></option>
                     </datalist>
                 </div>
                 <div className={classes.control}>

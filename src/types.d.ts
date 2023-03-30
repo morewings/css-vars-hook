@@ -7,3 +7,8 @@ declare module 'css-vars-hook' {
     /** The most common theme type */
     export type ThemeType = Record<string, string>;
 }
+
+declare module '*.png';
+declare module '*.svg';
+declare module '*.jpeg';
+declare module '*.jpg';

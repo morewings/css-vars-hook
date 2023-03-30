@@ -298,7 +298,25 @@
             },
             {
               "kind": "Content",
-              "text": " & {\n        children?: "
+              "text": " & "
+            },
+            {
+              "kind": "Reference",
+              "text": "HTMLAttributes",
+              "canonicalReference": "@types/react!React.HTMLAttributes:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "HTMLElement",
+              "canonicalReference": "!HTMLElement:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "> & {\n        children?: "
             },
             {
               "kind": "Reference",
@@ -334,7 +352,7 @@
           "name": "useLocalTheme",
           "variableTypeTokenRange": {
             "startIndex": 1,
-            "endIndex": 14
+            "endIndex": 18
           }
         },
         {

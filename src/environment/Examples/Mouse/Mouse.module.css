@@ -1,0 +1,31 @@
+.box {
+    border: 1px solid black;
+    width: 100%;
+    margin-bottom: 24px;
+    padding: 16px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.trackingArea {
+    width: 333px;
+    height: 333px;
+    background: #ffffab;
+    position: relative;
+    overflow: hidden;
+    cursor: move;
+}
+
+.trackingArea:hover {
+    background: #d9ffd9;
+}
+
+.tracker {
+    width: 66px;
+    height: 66px;
+    position: absolute;
+    left: var(--left);
+    top: var(--top);
+}
