@@ -1,1 +1,0 @@
-export {DemoColor} from './DemoColor';
