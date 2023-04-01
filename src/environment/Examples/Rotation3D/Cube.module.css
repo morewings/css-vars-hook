@@ -24,6 +24,8 @@
     font-weight: bold;
     color: white;
     text-align: center;
+    /* hack to enable edge antialising */
+    outline: 1px solid transparent;
 }
 
 .front  {

@@ -41,8 +41,8 @@ export const Rotation3D: FC = () => {
                     </label>
                     <input
                         defaultValue={0}
-                        min={-90}
-                        max={90}
+                        min={-180}
+                        max={180}
                         id="width-slder"
                         className={classes.input}
                         list="width-values"
@@ -50,11 +50,11 @@ export const Rotation3D: FC = () => {
                         onChange={handleXChange}
                     />
                     <datalist id="width-values" className={classes.scale}>
+                        <option className={classes.mark} value="-180" label="-180°"></option>
                         <option className={classes.mark} value="-90" label="-90°"></option>
-                        <option className={classes.mark} value="-45" label="-45°"></option>
                         <option className={classes.mark} value="0" label="0°"></option>
-                        <option className={classes.mark} value="45" label="45°"></option>
                         <option className={classes.mark} value="90" label="90°"></option>
+                        <option className={classes.mark} value="180" label="180°"></option>
                     </datalist>
                 </div>
                 <div className={classes.control}>
@@ -63,8 +63,8 @@ export const Rotation3D: FC = () => {
                     </label>
                     <input
                         defaultValue={0}
-                        min={-90}
-                        max={90}
+                        min={-180}
+                        max={180}
                         id="width-slder"
                         className={classes.input}
                         list="width-values"
@@ -72,11 +72,11 @@ export const Rotation3D: FC = () => {
                         onChange={handleYChange}
                     />
                     <datalist id="width-values" className={classes.scale}>
+                        <option className={classes.mark} value="-180" label="-180°"></option>
                         <option className={classes.mark} value="-90" label="-90°"></option>
-                        <option className={classes.mark} value="-45" label="-45°"></option>
                         <option className={classes.mark} value="0" label="0°"></option>
-                        <option className={classes.mark} value="45" label="45°"></option>
                         <option className={classes.mark} value="90" label="90°"></option>
+                        <option className={classes.mark} value="180" label="180°"></option>
                     </datalist>
                 </div>
                 <div className={classes.control}>
@@ -85,8 +85,8 @@ export const Rotation3D: FC = () => {
                     </label>
                     <input
                         defaultValue={0}
-                        min={-90}
-                        max={90}
+                        min={-180}
+                        max={180}
                         id="width-slder"
                         className={classes.input}
                         list="width-values"
@@ -94,11 +94,11 @@ export const Rotation3D: FC = () => {
                         onChange={handleZChange}
                     />
                     <datalist id="width-values" className={classes.scale}>
+                        <option className={classes.mark} value="-180" label="-180°"></option>
                         <option className={classes.mark} value="-90" label="-90°"></option>
-                        <option className={classes.mark} value="-45" label="-45°"></option>
                         <option className={classes.mark} value="0" label="0°"></option>
-                        <option className={classes.mark} value="45" label="45°"></option>
                         <option className={classes.mark} value="90" label="90°"></option>
+                        <option className={classes.mark} value="180" label="180°"></option>
                     </datalist>
                 </div>
             </div>
