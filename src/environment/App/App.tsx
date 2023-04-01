@@ -6,6 +6,7 @@ import {DemoLocal} from '../DemoLocal';
 import {Style} from '../Examples/Style';
 import {Mouse} from '../Examples/Mouse';
 import {Rotation3D} from '../Examples/Rotation3D';
+// import {Callbacks} from '../Examples/Callbacks';
 import classes from './App.module.css';
 
 export const App = () => (
@@ -20,6 +21,7 @@ export const App = () => (
             <Rotation3D />
             <DemoRoot />
             <DemoLocal />
+            {/*<Callbacks />*/}
         </div>
     </RootThemeProvider>
 );

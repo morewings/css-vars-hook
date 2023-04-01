@@ -12,7 +12,7 @@ React hook to apply multiple CSS variables to generated local root element (Loca
 useLocalTheme: <TTheme extends ThemeType>(theme: TTheme, elementType?: string) => {
     setTheme: (nextTheme: TTheme) => void;
     getTheme: () => TTheme;
-    LocalRoot: FC<JSX.IntrinsicAttributes & {
+    LocalRoot: FC<JSX.IntrinsicAttributes & HTMLAttributes<HTMLElement> & {
         children?: ReactNode;
         className?: string;
     }>;

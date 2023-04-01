@@ -42,7 +42,10 @@ export const useLocalTheme = <TTheme extends ThemeType>(theme: TTheme, elementTy
 
     const LocalRoot: FC<
         JSX.IntrinsicAttributes & HTMLAttributes<HTMLElement> & {children?: ReactNode; className?: string}
-    > = ({children, ...restProps}) => {
+    > = props => {
+        // This is needed to fix an error introduced in version 0.6.14.
+        // Props were not transported to returned HTMLElement.
+        const {children, ...restProps} = props;
         return createElement(elementType, {...restProps, ref: elementRef, style}, children);
     };
 
