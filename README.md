@@ -121,20 +121,15 @@ const Component = () => {
     useEffect(() => {
         // Theme changing effects can be applied like this. The change will happen after render.
         setTheme(theme);
-        setVariable('boxColor', 'pink');
     }, [theme, setTheme])
 
     // Or like this. The change(s) will happen when user clicks the button.
-    const handleTheme = () => {
-        setTheme(theme);
-    }
     const handleVariable = () => {
         setVariable('boxColor', 'pink');
     }
 
     return (
         <Fragment>
-            <button onClick={handleTheme}>Change theme</button>
             <button onClick={handleVariable}>Change variable</button>
         </Fragment>
     )
