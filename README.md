@@ -182,7 +182,7 @@ declare module 'css-vars-hook' {
 
 ## `useLocalTheme`
 
-`useLocalTheme` applies themes one contained by `LocalRoot` component it outputs.
+`useLocalTheme` applies theme locally to the wrapped React components.
 
 ### Set up a local theme
 
