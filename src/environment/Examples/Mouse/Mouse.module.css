@@ -4,7 +4,7 @@
     margin-bottom: 24px;
     padding: 16px;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     font-family: 'Helvetica Neue', sans-serif;
@@ -44,4 +44,9 @@
     left: var(--left);
     top: var(--top);
     z-index: 2;
+}
+
+.count {
+    margin-top: 12px;
+    text-align: right;
 }

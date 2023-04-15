@@ -2,8 +2,8 @@ import {useCallback, useRef} from 'react';
 import type {CSSProperties} from 'react';
 import type {ThemeType} from 'css-vars-hook';
 
-import type {HookInterface} from './HookInterfaceType';
 import {createStyleObject, getRootVariable, removeRootVariable, setRootVariable} from '../utils';
+import type {HookInterface} from './HookInterfaceType';
 
 export const useRootThemeActions = (theme: ThemeType): HookInterface & {style: CSSProperties} => {
     const themeRef = useRef(theme);

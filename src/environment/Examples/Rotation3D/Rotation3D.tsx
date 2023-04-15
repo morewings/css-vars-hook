@@ -1,9 +1,11 @@
 import type {FC, ChangeEvent} from 'react';
-import React, {useCallback} from 'react';
+import React, {useCallback, useLayoutEffect} from 'react';
 
 import {useLocalTheme} from '../../../lib';
 import {Cube} from './Cube';
 import classes from './Rotation3D.module.css';
+
+let renderCount = 0;
 
 export const Rotation3D: FC = () => {
     const initialX = 0;
@@ -32,6 +34,11 @@ export const Rotation3D: FC = () => {
         },
         [setVariable]
     );
+
+    useLayoutEffect(() => {
+        renderCount += 1;
+    });
+
     return (
         <div className={classes.box}>
             <div>
@@ -101,6 +108,7 @@ export const Rotation3D: FC = () => {
                         <option className={classes.mark} value="180" label="180°"></option>
                     </datalist>
                 </div>
+                <div className={classes.count}>Render count: {renderCount}</div>
             </div>
             <LocalRoot className={classes.testingArea}>
                 <Cube />

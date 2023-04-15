@@ -1,9 +1,11 @@
 import type {FC, MouseEvent} from 'react';
-import React, {useCallback, useRef} from 'react';
+import React, {useCallback, useLayoutEffect, useRef} from 'react';
 
 import {useLocalTheme} from '../../../lib';
 import classes from './Mouse.module.css';
 import image from './mouse.jpg';
+
+let renderCount = 0;
 
 export const Mouse: FC = () => {
     const trackerRef = useRef<HTMLImageElement>();
@@ -23,6 +25,11 @@ export const Mouse: FC = () => {
         },
         [setTheme, ref, trackerRef]
     );
+
+    useLayoutEffect(() => {
+        renderCount += 1;
+    });
+
     return (
         <div className={classes.box}>
             <LocalRoot onMouseMove={handleMove} className={classes.trackingArea}>
@@ -34,6 +41,7 @@ export const Mouse: FC = () => {
                     title="Happy cursor friend"
                 />
             </LocalRoot>
+            <div className={classes.count}>Render count: {renderCount}</div>
         </div>
     );
 };

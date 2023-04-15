@@ -1,7 +1,7 @@
 import React, {useLayoutEffect} from 'react';
 
-import {useLocalTheme} from '../../lib/LocalTheme';
-import './style.css';
+import {useLocalTheme} from '../../lib';
+import classes from './DemoLocal.module.css';
 
 const themeIvory = {boxColor: 'ivory', borderColor: 'orange'};
 
@@ -38,37 +38,42 @@ export const DemoLocal = () => {
     });
 
     return (
-        <LocalRoot className="demo-local">
-            <fieldset>
-                <h3>theme 1</h3>
-                <pre>
-                    boxColor: &apos;ivory&apos;
+        <div className={classes.box}>
+            <div>
+                <fieldset className={classes.controls}>
+                    <h3>theme 1</h3>
+                    <pre>
+                        boxColor: &apos;ivory&apos;
+                        <br />
+                        borderColor: &apos;orange&apos;
+                    </pre>
+                    <button type="button" onClick={setThemeIvory}>
+                        Set theme 1
+                    </button>
+                    <h3>theme 2</h3>
+                    <pre>
+                        boxColor: &apos;black&apos;
+                        <br />
+                        borderColor: &apos;magenta&apos;
+                    </pre>
+                    <button type="button" onClick={setThemeNeon}>
+                        Set theme 2
+                    </button>
                     <br />
-                    borderColor: &apos;orange&apos;
-                </pre>
-                <button type="button" onClick={setThemeIvory}>
-                    Set theme 1
-                </button>
-                <h3>theme 2</h3>
-                <pre>
-                    boxColor: &apos;black&apos;
-                    <br />
-                    borderColor: &apos;magenta&apos;
-                </pre>
-                <button type="button" onClick={setThemeNeon}>
-                    Set theme 2
-                </button>
-                <br />
-                <h3>Set single variable</h3>
-                <pre>borderColor: &apos;turquoise&apos;</pre>
-                <button type="button" onClick={setTurquoiseValue}>
-                    Set --borderColor
-                </button>
-                <div className="box" />
-                <div className="count">
-                    Rerender count: <strong>{renderCount}</strong>
-                </div>
-            </fieldset>
-        </LocalRoot>
+                    <h3>Set single variable</h3>
+                    <pre>borderColor: &apos;turquoise&apos;</pre>
+                    <button type="button" onClick={setTurquoiseValue}>
+                        Set --borderColor
+                    </button>
+
+                    <div className={classes['count']}>
+                        Rerender count: <strong>{renderCount}</strong>
+                    </div>
+                </fieldset>
+            </div>
+            <div className={classes.testingArea}>
+                <LocalRoot className={classes.demoComponent} />
+            </div>
+        </div>
     );
 };
