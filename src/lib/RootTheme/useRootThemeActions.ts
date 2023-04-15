@@ -1,4 +1,4 @@
-import {useCallback, useRef, useEffect} from 'react';
+import {useCallback, useRef} from 'react';
 import type {CSSProperties} from 'react';
 import type {ThemeType} from 'css-vars-hook';
 
@@ -35,14 +35,6 @@ export const useRootThemeActions = (theme: ThemeType): HookInterface & {style: C
     }, []);
 
     const style = createStyleObject(themeRef.current);
-
-    useEffect(() => {
-        Object.keys(theme).forEach(key => {
-            setRootVariable(key, theme[key]);
-        });
-        setTheme(theme);
-        // themeRef.current = theme;
-    }, [theme, setTheme]);
 
     return {
         /** Effect to apply new theme to the application */
