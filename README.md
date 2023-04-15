@@ -95,9 +95,9 @@ console.log(getVariable('boxColor')) // => 'purple'
 console.log(getTheme()) // => theme object
 ```
 
-### Change theme
+### Change theme from inside
 
-Themes can be changed dynamically during application runtime. `useRootTheme` hook exposes set of effects to change the theme.
+Themes can be changed from inside the wrapped application during runtime. `useRootTheme` hook exposes set of effects to change the theme.
 
 Theme changing methods (`setTheme`, `setVariable`, `removeVariable`) are implemented as an **effect**, thus they don't trigger React reconciliation and rerender. Also, this allows to be SSR compatible and prevent Flash of unstyled content (FOUC).
 
@@ -134,6 +134,36 @@ const Component = () => {
         </Fragment>
     )
 }
+```
+
+### Change theme from outside
+
+Themes can also be applied outside the hook in an idiomatic React way. Please note, that this way of application will make application rerender at least once.
+
+```jsx
+import React, {Fragment, useState, useCallback} from 'react';
+
+const [theme, setTheme] = useState({
+    brandColor: 'purple',
+});
+
+const setAltTheme = useCallback(() => {
+    setTheme({
+        brandColor: 'teal',
+    });
+}, [setTheme]);
+
+return (
+        <Fragment>
+            {/* Outside theme switcher control */}
+            <div>
+                <button onClick={setAltTheme}>Set alternative global theme</button>
+            </div>
+            <RootThemeProvider theme={theme}>
+                {/* Inside of the wrapped application */}
+            </RootThemeProvider>
+        </Fragment>
+);
 ```
 
 ### Type safety

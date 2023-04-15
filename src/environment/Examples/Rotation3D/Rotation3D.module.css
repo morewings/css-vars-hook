@@ -47,3 +47,8 @@
     justify-content: center;
     align-items: center;
 }
+
+.count {
+    margin-top: 12px;
+    text-align: right;
+}
