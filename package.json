@@ -1,110 +1,115 @@
 {
-  "name": "css-vars-hook",
-  "version": "0.6.15",
-  "license": "MIT",
-  "private": false,
-  "engines": {
-    "node": ">=16"
-  },
-  "description": "css-vars-hook contains React hooks to set and manipulate CSS custom properties from React component.",
-  "keywords": [
-    "react",
-    "reactjs",
-    "hooks",
-    "css",
-    "css-vars",
-    "css-in-js"
-  ],
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/morewings/css-vars-hook",
-    "directory": "/"
-  },
-  "homepage": "https://morewings.github.io/css-vars-hook",
-  "bugs": {
-    "url": "https://github.com/morewings/css-vars-hook/issues"
-  },
-  "main": "dist/index.cjs.js",
-  "module": "dist/index.esm.js",
-  "types": "dist/css-vars-hook.d.ts",
-  "files": [
-    "dist"
-  ],
-  "sideEffects": false,
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "build:code": "rm -rf dist && npx rollup -c",
-    "build:lib": "yarn build:code & yarn build:types",
-    "lint:code": "npx eslint ./src/",
-    "fix:code": "yarn lint:code --fix",
-    "lint:tsc": "tsc --pretty --noEmit",
-    "clean:types": " rm -rf ./types/ ./temp/",
-    "build:types": "yarn clean:types && tsc --project tsconfig.types.json && api-extractor run --config api-extractor-build.json5 && yarn clean:types",
-    "update:types": "yarn clean:types && tsc --project tsconfig.types.json && api-extractor run --local --verbose --config api-extractor-update.json5 && yarn clean:types",
-    "compile:docs": "api-documenter markdown -i ./api -o ./docs",
-    "build:docs": "yarn update:types && yarn compile:docs",
-    "prepublishOnly": "yarn build:lib",
-    "prepare": "is-ci || husky install"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
+    "name": "css-vars-hook",
+    "version": "0.6.15",
+    "license": "MIT",
+    "private": false,
+    "engines": {
+        "node": ">=16"
+    },
+    "description": "css-vars-hook contains React hooks to set and manipulate CSS custom properties from React component.",
+    "keywords": [
+        "react",
+        "reactjs",
+        "hooks",
+        "css",
+        "css-vars",
+        "css-in-js"
     ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  },
-  "dependencies": {},
-  "devDependencies": {
-    "@microsoft/api-documenter": "^7.21.6",
-    "@microsoft/api-extractor": "^7.34.4",
-    "@rollup/plugin-commonjs": "^24.0.1",
-    "@rollup/plugin-node-resolve": "^15.0.1",
-    "@rollup/plugin-replace": "^5.0.2",
-    "@rollup/plugin-typescript": "^11.0.0",
-    "@testing-library/jest-dom": "5.16.5",
-    "@testing-library/react": "14.0.0",
-    "@testing-library/react-hooks": "8.0.1",
-    "@testing-library/user-event": "14.4.3",
-    "@types/jest": "^29.5.0",
-    "@types/node": "^18.15.11",
-    "@types/react": "^18.0.32",
-    "@types/react-dom": "^18.0.11",
-    "@yelo/rollup-node-external": "^1.0.1",
-    "autoprefixer": "9.8.8",
-    "classnames": "^2.3.2",
-    "eslint-config-prettier": "8.8.0",
-    "eslint-config-react-app": "^7.0.1",
-    "eslint-plugin-import": "^2.27.5",
-    "eslint-plugin-jest": "^27.2.1",
-    "eslint-plugin-prettier": "^4.2.1",
-    "eslint-plugin-react": "^7.32.2",
-    "eslint-plugin-react-hooks": "^4.6.0",
-    "eslint-plugin-ssr-friendly": "^1.2.0",
-    "husky": "8.0.3",
-    "is-ci": "3.0.1",
-    "lint-staged": "13.2.0",
-    "npm-run-all": "4.1.5",
-    "prettier": "2.8.7",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
-    "react-scripts": "5.0.1",
-    "react-test-renderer": "18.2.0",
-    "recursive-copy": "2.0.14",
-    "rimraf": "4.4.1",
-    "rollup": "^3.20.2",
-    "rollup-plugin-dts": "^5.3.0",
-    "typescript": "^4.9.5"
-  },
-  "peerDependencies": {
-    "react": ">=16.8.0",
-    "react-dom": ">=16.8.0"
-  }
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/morewings/css-vars-hook",
+        "directory": "/"
+    },
+    "homepage": "https://morewings.github.io/css-vars-hook",
+    "bugs": {
+        "url": "https://github.com/morewings/css-vars-hook/issues"
+    },
+    "main": "dist/index.cjs.js",
+    "module": "dist/index.esm.js",
+    "types": "dist/css-vars-hook.d.ts",
+    "files": [
+        "dist"
+    ],
+    "sideEffects": false,
+    "scripts": {
+        "start": "react-scripts start",
+        "build": "react-scripts build",
+        "test": "react-scripts test",
+        "eject": "react-scripts eject",
+        "clean:build": "rm -rf dist",
+        "rollup:build": "rollup -c",
+        "build:code": "run-s clean:build rollup:build",
+        "build:lib": "run-s  build:code build:types",
+        "lint:code": "eslint ./src/",
+        "fix:code": "run-s 'lint:code --fix'",
+        "lint:tsc": "tsc --pretty --noEmit",
+        "clean:types": " rm -rf ./types/ ./temp/",
+        "build:declarations": "tsc --project tsconfig.types.json",
+        "merge:declarations": "api-extractor run --config api-extractor-build.json5",
+        "update:declarations": "api-extractor run --local --verbose --config api-extractor-update.json5",
+        "build:types": "run-s clean:types build:declarations merge:declarations clean:types",
+        "update:types": "run-s clean:types build:declarations update:declarations clean:types",
+        "compile:docs": "api-documenter markdown -i ./api -o ./docs",
+        "build:docs": "run-s update:types compile:docs",
+        "prepublishOnly": "run-s build:lib",
+        "prepare": "is-ci || husky install"
+    },
+    "browserslist": {
+        "production": [
+            ">0.2%",
+            "not dead",
+            "not op_mini all"
+        ],
+        "development": [
+            "last 1 chrome version",
+            "last 1 firefox version",
+            "last 1 safari version"
+        ]
+    },
+    "dependencies": {},
+    "devDependencies": {
+        "@microsoft/api-documenter": "7.21.6",
+        "@microsoft/api-extractor": "7.34.4",
+        "@rollup/plugin-commonjs": "24.0.1",
+        "@rollup/plugin-node-resolve": "15.0.1",
+        "@rollup/plugin-replace": "5.0.2",
+        "@rollup/plugin-typescript": "11.0.0",
+        "@testing-library/jest-dom": "5.16.5",
+        "@testing-library/react": "14.0.0",
+        "@testing-library/react-hooks": "8.0.1",
+        "@testing-library/user-event": "14.4.3",
+        "@types/jest": "29.5.0",
+        "@types/node": "18.15.11",
+        "@types/react": "18.0.32",
+        "@types/react-dom": "18.0.11",
+        "@yelo/rollup-node-external": "1.0.1",
+        "autoprefixer": "9.8.8",
+        "classnames": "2.3.2",
+        "eslint-config-prettier": "8.8.0",
+        "eslint-config-react-app": "^7.0.1",
+        "eslint-plugin-import": "2.27.5",
+        "eslint-plugin-jest": "27.2.1",
+        "eslint-plugin-prettier": "4.2.1",
+        "eslint-plugin-react": "7.32.2",
+        "eslint-plugin-react-hooks": "4.6.0",
+        "eslint-plugin-ssr-friendly": "1.2.0",
+        "husky": "8.0.3",
+        "is-ci": "3.0.1",
+        "lint-staged": "13.2.0",
+        "npm-run-all": "^4.1.5",
+        "prettier": "2.8.7",
+        "react": "18.2.0",
+        "react-dom": "18.2.0",
+        "react-scripts": "5.0.1",
+        "react-test-renderer": "18.2.0",
+        "recursive-copy": "2.0.14",
+        "rimraf": "4.4.1",
+        "rollup": "^3.20.2",
+        "rollup-plugin-dts": "5.3.0",
+        "typescript": "4.9.5"
+    },
+    "peerDependencies": {
+        "react": ">=16.8.0",
+        "react-dom": ">=16.8.0"
+    }
 }
