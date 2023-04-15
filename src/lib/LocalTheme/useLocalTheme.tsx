@@ -15,7 +15,7 @@ import {createStyleObject, setCSSVariable} from '../utils';
  *   console.log('full theme', getTheme()) // => {foo: 'ivory'};
  *   console.log('foo value', getVariable('foo')) // => 'ivory';
  *};
- * return <Component className="demo-local">//...
+ * return <LocalRoot className="demo-local">//...
  */
 export const useLocalTheme = <TTheme extends ThemeType>(theme: TTheme, elementType: string = 'div') => {
     const themeRef = useRef(theme);
