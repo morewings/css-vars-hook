@@ -1,4 +1,3 @@
-import type {ReactNode} from 'react';
 import {useCallback, useRef} from 'react';
 import type {ThemeType} from 'css-vars-hook';
 import React from 'react';
