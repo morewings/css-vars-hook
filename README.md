@@ -143,6 +143,10 @@ Themes can also be applied outside the hook in an idiomatic React way. Please no
 ```jsx
 import React, {Fragment, useState, useCallback} from 'react';
 
+// useRootTheme hook will not work on this level. It uses `RootThemeProvider` 
+// context not yet available here.
+// So we implement stateful switch here.
+
 const [theme, setTheme] = useState({
     brandColor: 'purple',
 });
