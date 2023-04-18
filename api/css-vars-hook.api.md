@@ -11,6 +11,7 @@ import { CSSProperties } from 'react';
 import type { FC } from 'react';
 import type { HTMLAttributes } from 'react';
 import { MutableRefObject } from 'react';
+import { default as React_2 } from 'react';
 import type { ReactNode } from 'react';
 import { ThemeType } from 'css-vars-hook';
 
@@ -27,11 +28,15 @@ export const RootThemeProvider: FC<{
 export const useLocalTheme: <TTheme extends ThemeType>(theme: TTheme, elementType?: string) => {
     setTheme: (nextTheme: TTheme) => void;
     getTheme: () => TTheme;
-    LocalRoot: FC<JSX.IntrinsicAttributes & HTMLAttributes<HTMLElement> & {
+    LocalRoot: ({ children, ...restProps }: {
+        children?: ReactNode;
+    } & JSX.IntrinsicAttributes & HTMLAttributes<HTMLElement> & {
         children?: ReactNode;
         className?: string;
-    }>;
-    ref: MutableRefObject<HTMLElement>;
+        elementType?: string;
+        style?: React_2.CSSProperties;
+    }) => JSX.Element;
+    ref: React_2.MutableRefObject<HTMLElement>;
     getVariable: (variableName: string) => string;
     setVariable: (variableName: string, variableValue: string) => void;
 };

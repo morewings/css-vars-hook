@@ -2,15 +2,15 @@ import React from 'react';
 import {renderHook} from '@testing-library/react-hooks';
 
 import {RootThemeProvider} from './RootThemeProvider';
-import {useRootTheme} from './useRootTheme';
+import {useRootThemePublic} from './useRootThemePublic';
 
 const theme = {
     foo: 'bar',
 };
 
-describe('useRootTheme', () => {
+describe('useRootThemePublic', () => {
     it.skip('renders', () => {
-        const {result} = renderHook(() => useRootTheme(), {
+        const {result} = renderHook(() => useRootThemePublic(), {
             wrapper: ({children}) => <RootThemeProvider theme={theme}>{children}</RootThemeProvider>,
         });
         expect(result.current).toMatchSnapshot();

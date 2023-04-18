@@ -1,8 +1,11 @@
 import type {FC, ReactNode, HTMLAttributes} from 'react';
 import {useCallback, useRef, createElement} from 'react';
 import type {ThemeType} from 'css-vars-hook';
+import React from 'react';
 
 import {createStyleObject, setCSSVariable} from '../utils';
+import type {LocalRootProps} from './LocalRoot';
+import {LocalRootNew} from './LocalRoot';
 
 /**
  * @public
@@ -55,7 +58,11 @@ export const useLocalTheme = <TTheme extends ThemeType>(theme: TTheme, elementTy
         /** Get current theme set for LocalRoot */
         getTheme,
         /** Wrapper component which creates DOM node to store theme data */
-        LocalRoot,
+        LocalRoot: ({children, ...restProps}: {children?: ReactNode} & LocalRootProps) => (
+            <LocalRootNew {...restProps} style={style} ref={elementRef}>
+                {children}
+            </LocalRootNew>
+        ),
         /** React Mutable Ref object attached to LocalRoot */
         ref: elementRef,
         /** Get variable value within LocalRoot theme */

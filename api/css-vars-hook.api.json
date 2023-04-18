@@ -263,7 +263,7 @@
         {
           "kind": "Variable",
           "canonicalReference": "css-vars-hook!useLocalTheme:var",
-          "docComment": "/**\n * React hook to apply multiple CSS variables to generated local root element (LocalRoot) and manipulate them. Theme type is inferred from provided theme parameter.\n *\n * @example\n *\n * const {setTheme, getTheme, Component, getVariable, setVariable} = useLocalTheme({foo: 'bar'}); const setThemeIvory = () => { setTheme({foo: 'ivory'}); console.log('full theme', getTheme()) // => {foo: 'ivory'}; console.log('foo value', getVariable('foo')) // => 'ivory'; }; return <Component className=\"demo-local\">//...\n *\n * @public\n */\n",
+          "docComment": "/**\n * React hook to apply multiple CSS variables to generated local root element (LocalRoot) and manipulate them. Theme type is inferred from provided theme parameter.\n *\n * @example\n *\n * const {setTheme, getTheme, LocalRoot, getVariable, setVariable} = useLocalTheme({foo: 'bar'}); const setThemeIvory = () => { setTheme({foo: 'ivory'}); console.log('full theme', getTheme()) // => {foo: 'ivory'}; console.log('foo value', getVariable('foo')) // => 'ivory'; }; return <LocalRoot className=\"demo-local\">//...\n *\n * @public\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
@@ -280,16 +280,16 @@
             },
             {
               "kind": "Content",
-              "text": ">(theme: TTheme, elementType?: string) => {\n    setTheme: (nextTheme: TTheme) => void;\n    getTheme: () => TTheme;\n    LocalRoot: "
+              "text": ">(theme: TTheme, elementType?: string) => {\n    setTheme: (nextTheme: TTheme) => void;\n    getTheme: () => TTheme;\n    LocalRoot: ({ children, ...restProps }: {\n        children?: "
             },
             {
               "kind": "Reference",
-              "text": "FC",
-              "canonicalReference": "@types/react!React.FC:type"
+              "text": "ReactNode",
+              "canonicalReference": "@types/react!React.ReactNode:type"
             },
             {
               "kind": "Content",
-              "text": "<"
+              "text": ";\n    } & "
             },
             {
               "kind": "Reference",
@@ -325,11 +325,29 @@
             },
             {
               "kind": "Content",
-              "text": ";\n        className?: string;\n    }>;\n    ref: import(\"react\")."
+              "text": ";\n        className?: string;\n        elementType?: string;\n        style?: "
             },
             {
               "kind": "Reference",
-              "text": "MutableRefObject",
+              "text": "React.CSSProperties",
+              "canonicalReference": "@types/react!React.CSSProperties:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ";\n    }) => "
+            },
+            {
+              "kind": "Reference",
+              "text": "JSX.Element",
+              "canonicalReference": "@types/react!__global.JSX.Element:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ";\n    ref: "
+            },
+            {
+              "kind": "Reference",
+              "text": "React.MutableRefObject",
               "canonicalReference": "@types/react!React.MutableRefObject:interface"
             },
             {
@@ -352,7 +370,7 @@
           "name": "useLocalTheme",
           "variableTypeTokenRange": {
             "startIndex": 1,
-            "endIndex": 18
+            "endIndex": 22
           }
         },
         {
@@ -362,7 +380,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "useRootTheme: "
+              "text": "useRootThemePublic: "
             },
             {
               "kind": "Content",
@@ -387,7 +405,7 @@
               "text": ";\n    setVariable: (variableName: string, value: string) => void;\n    getVariable: (variableName: string) => string;\n    removeVariable: (variableName: string) => void;\n}"
             }
           ],
-          "fileUrlPath": "types/RootTheme/useRootTheme.d.ts",
+          "fileUrlPath": "types/RootTheme/useRootThemePublic.d.ts",
           "isReadonly": true,
           "releaseTag": "Public",
           "name": "useRootTheme",

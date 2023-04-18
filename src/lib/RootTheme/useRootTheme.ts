@@ -1,23 +1,56 @@
-import {useRootContext} from './RootContext';
+import {useCallback, useRef} from 'react';
+import type {CSSProperties} from 'react';
+import type {ThemeType} from 'css-vars-hook';
+
+import {createStyleObject, getRootVariable, removeRootVariable, setRootVariable} from '../utils';
+import type {HookInterface} from './HookInterfaceType';
 
 /**
- * @public
- * React hook to apply multiple CSS variables to theme root and manipulate them.
- * `ThemeType` is defined on project level.
- * @see ThemeType
- * @see https://github.com/morewings/css-vars-hook#type-safety
+ * @private
+ * Logic for root theme handling such as updates and CSS style creation
  */
-export const useRootTheme = () => {
-    const {setTheme, getTheme, setVariable, getVariable, removeVariable} = useRootContext();
+export const useRootTheme = (theme: ThemeType): HookInterface & {style: CSSProperties} => {
+    const themeRef = useRef(theme);
+
+    const setTheme = useCallback((nextTheme: ThemeType) => {
+        Object.keys(nextTheme).forEach(key => {
+            setRootVariable(key, nextTheme[key]);
+        });
+
+        themeRef.current = nextTheme;
+    }, []);
+
+    const getTheme = useCallback(() => themeRef.current, []);
+
+    const getVariable = useCallback((variableName: string) => getRootVariable(variableName), []);
+    const setVariable = useCallback((variableName: string, value: string) => {
+        setRootVariable(variableName, value);
+        themeRef.current = {
+            ...themeRef.current,
+            [variableName]: value,
+        };
+    }, []);
+
+    const removeVariable = useCallback((variableName: string) => {
+        removeRootVariable(variableName);
+        const nextTheme = {...themeRef.current};
+        delete nextTheme[variableName];
+        themeRef.current = nextTheme;
+    }, []);
+
+    const style = createStyleObject(themeRef.current);
+
     return {
         /** Effect to apply new theme to the application */
         setTheme,
+        /** CSSProperties object to apply to container div */
+        style,
         /** Get current theme */
         getTheme,
-        /** Effect to set new variable value within active theme */
-        setVariable,
         /** Get variable value within active theme */
         getVariable,
+        /** Effect to set new variable value within active theme */
+        setVariable,
         /** Effect to remove variable within active theme */
         removeVariable,
     };
