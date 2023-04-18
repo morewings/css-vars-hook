@@ -41,16 +41,16 @@ export const useLocalTheme = <TTheme extends ThemeType>(theme: TTheme, elementTy
         themeRef.current = {...themeRef.current, [variableName]: variableValue};
     }, []);
 
-    const style = createStyleObject(themeRef.current);
+    // const style = createStyleObject(themeRef.current);
 
-    const LocalRoot: FC<
-        JSX.IntrinsicAttributes & HTMLAttributes<HTMLElement> & {children?: ReactNode; className?: string}
-    > = props => {
-        // This is needed to fix an error introduced in version 0.6.14.
-        // Props were not transported to returned HTMLElement.
-        const {children, ...restProps} = props;
-        return createElement(elementType, {...restProps, ref: elementRef, style}, children);
-    };
+    // const LocalRoot: FC<
+    //     JSX.IntrinsicAttributes & HTMLAttributes<HTMLElement> & {children?: ReactNode; className?: string}
+    // > = props => {
+    //     // This is needed to fix an error introduced in version 0.6.14.
+    //     // Props were not transported to returned HTMLElement.
+    //     const {children, ...restProps} = props;
+    //     return createElement(elementType, {...restProps, ref: elementRef, style}, children);
+    // };
 
     return {
         /** Effect to apply new theme to LocalRoot */
@@ -59,7 +59,7 @@ export const useLocalTheme = <TTheme extends ThemeType>(theme: TTheme, elementTy
         getTheme,
         /** Wrapper component which creates DOM node to store theme data */
         LocalRoot: ({children, ...restProps}: {children?: ReactNode} & LocalRootProps) => (
-            <LocalRootNew {...restProps} style={style} ref={elementRef}>
+            <LocalRootNew theme={theme} {...restProps} elementType={elementType} ref={elementRef}>
                 {children}
             </LocalRootNew>
         ),

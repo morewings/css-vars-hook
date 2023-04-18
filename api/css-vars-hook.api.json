@@ -325,16 +325,25 @@
             },
             {
               "kind": "Content",
-              "text": ";\n        className?: string;\n        elementType?: string;\n        style?: "
+              "text": ";\n        className?: string;\n        elementType?: string;\n        theme?: "
             },
             {
               "kind": "Reference",
-              "text": "React.CSSProperties",
-              "canonicalReference": "@types/react!React.CSSProperties:interface"
+              "text": "Record",
+              "canonicalReference": "!Record:type"
             },
             {
               "kind": "Content",
-              "text": ";\n    }) => "
+              "text": "<string, string>;\n        setTheme?: (arg0: "
+            },
+            {
+              "kind": "Reference",
+              "text": "Record",
+              "canonicalReference": "!Record:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<string, string>) => void;\n    }) => "
             },
             {
               "kind": "Reference",
@@ -370,7 +379,7 @@
           "name": "useLocalTheme",
           "variableTypeTokenRange": {
             "startIndex": 1,
-            "endIndex": 22
+            "endIndex": 24
           }
         },
         {

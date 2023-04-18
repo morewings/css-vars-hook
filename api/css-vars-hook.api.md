@@ -34,7 +34,8 @@ export const useLocalTheme: <TTheme extends ThemeType>(theme: TTheme, elementTyp
         children?: ReactNode;
         className?: string;
         elementType?: string;
-        style?: React_2.CSSProperties;
+        theme?: Record<string, string>;
+        setTheme?: (arg0: Record<string, string>) => void;
     }) => JSX.Element;
     ref: React_2.MutableRefObject<HTMLElement>;
     getVariable: (variableName: string) => string;
