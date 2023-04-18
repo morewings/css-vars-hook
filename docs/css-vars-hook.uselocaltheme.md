@@ -9,14 +9,11 @@ React hook to apply multiple CSS variables to generated local root element (Loca
 **Signature:**
 
 ```typescript
-useLocalTheme: <TTheme extends ThemeType>(theme: TTheme, elementType?: string) => {
+useLocalTheme: <TTheme extends ThemeType>() => {
     setTheme: (nextTheme: TTheme) => void;
     getTheme: () => TTheme;
-    LocalRoot: FC<JSX.IntrinsicAttributes & HTMLAttributes<HTMLElement> & {
-        children?: ReactNode;
-        className?: string;
-    }>;
-    ref: import("react").MutableRefObject<HTMLElement>;
+    LocalRoot: ({ children, ...restProps }: Omit<LocalRootProps, 'setTheme'>) => JSX.Element;
+    ref: React.MutableRefObject<HTMLElement>;
     getVariable: (variableName: string) => string;
     setVariable: (variableName: string, variableValue: string) => void;
 }
@@ -24,5 +21,5 @@ useLocalTheme: <TTheme extends ThemeType>(theme: TTheme, elementType?: string) =
 
 ## Example
 
-const {<!-- -->setTheme, getTheme, Component, getVariable, setVariable<!-- -->} = useLocalTheme(<!-- -->{<!-- -->foo: 'bar'<!-- -->}<!-- -->); const setThemeIvory = () =<!-- -->&gt; { setTheme(<!-- -->{<!-- -->foo: 'ivory'<!-- -->}<!-- -->); console.log('full theme', getTheme()) // =<!-- -->&gt; {<!-- -->foo: 'ivory'<!-- -->}<!-- -->; console.log('foo value', getVariable('foo')) // =<!-- -->&gt; 'ivory'; }<!-- -->; return <Component className="demo-local">//...
+const {<!-- -->setTheme, getTheme, LocalRoot, getVariable, setVariable<!-- -->} = useLocalTheme(); const setThemeIvory = () =<!-- -->&gt; { setTheme(<!-- -->{<!-- -->foo: 'ivory'<!-- -->}<!-- -->); console.log('full theme', getTheme()) // =<!-- -->&gt; {<!-- -->foo: 'ivory'<!-- -->}<!-- -->; console.log('foo value', getVariable('foo')) // =<!-- -->&gt; 'ivory'; }<!-- -->; return &lt;<!-- -->LocalRoot theme=<!-- -->{<!-- -->{<!-- -->foo: 'bar'<!-- -->}<!-- -->} className="demo-local"<!-- -->&gt;<!-- -->//...
 

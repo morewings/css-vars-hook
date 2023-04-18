@@ -1,4 +1,4 @@
-import type {FC, HTMLAttributes, ReactNode, CSSProperties} from 'react';
+import type {HTMLAttributes, ReactNode} from 'react';
 import {createElement, forwardRef, useEffect, useRef} from 'react';
 
 import {createStyleObject} from '../utils';
@@ -6,20 +6,20 @@ import {createStyleObject} from '../utils';
 export type LocalRootProps<TTheme extends Record<string, string> = Record<string, string>> = JSX.IntrinsicAttributes &
     HTMLAttributes<HTMLElement> & {
         children?: ReactNode;
+        /** Apply your own CSS class or use styled component styled(LocalRoot) */
         className?: string;
-        elementType?: string;
+        /** Choose which HTMLElement to render as a root. div is default. */
+        as?: string;
+        /** Apply initial theme. */
         theme?: TTheme;
+        /** Provide theme setter function. */
         setTheme?: (arg0: TTheme) => void;
     };
 
-export const LocalRootNew = forwardRef<HTMLElement, LocalRootProps>((props, ref) => {
+export const LocalRoot = forwardRef<HTMLElement, LocalRootProps>((props, ref) => {
     // This is needed to fix an error introduced in version 0.6.14.
     // Props were not transported to returned HTMLElement.
-    const {children, elementType, theme, setTheme = () => {}, ...restProps} = props;
-
-    // useEffect(() => {
-    //     console.log('foo changed', foo);
-    // }, [foo]);
+    const {children, as = 'div', theme, setTheme = () => {}, ...restProps} = props;
 
     const initialStyle = useRef(createStyleObject(theme));
 
@@ -27,6 +27,5 @@ export const LocalRootNew = forwardRef<HTMLElement, LocalRootProps>((props, ref)
         setTheme(theme);
     }, [theme, setTheme]);
 
-    return createElement(elementType, {...restProps, style: initialStyle.current, ref}, children);
-    // return createElement(elementType, {...restProps, ref: elementRef, style}, children);
+    return createElement(as, {...restProps, style: initialStyle.current, ref}, children);
 });

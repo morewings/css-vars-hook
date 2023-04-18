@@ -6,7 +6,7 @@ import {setCSSVariable, getCSSVariable, createStyleObject, removeCSSVariable} fr
  * @deprecated
  * `useLocalTheme` is recommended instead
  * @example
- * const {getTheme, setTheme, LocalRoot} = useLocalTheme(theme)
+ * const {getTheme, setTheme, LocalRoot} = useLocalTheme()
  */
 export const useTheme = (theme: Record<string, string>) => {
     const ref = useRef<HTMLElement>(null);

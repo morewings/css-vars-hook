@@ -25,18 +25,10 @@ export const RootThemeProvider: FC<{
 }>;
 
 // @public
-export const useLocalTheme: <TTheme extends ThemeType>(theme: TTheme, elementType?: string) => {
+export const useLocalTheme: <TTheme extends ThemeType>() => {
     setTheme: (nextTheme: TTheme) => void;
     getTheme: () => TTheme;
-    LocalRoot: ({ children, ...restProps }: {
-        children?: ReactNode;
-    } & JSX.IntrinsicAttributes & HTMLAttributes<HTMLElement> & {
-        children?: ReactNode;
-        className?: string;
-        elementType?: string;
-        theme?: Record<string, string>;
-        setTheme?: (arg0: Record<string, string>) => void;
-    }) => JSX.Element;
+    LocalRoot: ({ children, ...restProps }: Omit<LocalRootProps, 'setTheme'>) => JSX.Element;
     ref: React_2.MutableRefObject<HTMLElement>;
     getVariable: (variableName: string) => string;
     setVariable: (variableName: string, variableValue: string) => void;
@@ -72,6 +64,10 @@ export const useVariable: (name: string, value: string) => {
     getVariable: (variableName: string) => string;
     removeVariable: (variableName: string) => void;
 };
+
+// Warnings were encountered during analysis:
+//
+// types/LocalTheme/useLocalTheme.d.ts:23:5 - (ae-forgotten-export) The symbol "LocalRootProps" needs to be exported by the entry point index.d.ts
 
 // (No @packageDocumentation comment for this package)
 

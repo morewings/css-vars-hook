@@ -15,7 +15,7 @@ let renderCount = 0;
 export const DemoLocal = () => {
     const [externalTheme, setExternalTheme] = useState(themeIvory);
 
-    const {setTheme, getTheme, LocalRoot, getVariable, setVariable} = useLocalTheme(themeIvory);
+    const {setTheme, getTheme, LocalRoot, getVariable, setVariable} = useLocalTheme();
 
     const setThemeIvory = () => {
         setTheme(themeIvory);

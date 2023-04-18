@@ -263,7 +263,7 @@
         {
           "kind": "Variable",
           "canonicalReference": "css-vars-hook!useLocalTheme:var",
-          "docComment": "/**\n * React hook to apply multiple CSS variables to generated local root element (LocalRoot) and manipulate them. Theme type is inferred from provided theme parameter.\n *\n * @example\n *\n * const {setTheme, getTheme, LocalRoot, getVariable, setVariable} = useLocalTheme({foo: 'bar'}); const setThemeIvory = () => { setTheme({foo: 'ivory'}); console.log('full theme', getTheme()) // => {foo: 'ivory'}; console.log('foo value', getVariable('foo')) // => 'ivory'; }; return <LocalRoot className=\"demo-local\">//...\n *\n * @public\n */\n",
+          "docComment": "/**\n * React hook to apply multiple CSS variables to generated local root element (LocalRoot) and manipulate them. Theme type is inferred from provided theme parameter.\n *\n * @example\n *\n * const {setTheme, getTheme, LocalRoot, getVariable, setVariable} = useLocalTheme(); const setThemeIvory = () => { setTheme({foo: 'ivory'}); console.log('full theme', getTheme()) // => {foo: 'ivory'}; console.log('foo value', getVariable('foo')) // => 'ivory'; }; return <LocalRoot theme={{foo: 'bar'}} className=\"demo-local\">//...\n *\n * @public\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
@@ -280,30 +280,12 @@
             },
             {
               "kind": "Content",
-              "text": ">(theme: TTheme, elementType?: string) => {\n    setTheme: (nextTheme: TTheme) => void;\n    getTheme: () => TTheme;\n    LocalRoot: ({ children, ...restProps }: {\n        children?: "
+              "text": ">() => {\n    setTheme: (nextTheme: TTheme) => void;\n    getTheme: () => TTheme;\n    LocalRoot: ({ children, ...restProps }: "
             },
             {
               "kind": "Reference",
-              "text": "ReactNode",
-              "canonicalReference": "@types/react!React.ReactNode:type"
-            },
-            {
-              "kind": "Content",
-              "text": ";\n    } & "
-            },
-            {
-              "kind": "Reference",
-              "text": "JSX.IntrinsicAttributes",
-              "canonicalReference": "@types/react!__global.JSX.IntrinsicAttributes:interface"
-            },
-            {
-              "kind": "Content",
-              "text": " & "
-            },
-            {
-              "kind": "Reference",
-              "text": "HTMLAttributes",
-              "canonicalReference": "@types/react!React.HTMLAttributes:interface"
+              "text": "Omit",
+              "canonicalReference": "!Omit:type"
             },
             {
               "kind": "Content",
@@ -311,39 +293,12 @@
             },
             {
               "kind": "Reference",
-              "text": "HTMLElement",
-              "canonicalReference": "!HTMLElement:interface"
+              "text": "LocalRootProps",
+              "canonicalReference": "css-vars-hook!~LocalRootProps:type"
             },
             {
               "kind": "Content",
-              "text": "> & {\n        children?: "
-            },
-            {
-              "kind": "Reference",
-              "text": "ReactNode",
-              "canonicalReference": "@types/react!React.ReactNode:type"
-            },
-            {
-              "kind": "Content",
-              "text": ";\n        className?: string;\n        elementType?: string;\n        theme?: "
-            },
-            {
-              "kind": "Reference",
-              "text": "Record",
-              "canonicalReference": "!Record:type"
-            },
-            {
-              "kind": "Content",
-              "text": "<string, string>;\n        setTheme?: (arg0: "
-            },
-            {
-              "kind": "Reference",
-              "text": "Record",
-              "canonicalReference": "!Record:type"
-            },
-            {
-              "kind": "Content",
-              "text": "<string, string>) => void;\n    }) => "
+              "text": ", 'setTheme'>) => "
             },
             {
               "kind": "Reference",
@@ -379,7 +334,7 @@
           "name": "useLocalTheme",
           "variableTypeTokenRange": {
             "startIndex": 1,
-            "endIndex": 24
+            "endIndex": 14
           }
         },
         {
@@ -426,7 +381,7 @@
         {
           "kind": "Variable",
           "canonicalReference": "css-vars-hook!useTheme:var",
-          "docComment": "/**\n * @deprecated\n *\n * `useLocalTheme` is recommended instead\n *\n * @example\n *\n * const {getTheme, setTheme, LocalRoot} = useLocalTheme(theme)\n */\n",
+          "docComment": "/**\n * @deprecated\n *\n * `useLocalTheme` is recommended instead\n *\n * @example\n *\n * const {getTheme, setTheme, LocalRoot} = useLocalTheme()\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
@@ -512,7 +467,7 @@
         {
           "kind": "Variable",
           "canonicalReference": "css-vars-hook!useVariable:var",
-          "docComment": "/**\n * @deprecated\n *\n * `useLocalTheme` is recommended instead\n *\n * @example\n *\n * const {getVariable, setVariable, LocalRoot} = useLocalTheme(theme)\n */\n",
+          "docComment": "/**\n * @deprecated\n *\n * `useLocalTheme` is recommended instead\n *\n * @example\n *\n * const {getVariable, setVariable, LocalRoot} = useLocalTheme()\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",

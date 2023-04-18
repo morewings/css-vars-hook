@@ -11,11 +11,7 @@ export const Rotation3D: FC = () => {
     const initialX = 0;
     const initialY = 0;
     const initialZ = 0;
-    const {LocalRoot, setVariable} = useLocalTheme({
-        x: `${initialX}deg`,
-        y: `${initialY}deg`,
-        z: `${initialZ}deg`,
-    });
+    const {LocalRoot, setVariable} = useLocalTheme();
     const handleXChange = useCallback(
         (event: ChangeEvent<HTMLInputElement>) => {
             setVariable('x', `${event.target.value}deg`);
@@ -110,7 +106,13 @@ export const Rotation3D: FC = () => {
                 </div>
                 <div className={classes.count}>Render count: {renderCount}</div>
             </div>
-            <LocalRoot className={classes.testingArea}>
+            <LocalRoot
+                theme={{
+                    x: `${initialX}deg`,
+                    y: `${initialY}deg`,
+                    z: `${initialZ}deg`,
+                }}
+                className={classes.testingArea}>
                 <Cube />
             </LocalRoot>
         </div>
