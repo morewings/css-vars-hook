@@ -14,14 +14,16 @@ export const Mouse: FC = () => {
     const handleMove = useCallback(
         (event: MouseEvent) => {
             const offsetTop = Math.min(
+                // calculate actual coordinate
                 event.clientY - ref.current.getBoundingClientRect().top,
+                // calculate actual coordinate
                 ref.current.offsetHeight - trackerRef.current.offsetHeight
             );
             const offsetLeft = Math.min(
                 event.clientX - ref.current.getBoundingClientRect().left,
                 ref.current.offsetWidth - trackerRef.current.offsetWidth
             );
-            setTheme({left: `${offsetLeft}px`, top: `${offsetTop}px`});
+            setTheme({left: `${Math.floor(offsetLeft)}px`, top: `${Math.floor(offsetTop)}px`});
         },
         [setTheme, ref, trackerRef]
     );
