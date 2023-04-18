@@ -138,7 +138,7 @@ const Component = () => {
 
 ### Change theme from outside
 
-Themes can also be applied outside the hook in an idiomatic React way. Please note, that this way of application will make application rerender at least once.
+Themes can also be applied outside the hook in an idiomatic React way. Please note, that this way will make application rerender at least once.
 
 ```jsx
 import React, {Fragment, useState, useCallback} from 'react';
