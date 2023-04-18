@@ -9,7 +9,7 @@ let renderCount = 0;
 
 export const Mouse: FC = () => {
     const trackerRef = useRef<HTMLImageElement>();
-    const {LocalRoot, ref, setTheme} = useLocalTheme({left: '0px', top: '0px'});
+    const {LocalRoot, ref, setTheme} = useLocalTheme();
 
     const handleMove = useCallback(
         (event: MouseEvent) => {
@@ -34,7 +34,7 @@ export const Mouse: FC = () => {
 
     return (
         <div className={classes.box}>
-            <LocalRoot onMouseMove={handleMove} className={classes.trackingArea}>
+            <LocalRoot theme={{left: '0px', top: '0px'}} onMouseMove={handleMove} className={classes.trackingArea}>
                 <img
                     ref={trackerRef}
                     src={image as string}

@@ -11,12 +11,7 @@ export const Style: FC = () => {
     const initialHeight = 100;
     const initialRadius = 0;
     const initialColor = '#FFC0CB';
-    const {LocalRoot, setVariable} = useLocalTheme({
-        width: `${initialWidth}px`,
-        height: `${initialHeight}px`,
-        radius: `${initialRadius}px`,
-        color: initialColor,
-    });
+    const {LocalRoot, setVariable} = useLocalTheme();
     const handleWidthChange = useCallback(
         (event: ChangeEvent<HTMLInputElement>) => {
             setVariable('width', `${event.target.value}px`);
@@ -132,7 +127,14 @@ export const Style: FC = () => {
                 </div>
                 <div className={classes.count}>Render count: {renderCount}</div>
             </div>
-            <LocalRoot className={classes.testingArea}>
+            <LocalRoot
+                theme={{
+                    width: `${initialWidth}px`,
+                    height: `${initialHeight}px`,
+                    radius: `${initialRadius}px`,
+                    color: initialColor,
+                }}
+                className={classes.testingArea}>
                 <div className={classes.demo}></div>
             </LocalRoot>
         </div>

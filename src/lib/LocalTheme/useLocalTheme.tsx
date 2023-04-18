@@ -1,24 +1,26 @@
-import type {FC, ReactNode, HTMLAttributes} from 'react';
-import {useCallback, useRef, createElement} from 'react';
+import {useCallback, useRef} from 'react';
 import type {ThemeType} from 'css-vars-hook';
+import React from 'react';
 
-import {createStyleObject, setCSSVariable} from '../utils';
+import {setCSSVariable} from '../utils';
+import type {LocalRootProps} from './LocalRoot';
+import {LocalRoot} from './LocalRoot';
 
 /**
  * @public
  * React hook to apply multiple CSS variables to generated local root element (LocalRoot) and manipulate them.
  * Theme type is inferred from provided theme parameter.
  * @example
- * const {setTheme, getTheme, LocalRoot, getVariable, setVariable} = useLocalTheme({foo: 'bar'});
+ * const {setTheme, getTheme, LocalRoot, getVariable, setVariable} = useLocalTheme();
  * const setThemeIvory = () => {
  *   setTheme({foo: 'ivory'});
  *   console.log('full theme', getTheme()) // => {foo: 'ivory'};
  *   console.log('foo value', getVariable('foo')) // => 'ivory';
  *};
- * return <LocalRoot className="demo-local">//...
+ * return <LocalRoot theme={{foo: 'bar'}} className="demo-local">//...
  */
-export const useLocalTheme = <TTheme extends ThemeType>(theme: TTheme, elementType: string = 'div') => {
-    const themeRef = useRef(theme);
+export const useLocalTheme = <TTheme extends ThemeType>() => {
+    const themeRef = useRef<TTheme>();
     const elementRef = useRef<HTMLElement>(null);
 
     const setTheme = useCallback((nextTheme: TTheme) => {
@@ -38,24 +40,17 @@ export const useLocalTheme = <TTheme extends ThemeType>(theme: TTheme, elementTy
         themeRef.current = {...themeRef.current, [variableName]: variableValue};
     }, []);
 
-    const style = createStyleObject(themeRef.current);
-
-    const LocalRoot: FC<
-        JSX.IntrinsicAttributes & HTMLAttributes<HTMLElement> & {children?: ReactNode; className?: string}
-    > = props => {
-        // This is needed to fix an error introduced in version 0.6.14.
-        // Props were not transported to returned HTMLElement.
-        const {children, ...restProps} = props;
-        return createElement(elementType, {...restProps, ref: elementRef, style}, children);
-    };
-
     return {
         /** Effect to apply new theme to LocalRoot */
         setTheme,
         /** Get current theme set for LocalRoot */
         getTheme,
         /** Wrapper component which creates DOM node to store theme data */
-        LocalRoot,
+        LocalRoot: ({children, ...restProps}: Omit<LocalRootProps, 'setTheme'>) => (
+            <LocalRoot {...restProps} setTheme={setTheme} ref={elementRef}>
+                {children}
+            </LocalRoot>
+        ),
         /** React Mutable Ref object attached to LocalRoot */
         ref: elementRef,
         /** Get variable value within LocalRoot theme */

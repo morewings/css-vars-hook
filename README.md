@@ -138,7 +138,7 @@ const Component = () => {
 
 ### Change theme from outside
 
-Themes can also be applied outside the hook in an idiomatic React way. Please note, that this way will make application rerender at least once.
+Themes can also be applied outside the hook in an idiomatic React way. Please note, that this way will make application rerender at least once. This way changes **are preserved when component re-renders**.
 
 ```jsx
 import React, {Fragment, useState, useCallback} from 'react';
@@ -190,15 +190,15 @@ declare module 'css-vars-hook' {
 
 ### Set up a local theme
 
-In order to set local theme you need to wrap your component with `LocalRoot` component which is returned by `useLocalThemeHook`.
+In order to set local theme you need to wrap your component with `LocalRoot` component which is returned by `useLocalTheme` hook.
 
 ```jsx
 import {useLocalTheme} from 'css-vars-hook';
 
 const Component = () => {
-    const {LocalRoot, setTheme} = useLocalTheme({boxColor: 'yellow'});
+    const {LocalRoot, setTheme} = useLocalTheme();
     const setDarkMode = setTheme({boxColor: 'darkYellow'});
-    return <LocalRoot>{/*...*/}</LocalRoot>
+    return <LocalRoot theme={{boxColor: 'yellow'}}>{/*...*/}</LocalRoot>
 }
 ```
 
@@ -206,15 +206,22 @@ Outside different wrapping strategies this hook is similar to `useRootTheme`.
 
 ### Customize `LocalRoot` element
 
-By default `LocalRoot` is rendered as a `div` HTMLElement. You can provide custom element type (`button`, `span`, e. t. c.) as a second parameter to the hook.
+By default `LocalRoot` is rendered as a `div` HTMLElement. You can provide custom element type (`button`, `span`, e. t. c.) by changing `as` prop of `LocalRoot`.
 
 ```jsx
 import {useLocalTheme} from 'css-vars-hook';
 
 const Component = () => {
-    const {LocalRoot: Button, setTheme} = useLocalTheme({boxColor: 'yellow'}, 'button');
+    const {LocalRoot: Button, setTheme} = useLocalTheme();
     const setDarkMode = setTheme({boxColor: 'darkYellow'});
-    return <Button onClick={() => {setDarkMode()}}>Set dark mode</Button>
+    return (
+      <Button 
+        theme={{boxColor: 'yellow'}} 
+        as="button" 
+        onClick={() => {setDarkMode()}}>
+        Set dark mode
+      </Button>
+    )
 }
 ```
 

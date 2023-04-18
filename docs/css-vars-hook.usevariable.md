@@ -24,5 +24,5 @@ useVariable: (name: string, value: string) => {
 
 ## Example
 
-const {<!-- -->getVariable, setVariable, LocalRoot<!-- -->} = useLocalTheme(theme)
+const {<!-- -->getVariable, setVariable, LocalRoot<!-- -->} = useLocalTheme()
 

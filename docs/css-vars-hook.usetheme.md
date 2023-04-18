@@ -26,5 +26,5 @@ useTheme: (theme: Record<string, string>) => {
 
 ## Example
 
-const {<!-- -->getTheme, setTheme, LocalRoot<!-- -->} = useLocalTheme(theme)
+const {<!-- -->getTheme, setTheme, LocalRoot<!-- -->} = useLocalTheme()
 

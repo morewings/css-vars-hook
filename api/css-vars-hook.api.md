@@ -11,8 +11,18 @@ import { CSSProperties } from 'react';
 import type { FC } from 'react';
 import type { HTMLAttributes } from 'react';
 import { MutableRefObject } from 'react';
+import { default as React_2 } from 'react';
 import type { ReactNode } from 'react';
 import { ThemeType } from 'css-vars-hook';
+
+// @public (undocumented)
+export type LocalRootProps<TTheme extends Record<string, string> = Record<string, string>> = JSX.IntrinsicAttributes & HTMLAttributes<HTMLElement> & {
+    children?: ReactNode;
+    className?: string;
+    as?: string;
+    theme?: TTheme;
+    setTheme?: (arg0: TTheme) => void;
+};
 
 // @public
 export const ROOT_ID = "root-theme";
@@ -24,14 +34,11 @@ export const RootThemeProvider: FC<{
 }>;
 
 // @public
-export const useLocalTheme: <TTheme extends ThemeType>(theme: TTheme, elementType?: string) => {
+export const useLocalTheme: <TTheme extends ThemeType>() => {
     setTheme: (nextTheme: TTheme) => void;
     getTheme: () => TTheme;
-    LocalRoot: FC<JSX.IntrinsicAttributes & HTMLAttributes<HTMLElement> & {
-        children?: ReactNode;
-        className?: string;
-    }>;
-    ref: MutableRefObject<HTMLElement>;
+    LocalRoot: ({ children, ...restProps }: Omit<LocalRootProps, 'setTheme'>) => JSX.Element;
+    ref: React_2.MutableRefObject<HTMLElement>;
     getVariable: (variableName: string) => string;
     setVariable: (variableName: string, variableValue: string) => void;
 };

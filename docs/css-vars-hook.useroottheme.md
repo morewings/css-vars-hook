@@ -9,7 +9,7 @@ React hook to apply multiple CSS variables to theme root and manipulate them. `T
 **Signature:**
 
 ```typescript
-useRootTheme: () => {
+useRootThemePublic: () => {
     setTheme: (nextTheme: import("css-vars-hook").ThemeType) => void;
     getTheme: () => import("css-vars-hook").ThemeType;
     setVariable: (variableName: string, value: string) => void;
