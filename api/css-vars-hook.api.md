@@ -34,7 +34,7 @@ export const RootThemeProvider: FC<{
 }>;
 
 // @public
-export const useLocalTheme: <TTheme extends ThemeType>() => {
+export const useLocalTheme: <TTheme extends Record<string, string>>() => {
     setTheme: (nextTheme: TTheme) => void;
     getTheme: () => TTheme;
     LocalRoot: ({ children, ...restProps }: Omit<LocalRootProps, 'setTheme'>) => JSX.Element;

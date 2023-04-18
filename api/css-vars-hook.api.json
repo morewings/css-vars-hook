@@ -372,12 +372,12 @@
             },
             {
               "kind": "Reference",
-              "text": "ThemeType",
-              "canonicalReference": "!\"\\\"css-vars-hook\\\"\".ThemeType:type"
+              "text": "Record",
+              "canonicalReference": "!Record:type"
             },
             {
               "kind": "Content",
-              "text": ">() => {\n    setTheme: (nextTheme: TTheme) => void;\n    getTheme: () => TTheme;\n    LocalRoot: ({ children, ...restProps }: "
+              "text": "<string, string>>() => {\n    setTheme: (nextTheme: TTheme) => void;\n    getTheme: () => TTheme;\n    LocalRoot: ({ children, ...restProps }: "
             },
             {
               "kind": "Reference",

@@ -15,3 +15,9 @@
 |  [useTheme](./css-vars-hook.usetheme.md) |  |
 |  [useVariable](./css-vars-hook.usevariable.md) |  |
 
+## Type Aliases
+
+|  Type Alias | Description |
+|  --- | --- |
+|  [LocalRootProps](./css-vars-hook.localrootprops.md) |  |
+

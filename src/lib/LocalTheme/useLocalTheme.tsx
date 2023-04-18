@@ -1,5 +1,4 @@
 import {useCallback, useRef} from 'react';
-import type {ThemeType} from 'css-vars-hook';
 import React from 'react';
 
 import {setCSSVariable} from '../utils';
@@ -19,7 +18,7 @@ import {LocalRoot} from './LocalRoot';
  *};
  * return <LocalRoot theme={{foo: 'bar'}} className="demo-local">//...
  */
-export const useLocalTheme = <TTheme extends ThemeType>() => {
+export const useLocalTheme = <TTheme extends Record<string, string>>() => {
     const themeRef = useRef<TTheme>();
     const elementRef = useRef<HTMLElement>(null);
 
