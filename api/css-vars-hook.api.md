@@ -15,6 +15,15 @@ import { default as React_2 } from 'react';
 import type { ReactNode } from 'react';
 import { ThemeType } from 'css-vars-hook';
 
+// @public (undocumented)
+export type LocalRootProps<TTheme extends Record<string, string> = Record<string, string>> = JSX.IntrinsicAttributes & HTMLAttributes<HTMLElement> & {
+    children?: ReactNode;
+    className?: string;
+    as?: string;
+    theme?: TTheme;
+    setTheme?: (arg0: TTheme) => void;
+};
+
 // @public
 export const ROOT_ID = "root-theme";
 
@@ -64,10 +73,6 @@ export const useVariable: (name: string, value: string) => {
     getVariable: (variableName: string) => string;
     removeVariable: (variableName: string) => void;
 };
-
-// Warnings were encountered during analysis:
-//
-// types/LocalTheme/useLocalTheme.d.ts:23:5 - (ae-forgotten-export) The symbol "LocalRootProps" needs to be exported by the entry point index.d.ts
 
 // (No @packageDocumentation comment for this package)
 
