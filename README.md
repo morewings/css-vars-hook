@@ -186,7 +186,7 @@ declare module 'css-vars-hook' {
 
 ## `useLocalTheme`
 
-`useLocalTheme` applies theme locally to the wrapped React components.
+`useLocalTheme` applies theme locally to the wrapped React components. See [API docs](https://github.com/morewings/css-vars-hook/blob/master/docs/css-vars-hook.uselocaltheme.md).
 
 ### Set up a local theme
 
