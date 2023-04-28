@@ -213,12 +213,14 @@ import {useLocalTheme} from 'css-vars-hook';
 
 const Component = () => {
     const {LocalRoot: Button, setTheme} = useLocalTheme();
-    const setDarkMode = setTheme({boxColor: 'darkYellow'});
+    const setDarkMode = () => {
+      setTheme({boxColor: 'darkYellow'})
+    };
     return (
       <Button 
         theme={{boxColor: 'yellow'}} 
         as="button" 
-        onClick={() => {setDarkMode()}}>
+        onClick={setDarkMode}>
         Set dark mode
       </Button>
     )
