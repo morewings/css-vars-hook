@@ -229,7 +229,7 @@ const Component = () => {
 
 ### Type safety
 
-Local theme type is inferred from the theme parameter provided to `useLocalTheme`.
+Local theme type is inferred from corresponding `LocalRoot` prop.
 
 ## `useTheme` **DEPRECATED**
 
