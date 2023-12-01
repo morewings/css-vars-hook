@@ -16,7 +16,7 @@ import type { ReactNode } from 'react';
 import { ThemeType } from 'css-vars-hook';
 
 // @public (undocumented)
-export type LocalRootProps<TTheme extends Record<string, string> = Record<string, string>> = JSX.IntrinsicAttributes & HTMLAttributes<HTMLElement> & {
+export type LocalRootProps<TTheme extends Record<string, UnitType> = Record<string, UnitType>> = JSX.IntrinsicAttributes & HTMLAttributes<HTMLElement> & {
     children?: ReactNode;
     className?: string;
     as?: string;
@@ -33,21 +33,24 @@ export const RootThemeProvider: FC<{
     theme: ThemeType;
 }>;
 
+// @public (undocumented)
+export type UnitType = string | number;
+
 // @public
-export const useLocalTheme: <TTheme extends Record<string, string>>() => {
+export const useLocalTheme: <TTheme extends Record<string, UnitType>>() => {
     setTheme: (nextTheme: TTheme) => void;
     getTheme: () => TTheme;
     LocalRoot: ({ children, ...restProps }: Omit<LocalRootProps, 'setTheme'>) => JSX.Element;
     ref: React_2.MutableRefObject<HTMLElement>;
-    getVariable: (variableName: string) => string;
-    setVariable: (variableName: string, variableValue: string) => void;
+    getVariable: (variableName: string) => UnitType;
+    setVariable: (variableName: string, variableValue: UnitType) => void;
 };
 
 // @public
 export const useRootTheme: () => {
     setTheme: (nextTheme: ThemeType) => void;
     getTheme: () => ThemeType;
-    setVariable: (variableName: string, value: string) => void;
+    setVariable: (variableName: string, value: UnitType) => void;
     getVariable: (variableName: string) => string;
     removeVariable: (variableName: string) => void;
 };
@@ -57,7 +60,7 @@ export const useTheme: (theme: Record<string, string>) => {
     ref: MutableRefObject<HTMLElement>;
     setRef: (element: HTMLElement) => void;
     style: CSSProperties;
-    setVariable: (variableName: string, value: string) => void;
+    setVariable: (variableName: string, value: UnitType) => void;
     getVariable: (variableName: string) => string;
     removeVariable: (variableName: string) => void;
     getTheme: () => Record<string, string>;
@@ -69,7 +72,7 @@ export const useVariable: (name: string, value: string) => {
     ref: MutableRefObject<HTMLElement>;
     setRef: (element: HTMLElement) => void;
     style: CSSProperties;
-    setVariable: (variableName: string, value: string) => void;
+    setVariable: (variableName: string, value: UnitType) => void;
     getVariable: (variableName: string) => string;
     removeVariable: (variableName: string) => void;
 };

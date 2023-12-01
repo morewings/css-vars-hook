@@ -4,6 +4,7 @@ import type {ThemeType} from 'css-vars-hook';
 
 import {createStyleObject, getRootVariable, removeRootVariable, setRootVariable} from '../utils';
 import type {HookInterface} from './HookInterfaceType';
+import type {UnitType} from '../UnitType';
 
 /**
  * @private
@@ -23,7 +24,7 @@ export const useRootTheme = (theme: ThemeType): HookInterface & {style: CSSPrope
     const getTheme = useCallback(() => themeRef.current, []);
 
     const getVariable = useCallback((variableName: string) => getRootVariable(variableName), []);
-    const setVariable = useCallback((variableName: string, value: string) => {
+    const setVariable = useCallback((variableName: string, value: UnitType) => {
         setRootVariable(variableName, value);
         themeRef.current = {
             ...themeRef.current,

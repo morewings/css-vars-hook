@@ -9,13 +9,13 @@ React hook to apply multiple CSS variables to generated local root element (Loca
 **Signature:**
 
 ```typescript
-useLocalTheme: <TTheme extends Record<string, string>>() => {
+useLocalTheme: <TTheme extends Record<string, UnitType>>() => {
     setTheme: (nextTheme: TTheme) => void;
     getTheme: () => TTheme;
     LocalRoot: ({ children, ...restProps }: Omit<LocalRootProps, 'setTheme'>) => JSX.Element;
     ref: React.MutableRefObject<HTMLElement>;
-    getVariable: (variableName: string) => string;
-    setVariable: (variableName: string, variableValue: string) => void;
+    getVariable: (variableName: string) => UnitType;
+    setVariable: (variableName: string, variableValue: UnitType) => void;
 }
 ```
 

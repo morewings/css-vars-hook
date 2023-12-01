@@ -7,7 +7,7 @@
 **Signature:**
 
 ```typescript
-export type LocalRootProps<TTheme extends Record<string, string> = Record<string, string>> = JSX.IntrinsicAttributes & HTMLAttributes<HTMLElement> & {
+export type LocalRootProps<TTheme extends Record<string, UnitType> = Record<string, UnitType>> = JSX.IntrinsicAttributes & HTMLAttributes<HTMLElement> & {
     children?: ReactNode;
     className?: string;
     as?: string;
@@ -15,3 +15,5 @@ export type LocalRootProps<TTheme extends Record<string, string> = Record<string
     setTheme?: (arg0: TTheme) => void;
 };
 ```
+**References:** [UnitType](./css-vars-hook.unittype.md)
+

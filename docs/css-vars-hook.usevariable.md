@@ -16,7 +16,7 @@ useVariable: (name: string, value: string) => {
     ref: import("react").MutableRefObject<HTMLElement>;
     setRef: (element: HTMLElement) => void;
     style: import("react").CSSProperties;
-    setVariable: (variableName: string, value: string) => void;
+    setVariable: (variableName: string, value: import("./UnitType").UnitType) => void;
     getVariable: (variableName: string) => string;
     removeVariable: (variableName: string) => void;
 }

@@ -12,7 +12,7 @@ React hook to apply multiple CSS variables to theme root and manipulate them. `T
 useRootThemePublic: () => {
     setTheme: (nextTheme: import("css-vars-hook").ThemeType) => void;
     getTheme: () => import("css-vars-hook").ThemeType;
-    setVariable: (variableName: string, value: string) => void;
+    setVariable: (variableName: string, value: import("..").UnitType) => void;
     getVariable: (variableName: string) => string;
     removeVariable: (variableName: string) => void;
 }

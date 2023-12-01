@@ -4,6 +4,7 @@ import React from 'react';
 import {setCSSVariable} from '../utils';
 import type {LocalRootProps} from './LocalRoot';
 import {LocalRoot} from './LocalRoot';
+import type {UnitType} from '../UnitType';
 
 /**
  * @public
@@ -18,7 +19,7 @@ import {LocalRoot} from './LocalRoot';
  *};
  * return <LocalRoot theme={{foo: 'bar'}} className="demo-local">//...
  */
-export const useLocalTheme = <TTheme extends Record<string, string>>() => {
+export const useLocalTheme = <TTheme extends Record<string, UnitType>>() => {
     const themeRef = useRef<TTheme>();
     const elementRef = useRef<HTMLElement>(null);
 
@@ -34,7 +35,7 @@ export const useLocalTheme = <TTheme extends Record<string, string>>() => {
 
     const getVariable = useCallback((variableName: string) => themeRef.current[variableName], []);
 
-    const setVariable = useCallback((variableName: string, variableValue: string) => {
+    const setVariable = useCallback((variableName: string, variableValue: UnitType) => {
         setCSSVariable(elementRef)(variableName, variableValue);
         themeRef.current = {...themeRef.current, [variableName]: variableValue};
     }, []);

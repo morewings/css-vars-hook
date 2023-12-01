@@ -20,4 +20,5 @@
 |  Type Alias | Description |
 |  --- | --- |
 |  [LocalRootProps](./css-vars-hook.localrootprops.md) |  |
+|  [UnitType](./css-vars-hook.unittype.md) |  |
 
