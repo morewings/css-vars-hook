@@ -1,5 +1,5 @@
 import type {FC, ReactNode} from 'react';
-import React, {useMemo, useEffect} from 'react';
+import React, {useMemo} from 'react';
 import type {ThemeType} from 'css-vars-hook';
 
 import {ROOT_ID} from '../config';
@@ -22,10 +22,6 @@ export const RootThemeProvider: FC<{children: ReactNode; theme: ThemeType}> = ({
         () => ({setTheme, getTheme, getVariable, setVariable, removeVariable}),
         [setTheme, getTheme, getVariable, setVariable, removeVariable]
     );
-
-    useEffect(() => {
-        setTheme(theme);
-    }, [theme, setTheme]);
 
     return (
         <Provider value={actions}>
