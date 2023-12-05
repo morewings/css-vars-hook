@@ -43,7 +43,7 @@ export const Mouse: FC = () => {
                     title="Happy cursor friend"
                 />
             </LocalRoot>
-            <div className={classes.count}>Render count: {renderCount}</div>
+            <div className={classes.count}>Reconciliation count: {renderCount}</div>
         </div>
     );
 };

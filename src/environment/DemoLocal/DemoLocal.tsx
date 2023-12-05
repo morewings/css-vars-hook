@@ -80,7 +80,7 @@ export const DemoLocal = () => {
                     </button>
 
                     <div className={classes['count']}>
-                        Rerender count: <strong>{renderCount}</strong>
+                        Reconciliation count: <strong>{renderCount}</strong>
                     </div>
                 </fieldset>
             </div>

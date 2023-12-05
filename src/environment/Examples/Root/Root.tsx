@@ -67,7 +67,7 @@ export const Root = () => {
                     </button>
                 </fieldset>
                 <div className={classes.count}>
-                    Rerender count: <strong>{renderCount}</strong>
+                    Reconciliation count: <strong>{renderCount}</strong>
                 </div>
             </div>
             <div className={classes.testingArea}>

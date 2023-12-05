@@ -125,7 +125,7 @@ export const Style: FC = () => {
                         defaultValue={initialColor}
                     />
                 </div>
-                <div className={classes.count}>Render count: {renderCount}</div>
+                <div className={classes.count}>Reconciliation count: {renderCount}</div>
             </div>
             <LocalRoot
                 theme={{

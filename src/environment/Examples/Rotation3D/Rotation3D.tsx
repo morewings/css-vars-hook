@@ -104,7 +104,7 @@ export const Rotation3D: FC = () => {
                         <option className={classes.mark} value="180" label="180°"></option>
                     </datalist>
                 </div>
-                <div className={classes.count}>Render count: {renderCount}</div>
+                <div className={classes.count}>Reconciliation count: {renderCount}</div>
             </div>
             <LocalRoot
                 theme={{
