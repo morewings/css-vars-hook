@@ -40,7 +40,7 @@ export type UnitType = string | number;
 export const useLocalTheme: <TTheme extends Record<string, UnitType>>() => {
     setTheme: (nextTheme: TTheme) => void;
     getTheme: () => TTheme;
-    LocalRoot: ({ children, ...restProps }: Omit<LocalRootProps, 'setTheme'>) => JSX.Element;
+    LocalRoot: ({ children, ...restProps }: Omit<LocalRootProps, 'setTheme'>) => React_2.JSX.Element;
     ref: React_2.MutableRefObject<HTMLElement>;
     getVariable: (variableName: string) => UnitType;
     setVariable: (variableName: string, variableValue: UnitType) => void;

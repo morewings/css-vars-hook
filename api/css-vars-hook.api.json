@@ -1,7 +1,7 @@
 {
   "metadata": {
     "toolPackage": "@microsoft/api-extractor",
-    "toolVersion": "7.36.0",
+    "toolVersion": "7.38.3",
     "schemaVersion": 1011,
     "oldestForwardsCompatibleVersion": 1001,
     "tsdocConfig": {
@@ -452,8 +452,8 @@
             },
             {
               "kind": "Reference",
-              "text": "JSX.Element",
-              "canonicalReference": "@types/react!__global.JSX.Element:interface"
+              "text": "React.JSX.Element",
+              "canonicalReference": "@types/react!React.JSX.Element:interface"
             },
             {
               "kind": "Content",
