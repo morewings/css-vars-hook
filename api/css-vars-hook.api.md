@@ -31,6 +31,7 @@ export const ROOT_ID = "root-theme";
 export const RootThemeProvider: FC<{
     children: ReactNode;
     theme: ThemeType;
+    className?: string;
 }>;
 
 // @public (undocumented)

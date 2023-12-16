@@ -363,7 +363,7 @@
             },
             {
               "kind": "Content",
-              "text": ";\n}>"
+              "text": ";\n    className?: string;\n}>"
             }
           ],
           "fileUrlPath": "types/RootTheme/RootThemeProvider.d.ts",

@@ -13,7 +13,11 @@ import {useRootTheme} from './useRootTheme';
  * @see ThemeType
  * @see https://github.com/morewings/css-vars-hook#type-safety
  */
-export const RootThemeProvider: FC<{children: ReactNode; theme: ThemeType}> = ({children, theme}) => {
+export const RootThemeProvider: FC<{children: ReactNode; theme: ThemeType; className?: string}> = ({
+    children,
+    theme,
+    className,
+}) => {
     const {setTheme, style, getTheme, getVariable, setVariable, removeVariable} = useRootTheme(theme);
 
     const {Provider} = RootContext;
@@ -29,7 +33,7 @@ export const RootThemeProvider: FC<{children: ReactNode; theme: ThemeType}> = ({
 
     return (
         <Provider value={actions}>
-            <div id={ROOT_ID} style={style}>
+            <div id={ROOT_ID} className={className} style={style}>
                 {children}
             </div>
         </Provider>
