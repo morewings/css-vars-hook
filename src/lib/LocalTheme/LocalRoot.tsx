@@ -1,5 +1,5 @@
 import type {HTMLAttributes, ReactNode} from 'react';
-import {createElement, forwardRef, useEffect, useRef, useMemo} from 'react';
+import {createElement, forwardRef, useEffect, useRef, useMemo, memo} from 'react';
 
 import {createStyleObject} from '../utils';
 import type {UnitType} from '../UnitType';
@@ -18,19 +18,23 @@ export type LocalRootProps<TTheme extends Record<string, UnitType> = Record<stri
             setTheme?: (arg0: TTheme) => void;
         };
 
-export const LocalRoot = forwardRef<HTMLElement, LocalRootProps>((props, ref) => {
-    // This is needed to fix an error introduced in version 0.6.14.
-    // Props were not transported to returned HTMLElement.
-    const {children, as = 'div', theme = {}, setTheme = () => {}, ...restProps} = props;
+export const LocalRoot = memo(
+    forwardRef<HTMLElement, LocalRootProps>((props, ref) => {
+        // This is needed to fix an error introduced in version 0.6.14.
+        // Props were not transported to returned HTMLElement.
+        const {children, as = 'div', theme = {}, setTheme = () => {}, ...restProps} = props;
 
-    // const initialStyle = useRef(createStyleObject(theme));
+        // const initialStyle = useRef(createStyleObject(theme));
 
-    /* eslint-disable-next-line react-hooks/exhaustive-deps */
-    const initialStyle = useMemo(() => createStyleObject(theme), []);
+        /* eslint-disable-next-line react-hooks/exhaustive-deps */
+        const initialStyle = useMemo(() => createStyleObject(theme), []);
 
-    useEffect(() => {
-        setTheme(theme);
-    }, [theme, setTheme]);
+        useEffect(() => {
+            setTheme(theme);
+        }, [theme, setTheme]);
 
-    return createElement(as, {...restProps, style: initialStyle, ref}, children);
-});
+        return createElement(as, {...restProps, style: initialStyle, ref}, children);
+    })
+);
+
+LocalRoot.displayName = 'LocalRoot';
