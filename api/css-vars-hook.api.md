@@ -10,13 +10,14 @@
 import { CSSProperties } from 'react';
 import type { FC } from 'react';
 import type { HTMLAttributes } from 'react';
+import type { JSX as JSX_2 } from 'react';
 import { MutableRefObject } from 'react';
 import { default as React_2 } from 'react';
 import type { ReactNode } from 'react';
 import { ThemeType } from 'css-vars-hook';
 
 // @public (undocumented)
-export type LocalRootProps<TTheme extends Record<string, UnitType> = Record<string, UnitType>> = JSX.IntrinsicAttributes & HTMLAttributes<HTMLElement> & {
+export type LocalRootProps<TTheme extends Record<string, UnitType> = Record<string, UnitType>> = JSX_2.IntrinsicAttributes & HTMLAttributes<HTMLElement> & {
     children?: ReactNode;
     className?: string;
     as?: string;

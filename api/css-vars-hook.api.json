@@ -243,7 +243,7 @@
             {
               "kind": "Reference",
               "text": "JSX.IntrinsicAttributes",
-              "canonicalReference": "@types/react!__global.JSX.IntrinsicAttributes:interface"
+              "canonicalReference": "@types/react!React.JSX.IntrinsicAttributes:interface"
             },
             {
               "kind": "Content",
