@@ -1,5 +1,5 @@
 import type {HTMLAttributes, ReactNode, JSX} from 'react';
-import {createElement, forwardRef, useEffect, useMemo, memo} from 'react';
+import {createElement, forwardRef, useEffect, useMemo} from 'react';
 
 import {createStyleObject} from '../utils';
 import type {UnitType} from '../UnitType';

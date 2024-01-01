@@ -430,7 +430,16 @@
             },
             {
               "kind": "Content",
-              "text": ">>() => {\n    setTheme: (nextTheme: TTheme) => void;\n    getTheme: () => TTheme;\n    LocalRoot: ({ children, ...restProps }: "
+              "text": ">>() => {\n    setTheme: (nextTheme: TTheme) => void;\n    getTheme: () => TTheme;\n    LocalRoot: "
+            },
+            {
+              "kind": "Reference",
+              "text": "React.MemoExoticComponent",
+              "canonicalReference": "@types/react!React.MemoExoticComponent:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<({ children, ...restProps }: "
             },
             {
               "kind": "Reference",
@@ -457,7 +466,7 @@
             },
             {
               "kind": "Content",
-              "text": ";\n    ref: "
+              "text": ">;\n    ref: "
             },
             {
               "kind": "Reference",
@@ -502,7 +511,7 @@
           "name": "useLocalTheme",
           "variableTypeTokenRange": {
             "startIndex": 1,
-            "endIndex": 20
+            "endIndex": 22
           }
         },
         {

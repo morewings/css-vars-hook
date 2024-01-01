@@ -47,11 +47,11 @@ export const useLocalTheme = <TTheme extends Record<string, UnitType>>() => {
         /** Get current theme set for LocalRoot */
         getTheme,
         /** Wrapper component which creates DOM node to store theme data */
-        LocalRoot: ({children, ...restProps}: Omit<LocalRootProps, 'setTheme'>) => (
+        LocalRoot: memo(({children, ...restProps}: Omit<LocalRootProps, 'setTheme'>) => (
             <LocalRootMemoized {...restProps} setTheme={setTheme} ref={elementRef}>
                 {children}
             </LocalRootMemoized>
-        ),
+        )),
         /** React Mutable Ref object attached to LocalRoot */
         ref: elementRef,
         /** Get variable value within LocalRoot theme */
