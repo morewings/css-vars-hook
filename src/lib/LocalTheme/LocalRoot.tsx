@@ -1,5 +1,5 @@
 import type {HTMLAttributes, ReactNode} from 'react';
-import {createElement, forwardRef, useEffect, useRef} from 'react';
+import {createElement, forwardRef, useEffect, useRef, useMemo} from 'react';
 
 import {createStyleObject} from '../utils';
 import type {UnitType} from '../UnitType';
@@ -23,11 +23,14 @@ export const LocalRoot = forwardRef<HTMLElement, LocalRootProps>((props, ref) =>
     // Props were not transported to returned HTMLElement.
     const {children, as = 'div', theme = {}, setTheme = () => {}, ...restProps} = props;
 
-    const initialStyle = useRef(createStyleObject(theme));
+    // const initialStyle = useRef(createStyleObject(theme));
+
+    /* eslint-disable-next-line react-hooks/exhaustive-deps */
+    const initialStyle = useMemo(() => createStyleObject(theme), []);
 
     useEffect(() => {
         setTheme(theme);
     }, [theme, setTheme]);
 
-    return createElement(as, {...restProps, style: initialStyle.current, ref}, children);
+    return createElement(as, {...restProps, style: initialStyle, ref}, children);
 });
