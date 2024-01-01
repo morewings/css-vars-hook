@@ -1,11 +1,9 @@
-import React, {useCallback, useRef, memo} from 'react';
+import React, {useCallback, useRef, memo, useMemo} from 'react';
 
 import {setCSSVariable} from '../utils';
 import type {LocalRootProps} from './LocalRoot';
 import {LocalRoot} from './LocalRoot';
 import type {UnitType} from '../UnitType';
-
-const LocalRootMemo = memo(LocalRoot);
 
 /**
  * @public
@@ -41,6 +39,8 @@ export const useLocalTheme = <TTheme extends Record<string, UnitType>>() => {
         themeRef.current = {...themeRef.current, [variableName]: variableValue};
     }, []);
 
+    const LocalRootMemoized = useMemo(() => LocalRoot, []);
+
     return {
         /** Effect to apply new theme to LocalRoot */
         setTheme,
@@ -48,9 +48,9 @@ export const useLocalTheme = <TTheme extends Record<string, UnitType>>() => {
         getTheme,
         /** Wrapper component which creates DOM node to store theme data */
         LocalRoot: ({children, ...restProps}: Omit<LocalRootProps, 'setTheme'>) => (
-            <LocalRootMemo {...restProps} setTheme={setTheme} ref={elementRef}>
+            <LocalRootMemoized {...restProps} setTheme={setTheme} ref={elementRef}>
                 {children}
-            </LocalRootMemo>
+            </LocalRootMemoized>
         ),
         /** React Mutable Ref object attached to LocalRoot */
         ref: elementRef,
