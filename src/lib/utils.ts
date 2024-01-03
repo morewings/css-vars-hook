@@ -18,7 +18,7 @@ const normalizeUnit = (unit: UnitType) => {
  */
 export const setCSSVariable = (ref: MutableRefObject<HTMLElement>) => (variableName: string, value: UnitType) => {
     const element = ref.current;
-    element && element.style.setProperty(`--${variableName}`, normalizeUnit(value));
+    element?.style?.setProperty?.(`--${variableName}`, normalizeUnit(value));
 };
 
 /** @function
@@ -27,7 +27,7 @@ export const setCSSVariable = (ref: MutableRefObject<HTMLElement>) => (variableN
  */
 export const removeCSSVariable = (ref: MutableRefObject<HTMLElement>) => (variableName: string) => {
     const element = ref.current;
-    element && element.style.removeProperty(`--${variableName}`);
+    element?.style?.removeProperty?.(`--${variableName}`);
 };
 
 /** @function
@@ -36,7 +36,7 @@ export const removeCSSVariable = (ref: MutableRefObject<HTMLElement>) => (variab
  */
 export const getCSSVariable = (ref: MutableRefObject<HTMLElement>) => (variableName: string) => {
     const element = ref.current;
-    return element && element.style.getPropertyValue(`--${variableName}`);
+    return element?.style?.getPropertyValue?.(`--${variableName}`);
 };
 
 /** @function
@@ -64,7 +64,7 @@ export const getRootElement = (): HTMLElement => document.getElementById(ROOT_ID
  */
 export const setRootVariable = (variableName: string, value: UnitType) => {
     const root = getRootElement();
-    root.style.setProperty(`--${variableName}`, normalizeUnit(value));
+    root?.style?.setProperty?.(`--${variableName}`, normalizeUnit(value));
 };
 
 /** @function
@@ -73,7 +73,7 @@ export const setRootVariable = (variableName: string, value: UnitType) => {
  */
 export const getRootVariable = (variableName: string): string => {
     const root = getRootElement();
-    return root.style.getPropertyValue(`--${variableName}`);
+    return root?.style?.getPropertyValue?.(`--${variableName}`);
 };
 
 /** @function
@@ -82,5 +82,5 @@ export const getRootVariable = (variableName: string): string => {
  */
 export const removeRootVariable = (variableName: string) => {
     const root = getRootElement();
-    root.style.removeProperty(`--${variableName}`);
+    root?.style?.removeProperty?.(`--${variableName}`);
 };
