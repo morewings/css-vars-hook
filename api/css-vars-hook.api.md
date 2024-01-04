@@ -4,22 +4,31 @@
 
 ```ts
 
-/// <reference types="react" />
 /// <reference types="types" />
 
-import { CSSProperties } from 'react';
+import type { AriaAttributes } from 'react';
 import type { FC } from 'react';
 import type { HTMLAttributes } from 'react';
-import type { JSX as JSX_2 } from 'react';
-import { MutableRefObject } from 'react';
 import { default as React_2 } from 'react';
 import type { ReactNode } from 'react';
 import { ThemeType } from 'css-vars-hook';
 
 // @public (undocumented)
-export type LocalRootProps<TTheme extends Record<string, UnitType> = Record<string, UnitType>> = JSX_2.IntrinsicAttributes & HTMLAttributes<HTMLElement> & {
+export type DataAttributeKey = `data-${string}`;
+
+// @public (undocumented)
+export type DataAttributes = Record<DataAttributeKey, string>;
+
+// @public (undocumented)
+export type LibraryProps<TElement = HTMLDivElement> = AriaAttributes & {
+    id?: string;
+    role?: HTMLAttributes<TElement>['role'];
+    className?: HTMLAttributes<TElement>['className'];
+};
+
+// @public (undocumented)
+export type LocalRootProps<TTheme extends Record<string, UnitType> = Record<string, UnitType>> = DataAttributes & LibraryProps & HTMLAttributes<HTMLElement> & {
     children?: ReactNode;
-    className?: string;
     as?: string;
     theme?: TTheme;
     setTheme?: (arg0: TTheme) => void;
@@ -29,11 +38,13 @@ export type LocalRootProps<TTheme extends Record<string, UnitType> = Record<stri
 export const ROOT_ID = "root-theme";
 
 // @public
-export const RootThemeProvider: FC<{
+export const RootThemeProvider: FC<RootThemeProviderProps>;
+
+// @public (undocumented)
+export type RootThemeProviderProps = DataAttributes & Omit<LibraryProps, 'id'> & {
     children: ReactNode;
     theme: ThemeType;
-    className?: string;
-}>;
+};
 
 // @public (undocumented)
 export type UnitType = string | number;
@@ -52,28 +63,6 @@ export const useLocalTheme: <TTheme extends Record<string, UnitType>>() => {
 export const useRootTheme: () => {
     setTheme: (nextTheme: ThemeType) => void;
     getTheme: () => ThemeType;
-    setVariable: (variableName: string, value: UnitType) => void;
-    getVariable: (variableName: string) => string;
-    removeVariable: (variableName: string) => void;
-};
-
-// @public @deprecated (undocumented)
-export const useTheme: (theme: Record<string, string>) => {
-    ref: MutableRefObject<HTMLElement>;
-    setRef: (element: HTMLElement) => void;
-    style: CSSProperties;
-    setVariable: (variableName: string, value: UnitType) => void;
-    getVariable: (variableName: string) => string;
-    removeVariable: (variableName: string) => void;
-    getTheme: () => Record<string, string>;
-    setTheme: (nextTheme: Record<string, string>) => void;
-};
-
-// @public @deprecated (undocumented)
-export const useVariable: (name: string, value: string) => {
-    ref: MutableRefObject<HTMLElement>;
-    setRef: (element: HTMLElement) => void;
-    style: CSSProperties;
     setVariable: (variableName: string, value: UnitType) => void;
     getVariable: (variableName: string) => string;
     removeVariable: (variableName: string) => void;

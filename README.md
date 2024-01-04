@@ -231,48 +231,6 @@ const Component = () => {
 
 Local theme type is inferred from corresponding `LocalRoot` prop.
 
-## `useTheme` **DEPRECATED**
-
-`useTheme` applies multiple CSS properties to given `HTMLElement`. See [API docs](https://github.com/morewings/css-vars-hook/blob/master/docs/css-vars-hook.uselocaltheme.md).
-
-```js
-import {useTheme} from 'css-vars-hook';
-
-const {
-  /* Theme container element setter. <div ref={setRef} /> */
-  setRef,
-  /* React ref. Use as theme container element getter only. */
-  ref,
-  /* Object containing style properties {'--foo': 'bar'}. Apply on target element
-  to prevent flash of unstyled content during server-side rendering.
-  <div style={style} ref={setRef} /> */
-  style,
-  /* Get variable value. function(variableName: string) => string */
-  getVariable,
-  /* Set variable value. function(variableName: string, value: (string|number)) => void */
-  setVariable,
-  /* Remove variable. function(variableName: string) => void */
-  removeVariable
-} = useTheme({foo: 'bar'});
-```
-
-## `useVariable` **DEPRECATED**
-
-`useVariable` applies single CSS property to given `HTMLElement`.
-
-```js
-import {useVariable} from 'css-vars-hook';
-
-const {
-  ref,
-  setRef,
-  style,
-  setVariable,
-  getVariable,
-  removeVariable
-} = useVariable('foo', 'bar');
-```
-
 
 
 

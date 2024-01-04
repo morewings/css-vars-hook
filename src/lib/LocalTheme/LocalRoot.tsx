@@ -1,22 +1,24 @@
-import type {HTMLAttributes, ReactNode, JSX} from 'react';
+import type {HTMLAttributes, ReactNode} from 'react';
 import {createElement, forwardRef, useEffect, useMemo} from 'react';
 
 import {createStyleObject} from '../utils';
+import type {DataAttributes, LibraryProps} from '../NativeProps';
 import type {UnitType} from '../UnitType';
 
-export type LocalRootProps<TTheme extends Record<string, UnitType> = Record<string, UnitType>> =
-    JSX.IntrinsicAttributes &
-        HTMLAttributes<HTMLElement> & {
-            children?: ReactNode;
-            /** Apply your own CSS class or use styled component styled(LocalRoot) */
-            className?: string;
-            /** Choose which HTMLElement to render as a root. div is default. */
-            as?: string;
-            /** Apply initial theme. */
-            theme?: TTheme;
-            /** Provide theme setter function. */
-            setTheme?: (arg0: TTheme) => void;
-        };
+/**
+ * @public
+ */
+export type LocalRootProps<TTheme extends Record<string, UnitType> = Record<string, UnitType>> = DataAttributes &
+    LibraryProps &
+    HTMLAttributes<HTMLElement> & {
+        children?: ReactNode;
+        /** Choose which HTMLElement to render as a root. div is default. */
+        as?: string;
+        /** Apply initial theme. */
+        theme?: TTheme;
+        /** Provide theme setter function. */
+        setTheme?: (arg0: TTheme) => void;
+    };
 
 export const LocalRoot = forwardRef<HTMLElement, LocalRootProps>((props, ref) => {
     // This is needed to fix an error introduced in version 0.6.14.
