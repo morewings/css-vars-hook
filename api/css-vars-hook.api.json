@@ -242,8 +242,17 @@
             },
             {
               "kind": "Reference",
-              "text": "JSX.IntrinsicAttributes",
-              "canonicalReference": "@types/react!React.JSX.IntrinsicAttributes:interface"
+              "text": "DataAttributes",
+              "canonicalReference": "css-vars-hook!~DataAttributes:type"
+            },
+            {
+              "kind": "Content",
+              "text": " & "
+            },
+            {
+              "kind": "Reference",
+              "text": "LibraryProps",
+              "canonicalReference": "css-vars-hook!~LibraryProps:type"
             },
             {
               "kind": "Content",
@@ -274,7 +283,7 @@
             },
             {
               "kind": "Content",
-              "text": ";\n    className?: string;\n    as?: string;\n    theme?: TTheme;\n    setTheme?: (arg0: TTheme) => void;\n}"
+              "text": ";\n    as?: string;\n    theme?: TTheme;\n    setTheme?: (arg0: TTheme) => void;\n}"
             },
             {
               "kind": "Content",
@@ -299,7 +308,7 @@
           ],
           "typeTokenRange": {
             "startIndex": 11,
-            "endIndex": 19
+            "endIndex": 21
           }
         },
         {
@@ -345,25 +354,16 @@
             },
             {
               "kind": "Content",
-              "text": "<{\n    children: "
+              "text": "<"
             },
             {
               "kind": "Reference",
-              "text": "ReactNode",
-              "canonicalReference": "@types/react!React.ReactNode:type"
+              "text": "Props",
+              "canonicalReference": "css-vars-hook!~Props:type"
             },
             {
               "kind": "Content",
-              "text": ";\n    theme: "
-            },
-            {
-              "kind": "Reference",
-              "text": "ThemeType",
-              "canonicalReference": "!\"\\\"css-vars-hook\\\"\".ThemeType:type"
-            },
-            {
-              "kind": "Content",
-              "text": ";\n    className?: string;\n}>"
+              "text": ">"
             }
           ],
           "fileUrlPath": "types/RootTheme/RootThemeProvider.d.ts",
@@ -372,7 +372,7 @@
           "name": "RootThemeProvider",
           "variableTypeTokenRange": {
             "startIndex": 1,
-            "endIndex": 7
+            "endIndex": 5
           }
         },
         {
@@ -553,169 +553,6 @@
           "variableTypeTokenRange": {
             "startIndex": 1,
             "endIndex": 8
-          }
-        },
-        {
-          "kind": "Variable",
-          "canonicalReference": "css-vars-hook!useTheme:var",
-          "docComment": "/**\n * @deprecated\n *\n * `useLocalTheme` is recommended instead\n *\n * @example\n *\n * const {getTheme, setTheme, LocalRoot} = useLocalTheme()\n */\n",
-          "excerptTokens": [
-            {
-              "kind": "Content",
-              "text": "useTheme: "
-            },
-            {
-              "kind": "Content",
-              "text": "(theme: "
-            },
-            {
-              "kind": "Reference",
-              "text": "Record",
-              "canonicalReference": "!Record:type"
-            },
-            {
-              "kind": "Content",
-              "text": "<string, string>) => {\n    ref: import(\"react\")."
-            },
-            {
-              "kind": "Reference",
-              "text": "MutableRefObject",
-              "canonicalReference": "@types/react!React.MutableRefObject:interface"
-            },
-            {
-              "kind": "Content",
-              "text": "<"
-            },
-            {
-              "kind": "Reference",
-              "text": "HTMLElement",
-              "canonicalReference": "!HTMLElement:interface"
-            },
-            {
-              "kind": "Content",
-              "text": ">;\n    setRef: (element: "
-            },
-            {
-              "kind": "Reference",
-              "text": "HTMLElement",
-              "canonicalReference": "!HTMLElement:interface"
-            },
-            {
-              "kind": "Content",
-              "text": ") => void;\n    style: import(\"react\")."
-            },
-            {
-              "kind": "Reference",
-              "text": "CSSProperties",
-              "canonicalReference": "@types/react!React.CSSProperties:interface"
-            },
-            {
-              "kind": "Content",
-              "text": ";\n    setVariable: (variableName: string, value: import(\"./UnitType\")."
-            },
-            {
-              "kind": "Reference",
-              "text": "UnitType",
-              "canonicalReference": "css-vars-hook!UnitType:type"
-            },
-            {
-              "kind": "Content",
-              "text": ") => void;\n    getVariable: (variableName: string) => string;\n    removeVariable: (variableName: string) => void;\n    getTheme: () => "
-            },
-            {
-              "kind": "Reference",
-              "text": "Record",
-              "canonicalReference": "!Record:type"
-            },
-            {
-              "kind": "Content",
-              "text": "<string, string>;\n    setTheme: (nextTheme: "
-            },
-            {
-              "kind": "Reference",
-              "text": "Record",
-              "canonicalReference": "!Record:type"
-            },
-            {
-              "kind": "Content",
-              "text": "<string, string>) => void;\n}"
-            }
-          ],
-          "fileUrlPath": "types/useTheme.d.ts",
-          "isReadonly": true,
-          "releaseTag": "Public",
-          "name": "useTheme",
-          "variableTypeTokenRange": {
-            "startIndex": 1,
-            "endIndex": 18
-          }
-        },
-        {
-          "kind": "Variable",
-          "canonicalReference": "css-vars-hook!useVariable:var",
-          "docComment": "/**\n * @deprecated\n *\n * `useLocalTheme` is recommended instead\n *\n * @example\n *\n * const {getVariable, setVariable, LocalRoot} = useLocalTheme()\n */\n",
-          "excerptTokens": [
-            {
-              "kind": "Content",
-              "text": "useVariable: "
-            },
-            {
-              "kind": "Content",
-              "text": "(name: string, value: string) => {\n    ref: import(\"react\")."
-            },
-            {
-              "kind": "Reference",
-              "text": "MutableRefObject",
-              "canonicalReference": "@types/react!React.MutableRefObject:interface"
-            },
-            {
-              "kind": "Content",
-              "text": "<"
-            },
-            {
-              "kind": "Reference",
-              "text": "HTMLElement",
-              "canonicalReference": "!HTMLElement:interface"
-            },
-            {
-              "kind": "Content",
-              "text": ">;\n    setRef: (element: "
-            },
-            {
-              "kind": "Reference",
-              "text": "HTMLElement",
-              "canonicalReference": "!HTMLElement:interface"
-            },
-            {
-              "kind": "Content",
-              "text": ") => void;\n    style: import(\"react\")."
-            },
-            {
-              "kind": "Reference",
-              "text": "CSSProperties",
-              "canonicalReference": "@types/react!React.CSSProperties:interface"
-            },
-            {
-              "kind": "Content",
-              "text": ";\n    setVariable: (variableName: string, value: import(\"./UnitType\")."
-            },
-            {
-              "kind": "Reference",
-              "text": "UnitType",
-              "canonicalReference": "css-vars-hook!UnitType:type"
-            },
-            {
-              "kind": "Content",
-              "text": ") => void;\n    getVariable: (variableName: string) => string;\n    removeVariable: (variableName: string) => void;\n}"
-            }
-          ],
-          "fileUrlPath": "types/useVariable.d.ts",
-          "isReadonly": true,
-          "releaseTag": "Public",
-          "name": "useVariable",
-          "variableTypeTokenRange": {
-            "startIndex": 1,
-            "endIndex": 12
           }
         }
       ]
