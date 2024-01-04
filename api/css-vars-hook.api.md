@@ -13,9 +13,19 @@ import { default as React_2 } from 'react';
 import type { ReactNode } from 'react';
 import { ThemeType } from 'css-vars-hook';
 
-// Warning: (ae-forgotten-export) The symbol "DataAttributes" needs to be exported by the entry point index.d.ts
-// Warning: (ae-forgotten-export) The symbol "LibraryProps" needs to be exported by the entry point index.d.ts
-//
+// @public (undocumented)
+export type DataAttributeKey = `data-${string}`;
+
+// @public (undocumented)
+export type DataAttributes = Record<DataAttributeKey, string>;
+
+// @public (undocumented)
+export type LibraryProps<TElement = HTMLDivElement> = AriaAttributes & {
+    id?: string;
+    role?: HTMLAttributes<TElement>['role'];
+    className?: HTMLAttributes<TElement>['className'];
+};
+
 // @public (undocumented)
 export type LocalRootProps<TTheme extends Record<string, UnitType> = Record<string, UnitType>> = DataAttributes & LibraryProps & HTMLAttributes<HTMLElement> & {
     children?: ReactNode;

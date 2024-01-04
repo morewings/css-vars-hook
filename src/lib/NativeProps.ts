@@ -1,6 +1,6 @@
 import type {AriaAttributes, HTMLAttributes} from 'react';
 
-type DataAttributeKey = `data-${string}`;
+export type DataAttributeKey = `data-${string}`;
 
 export type DataAttributes = Record<DataAttributeKey, string>;
 
