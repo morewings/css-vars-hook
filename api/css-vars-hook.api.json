@@ -190,7 +190,7 @@
         {
           "kind": "TypeAlias",
           "canonicalReference": "css-vars-hook!LocalRootProps:type",
-          "docComment": "",
+          "docComment": "/**\n * @public\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
@@ -358,8 +358,8 @@
             },
             {
               "kind": "Reference",
-              "text": "Props",
-              "canonicalReference": "css-vars-hook!~Props:type"
+              "text": "RootThemeProviderProps",
+              "canonicalReference": "css-vars-hook!RootThemeProviderProps:type"
             },
             {
               "kind": "Content",
@@ -377,8 +377,75 @@
         },
         {
           "kind": "TypeAlias",
+          "canonicalReference": "css-vars-hook!RootThemeProviderProps:type",
+          "docComment": "/**\n * @public\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "export type RootThemeProviderProps = "
+            },
+            {
+              "kind": "Reference",
+              "text": "DataAttributes",
+              "canonicalReference": "css-vars-hook!~DataAttributes:type"
+            },
+            {
+              "kind": "Content",
+              "text": " & "
+            },
+            {
+              "kind": "Reference",
+              "text": "Omit",
+              "canonicalReference": "!Omit:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "LibraryProps",
+              "canonicalReference": "css-vars-hook!~LibraryProps:type"
+            },
+            {
+              "kind": "Content",
+              "text": ", 'id'> & {\n    children: "
+            },
+            {
+              "kind": "Reference",
+              "text": "ReactNode",
+              "canonicalReference": "@types/react!React.ReactNode:type"
+            },
+            {
+              "kind": "Content",
+              "text": ";\n    theme: "
+            },
+            {
+              "kind": "Reference",
+              "text": "ThemeType",
+              "canonicalReference": "!\"\\\"css-vars-hook\\\"\".ThemeType:type"
+            },
+            {
+              "kind": "Content",
+              "text": ";\n}"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "types/RootTheme/RootThemeProvider.d.ts",
+          "releaseTag": "Public",
+          "name": "RootThemeProviderProps",
+          "typeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 11
+          }
+        },
+        {
+          "kind": "TypeAlias",
           "canonicalReference": "css-vars-hook!UnitType:type",
-          "docComment": "",
+          "docComment": "/**\n * @public\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",

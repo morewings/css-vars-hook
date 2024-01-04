@@ -27,10 +27,14 @@ export type LocalRootProps<TTheme extends Record<string, UnitType> = Record<stri
 // @public
 export const ROOT_ID = "root-theme";
 
-// Warning: (ae-forgotten-export) The symbol "Props" needs to be exported by the entry point index.d.ts
-//
 // @public
-export const RootThemeProvider: FC<Props>;
+export const RootThemeProvider: FC<RootThemeProviderProps>;
+
+// @public (undocumented)
+export type RootThemeProviderProps = DataAttributes & Omit<LibraryProps, 'id'> & {
+    children: ReactNode;
+    theme: ThemeType;
+};
 
 // @public (undocumented)
 export type UnitType = string | number;

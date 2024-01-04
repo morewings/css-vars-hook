@@ -5,6 +5,9 @@ import {createStyleObject} from '../utils';
 import type {DataAttributes, LibraryProps} from '../NativeProps';
 import type {UnitType} from '../UnitType';
 
+/**
+ * @public
+ */
 export type LocalRootProps<TTheme extends Record<string, UnitType> = Record<string, UnitType>> = DataAttributes &
     LibraryProps &
     HTMLAttributes<HTMLElement> & {
