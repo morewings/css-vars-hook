@@ -4,8 +4,6 @@
 name: Node.js CI
 
 on:
-  #  push:
-  #    branches: [ master ]
   pull_request:
     branches: [ master ]
 
@@ -15,26 +13,46 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout
+        uses: actions/checkout@v4
+
       - name: Cancel Workflow Action
-        uses: styfle/cancel-workflow-action@0.10.1
+        uses: styfle/cancel-workflow-action@0.12.1
         with:
           access_token: ${{ github.token }}
+
       - name: Read .nvmrc
         run: echo ::set-output name=NVMRC::$(cat .nvmrc)
         id: nvm
+
       - name: Use Node.js ${{ steps.nvm.outputs.NVMRC }}
         uses: actions/setup-node@v3
         with:
           node-version: ${{ steps.nvm.outputs.NVMRC }}
-          cache: 'yarn'
-      - name: Run yarn tasks
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v3
+        with:
+          version: 8
+          run_install: false
+
+      - name: Get pnpm store directory
+        shell: bash
+        run: echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
+
+      - name: Setup pnpm cache
+        uses: actions/cache@v3
+        with:
+          path: ${{ env.STORE_PATH }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
+
+      - name: Run test tasks
         run: |
-          yarn install --frozen-lockfile --silent
-          yarn start --smoke-test
-          yarn build:lib
-          yarn build:types
-          yarn build:docs
-          yarn lint:code --quiet
-          yarn lint:tsc
-          yarn test --silent
+          pnpm install
+          pnpm run lint:style
+          pnpm run lint:code --quiet
+          pnpm run lint:types
+          pnpm run build
+          pnpm run build:demo

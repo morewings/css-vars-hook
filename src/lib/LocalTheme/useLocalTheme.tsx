@@ -1,4 +1,4 @@
-import React, {useCallback, useRef} from 'react';
+import {useCallback, useRef} from 'react';
 
 import {setCSSVariable} from '../utils';
 import type {LocalRootProps} from './LocalRoot';
@@ -18,13 +18,13 @@ import type {UnitType} from '../UnitType';
  *};
  * return <LocalRoot theme={{foo: 'bar'}} className="demo-local">//...
  */
-export const useLocalTheme = <TTheme extends Record<string, UnitType>>() => {
-    const themeRef = useRef<TTheme>();
+export const useLocalTheme = () => {
+    const themeRef = useRef<Record<string, UnitType>>();
     const elementRef = useRef<HTMLElement>(null);
 
-    const setTheme = useCallback((nextTheme: TTheme) => {
+    const setTheme = useCallback((nextTheme: Record<string, UnitType>) => {
         Object.keys(nextTheme).forEach((key: string) => {
-            setCSSVariable(elementRef)(key, nextTheme[key]);
+            setCSSVariable(elementRef.current!)(key, nextTheme[key]);
         });
 
         themeRef.current = nextTheme;
@@ -32,10 +32,10 @@ export const useLocalTheme = <TTheme extends Record<string, UnitType>>() => {
 
     const getTheme = useCallback(() => themeRef.current, []);
 
-    const getVariable = useCallback((variableName: string) => themeRef.current[variableName], []);
+    const getVariable = useCallback((variableName: string) => themeRef.current?.[variableName], []);
 
     const setVariable = useCallback((variableName: string, variableValue: UnitType) => {
-        setCSSVariable(elementRef)(variableName, variableValue);
+        setCSSVariable(elementRef.current!)(variableName, variableValue);
         themeRef.current = {...themeRef.current, [variableName]: variableValue};
     }, []);
 

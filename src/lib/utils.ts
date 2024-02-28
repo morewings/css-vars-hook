@@ -7,18 +7,15 @@ const normalizeUnit = (unit: UnitType) => {
     if (typeof unit === 'string') {
         return unit;
     }
-    if (typeof unit === 'number') {
-        return `${unit}`;
-    }
+    return `${unit}`;
 };
 
 /** @function
  * @name setCSSVariable
  * @description Set CSS variable at the provided DOM node
  */
-export const setCSSVariable = (ref: MutableRefObject<HTMLElement>) => (variableName: string, value: UnitType) => {
-    const element = ref.current;
-    element?.style?.setProperty?.(`--${variableName}`, normalizeUnit(value));
+export const setCSSVariable = (element: HTMLElement) => (variableName: string, value: UnitType) => {
+    element.style.setProperty(`--${variableName}`, normalizeUnit(value));
 };
 
 /** @function
@@ -45,7 +42,7 @@ export const getCSSVariable = (ref: MutableRefObject<HTMLElement>) => (variableN
  */
 export const createStyleObject = (theme: Record<string, UnitType>): CSSProperties => {
     const keys = Object.keys(theme);
-    const result = {};
+    const result = {} as Record<string, UnitType>;
     keys.forEach(key => {
         result[`--${key}`] = theme[key];
     });
@@ -56,7 +53,7 @@ export const createStyleObject = (theme: Record<string, UnitType>): CSSPropertie
  * @name getRootElement
  * @description Get theme root element in an SSR-safe way
  */
-export const getRootElement = (): HTMLElement => document.getElementById(ROOT_ID);
+export const getRootElement = (): HTMLElement => document.getElementById(ROOT_ID)!;
 
 /** @function
  * @name setRootVariable

@@ -1,0 +1,61 @@
+.box {
+    border: 1px solid red;
+    display: flex;
+    font-family: "Helvetica Neue", sans-serif;
+    margin-bottom: 24px;
+    padding: 8px 16px;
+    width: 100%;
+}
+
+.control {
+    margin-bottom: 24px;
+    margin-top: 12px;
+    width: 222px;
+}
+
+.label {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 12px;
+}
+
+.scale {
+    cursor: default;
+    display: flex;
+    flex-direction: column;
+    font-family: monospace;
+    font-size: 12px;
+    justify-content: space-between;
+    user-select: none;
+    width: 100%;
+    writing-mode: vertical-lr;
+}
+
+.mark {
+    padding: 0;
+}
+
+.input {
+    margin: 0;
+    width: 100%;
+}
+
+.testingArea {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
+    justify-content: center;
+}
+
+.demo {
+    background: var(--color);
+    border-radius: var(--radius);
+    height: var(--height);
+    width: var(--width);
+}
+
+.count {
+    margin-top: 12px;
+    text-align: right;
+}
