@@ -1,7 +1,2 @@
-#!/bin/sh
-. "$(dirname "$0")/_/husky.sh"
-
-yarn lint-staged
-yarn lint:tsc
-yarn update:types
-git add .
+npx lint-staged
+npm run lint:types

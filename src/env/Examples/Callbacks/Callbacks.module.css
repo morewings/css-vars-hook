@@ -1,0 +1,15 @@
+.box {
+    align-items: center;
+    border: 1px solid black;
+    display: flex;
+    flex-direction: row;
+    font-family: "Helvetica Neue", sans-serif;
+    justify-content: center;
+    margin-bottom: 24px;
+    padding: 16px;
+    width: 100%;
+}
+
+.button {
+    color: var(--color);
+}

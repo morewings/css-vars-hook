@@ -1,0 +1,45 @@
+.box {
+    /* justify-content: center; */
+    align-items: center;
+    border: 1px solid black;
+    display: flex;
+    flex-direction: row;
+    font-family: "Helvetica Neue", sans-serif;
+    margin-bottom: 24px;
+    padding: 16px;
+    width: 100%;
+}
+
+.controls {
+    border: none;
+    display: block;
+    padding: 0;
+}
+
+.controls pre {
+    background-color: #f5f5f5;
+    font-family: monospace;
+    padding: 6px 12px;
+}
+
+.testingArea {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
+    justify-content: center;
+}
+
+.demoComponent {
+    background: var(--boxColor);
+    border: 5px solid var(--borderColor);
+    height: 120px;
+    margin-top: 24px;
+    position: relative;
+    width: 120px;
+}
+
+.count {
+    margin-top: 12px;
+    text-align: right;
+}

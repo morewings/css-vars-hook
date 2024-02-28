@@ -1,0 +1,66 @@
+.vars {
+    --rotateY: 0;
+    --rotateX: 0;
+    --rotateZ: 0;
+}
+
+.scene {
+    border: 1px solid #ccc;
+    height: 200px;
+    margin: 80px;
+    perspective: 400px;
+    width: 200px;
+}
+
+.cube {
+    height: 200px;
+    position: relative;
+    transform: translateZ(-100px) rotateY(var(--rotateY)) rotateX(var(--rotateX)) rotateZ(var(--rotateZ));
+    transform-style: preserve-3d;
+    width: 200px;
+}
+
+.face {
+    border: 2px solid black;
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+    height: 200px;
+    line-height: 200px;
+
+    /* hack to enable edge antialising */
+    outline: 1px solid transparent;
+    position: absolute;
+    text-align: center;
+    width: 200px;
+}
+
+.front {
+    background: hsl(0deg 100% 50% / 70%);
+    transform: rotateY(0deg) translateZ(100px);
+}
+
+.right {
+    background: hsl(60deg 100% 50% / 70%);
+    transform: rotateY(90deg) translateZ(100px);
+}
+
+.back {
+    background: hsl(120deg 100% 50% / 70%);
+    transform: rotateY(180deg) translateZ(100px);
+}
+
+.left {
+    background: hsl(180deg 100% 50% / 70%);
+    transform: rotateY(-90deg) translateZ(100px);
+}
+
+.top {
+    background: hsl(240deg 100% 50% / 70%);
+    transform: rotateX(90deg) translateZ(100px);
+}
+
+.bottom {
+    background: hsl(300deg 100% 50% / 70%);
+    transform: rotateX(-90deg) translateZ(100px);
+}

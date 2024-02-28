@@ -1,21 +1,31 @@
 module.exports = {
-    parser: '@typescript-eslint/parser',
+    root: true,
+    env: {browser: true, es2020: true, node: true},
     parserOptions: {
-        ecmaFeatures: {
-            jsx: true,
-        },
-        ecmaVersion: 2018,
+        ecmaVersion: 'latest',
+        // eslint-disable-next-line no-undef
+        tsconfigRootDir: __dirname,
         sourceType: 'module',
-        project: './tsconfig.json',
+        project: './tsconfig.linter.json',
+    },
+    settings: {
+        react: {
+            version: 'detect',
+        },
     },
     extends: [
-        'plugin:@typescript-eslint/recommended-requiring-type-checking',
-        'react-app',
-        'react-app/jest',
+        'eslint:recommended',
+        'plugin:@typescript-eslint/recommended',
+        'plugin:@typescript-eslint/stylistic-type-checked',
+        'plugin:react/recommended',
+        'plugin:react/jsx-runtime',
+        'plugin:react-hooks/recommended',
         'plugin:ssr-friendly/recommended',
+        'plugin:storybook/recommended',
         'plugin:prettier/recommended',
     ],
-    plugins: ['prettier', 'ssr-friendly'],
+    parser: '@typescript-eslint/parser',
+    plugins: ['import', 'prettier', '@typescript-eslint', 'ssr-friendly', 'react-refresh'],
     rules: {
         /**
          * Allow empty arrow functions `() => {}`, while keeping other empty functions restricted
@@ -35,7 +45,6 @@ module.exports = {
         /**
          * Enforce import order with empty lines between import group
          * @see https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/order.md
-         * @see https://git.naspersclassifieds.com/olxeu/pwa/shared/olx-ui-library/-/wikis/Imports-order-and-rules
          */
         'import/order': [
             'error',
@@ -43,7 +52,7 @@ module.exports = {
                 groups: ['builtin', 'external', 'internal', ['parent', 'sibling', 'index']],
                 pathGroups: [
                     {
-                        pattern: 'lib/**',
+                        pattern: '@/**',
                         group: 'internal',
                     },
                 ],
@@ -54,21 +63,83 @@ module.exports = {
          * Disallow combined module and type imports like this `import React, {FC} from 'react'`.
          * Eslint will try to split into type and module imports instead
          * @see https://typescript-eslint.io/rules/consistent-type-imports/
-         * @see https://git.naspersclassifieds.com/olxeu/pwa/shared/olx-ui-library/-/wikis/Imports-order-and-rules
          */
         '@typescript-eslint/consistent-type-imports': 'error',
         'import/no-cycle': 'error',
+        'prettier/prettier': [
+            'error',
+            {
+                semi: true,
+                singleQuote: true,
+                jsxSingleQuote: false,
+                trailingComma: 'es5',
+                bracketSpacing: false,
+                jsxBracketSameLine: true,
+                arrowParens: 'avoid',
+            },
+        ],
+        /* Required by vite */
+        'react-refresh/only-export-components': ['warn', {allowConstantExport: true}],
+        '@typescript-eslint/consistent-type-definitions': ['error', 'type'],
+        /**
+         * Allow unused variables with names stating with '_'
+         * @see https://eslint.org/docs/latest/rules/no-unused-vars
+         * @see https://typescript-eslint.io/rules/no-unused-vars/
+         */
+        '@typescript-eslint/no-unused-vars': [
+            'error',
+            {
+                argsIgnorePattern: '^_',
+                varsIgnorePattern: '^_',
+                caughtErrorsIgnorePattern: '^_',
+                ignoreRestSiblings: true,
+                args: 'after-used',
+            },
+        ],
     },
     overrides: [
+        /* Allow require imports for internal scripts */
         {
-            /* Allow devDependencies imports for tests and config files */
-            files: ['**/*.test.*', '**/testUtils/*.*', 'rollup.*.js'],
+            files: ['*.js', '*.cjs'],
+            rules: {
+                '@typescript-eslint/no-var-requires': 0,
+            },
+        },
+        /* Allow devDependencies imports for tests and config files */
+        {
+            files: [
+                '**/*.spec.*',
+                '**/testUtils/*.*',
+                '**/env/**/*.*',
+                '**/*.js',
+                '**/*.cjs',
+                '**/setupTests.ts',
+                '**/*.stories.*',
+                'vite.config.ts',
+            ],
             rules: {
                 'import/no-extraneous-dependencies': [
                     'error',
                     {
                         devDependencies: true,
                         peerDependencies: true,
+                    },
+                ],
+            },
+        },
+        /* Disable `environment` directory imports for library files */
+        {
+            files: ['./src/lib/**/*.*'],
+            rules: {
+                'no-restricted-imports': [
+                    'error',
+                    {
+                        patterns: [
+                            {
+                                group: ['**/env/**'],
+                                message: 'Imports from environment directory are forbidden in the library files.',
+                            },
+                        ],
                     },
                 ],
             },

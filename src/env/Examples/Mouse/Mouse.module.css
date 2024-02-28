@@ -1,0 +1,52 @@
+.box {
+    align-items: center;
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    font-family: "Helvetica Neue", sans-serif;
+    justify-content: center;
+    margin-bottom: 24px;
+    padding: 16px;
+    width: 100%;
+}
+
+.trackingArea {
+    background: #ffffab;
+    cursor: move;
+    height: 333px;
+    overflow: hidden;
+    position: relative;
+    width: 333px;
+}
+
+.trackingArea::after {
+    bottom: 16px;
+    color: rgb(0 0 0 / 30%);
+    content: "Mouse tracking: off";
+    font-size: 14px;
+    position: absolute;
+    right: 8px;
+    z-index: 1;
+}
+
+.trackingArea:hover {
+    background: #d9ffd9;
+}
+
+.trackingArea:hover::after {
+    content: "Mouse tracking: on";
+}
+
+.tracker {
+    height: 66px;
+    left: var(--left);
+    position: absolute;
+    top: var(--top);
+    width: 66px;
+    z-index: 2;
+}
+
+.count {
+    margin-top: 12px;
+    text-align: right;
+}

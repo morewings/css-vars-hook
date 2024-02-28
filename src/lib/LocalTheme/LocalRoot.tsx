@@ -8,16 +8,16 @@ import type {UnitType} from '../UnitType';
 /**
  * @public
  */
-export type LocalRootProps<TTheme extends Record<string, UnitType> = Record<string, UnitType>> = DataAttributes &
+export type LocalRootProps = DataAttributes &
     LibraryProps &
     HTMLAttributes<HTMLElement> & {
         children?: ReactNode;
         /** Choose which HTMLElement to render as a root. div is default. */
         as?: string;
         /** Apply initial theme. */
-        theme?: TTheme;
+        theme?: Record<string, UnitType>;
         /** Provide theme setter function. */
-        setTheme?: (arg0: TTheme) => void;
+        setTheme?: (arg0: Record<string, UnitType>) => void;
     };
 
 export const LocalRoot = forwardRef<HTMLElement, LocalRootProps>((props, ref) => {

@@ -1,5 +1,5 @@
 import type {FC, ReactNode} from 'react';
-import React, {useMemo, useEffect} from 'react';
+import {useMemo, useEffect} from 'react';
 import type {ThemeType} from 'css-vars-hook';
 
 import {ROOT_ID} from '../config';
