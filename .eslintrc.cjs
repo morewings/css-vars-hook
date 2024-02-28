@@ -116,6 +116,7 @@ module.exports = {
                 '**/setupTests.ts',
                 '**/*.stories.*',
                 'vite.config.ts',
+                'vite.config.build.ts',
             ],
             rules: {
                 'import/no-extraneous-dependencies': [
