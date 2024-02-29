@@ -8,7 +8,8 @@
     "src",
     ".eslintrc.cjs",
     "templates/**/*.ts",
-    "templates/**/*.tsx"
+    "templates/**/*.tsx",
+    "commitlint.config.js"
   ],
   "exclude": ["./dist/**"]
 }
