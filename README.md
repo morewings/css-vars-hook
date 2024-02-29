@@ -8,8 +8,6 @@
 
 [css-vars-hook](https://github.com/morewings/css-vars-hook) contains React hooks to set and manipulate CSS custom properties from React component.
 
-[API docs](https://github.com/morewings/css-vars-hook/blob/master/docs/css-vars-hook.md)
-
 [Demo](https://morewings.github.io/css-vars-hook/)
 
 [dev.to article](https://dev.to/morewings/how-to-use-css-vars-hook-to-manipulate-css-custom-properties-in-react-38dg)
