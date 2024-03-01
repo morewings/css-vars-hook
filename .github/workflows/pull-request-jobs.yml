@@ -59,3 +59,4 @@ jobs:
           pnpm run lint:types
           pnpm run build
           pnpm run build:demo
+          pnpm run semantic-release --dry-run
