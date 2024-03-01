@@ -89,6 +89,16 @@ const ComponentC: FC<{foo: string}> = ({foo}) => {
     
     return <RootThemeProvider theme={theme}>{/*...*/}</RootThemeProvider>
 }
+
+// Correct!!! Theme is external and static in relation to component
+
+const themeD = {
+    foo: 'bar'
+}
+
+const ComponentD: FC = () => {
+    return <RootThemeProvider theme={themeD}>{/*...*/}</RootThemeProvider>
+}
 ```
 
 ### Change theme
@@ -171,7 +181,7 @@ console.log(getTheme()) // => theme object
 
 ## `useLocalTheme`
 
-`useLocalTheme` applies theme locally to the wrapped React components. See [API docs](https://github.com/morewings/css-vars-hook/blob/master/docs/css-vars-hook.uselocaltheme.md).
+`useLocalTheme` applies theme locally to the wrapped React components.
 
 ### Set up a local theme
 
@@ -181,12 +191,14 @@ In order to set local theme you need to wrap your component with `LocalRoot` com
 import { useLocalTheme } from 'css-vars-hook';
 import { useCallback } from "react";
 
+const theme = { boxColor: 'yellow' };
+
 const Component = () => {
   const { LocalRoot, setTheme } = useLocalTheme();
   const setDarkMode = useCallback(() => {
     setTheme({boxColor: 'darkYellow'})
   }, []);
-  return <LocalRoot theme={{ boxColor: 'yellow' }}>{/*...*/}</LocalRoot>
+  return <LocalRoot theme={theme}>{/*...*/}</LocalRoot>
 }
 ```
 
@@ -199,6 +211,8 @@ By default `LocalRoot` is rendered as a `div` HTMLElement. You can provide custo
 ```jsx
 import {useLocalTheme} from 'css-vars-hook';
 
+const theme = {boxColor: 'yellow'};
+
 const Component = () => {
     const {LocalRoot: Button, setTheme} = useLocalTheme();
     const setDarkMode = useCallback(() => {
@@ -206,7 +220,7 @@ const Component = () => {
     }, [])
     return (
       <Button 
-        theme={{boxColor: 'yellow'}} 
+        theme={theme} 
         as="button" 
         onClick={setDarkMode}>
         Set dark mode
