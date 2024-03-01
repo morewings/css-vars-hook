@@ -1,4 +1,4 @@
-import {useCallback, useRef} from 'react';
+import {useCallback, useRef, useMemo} from 'react';
 
 import {setCSSVariable} from '../utils';
 import type {LocalRootProps} from './LocalRoot';
@@ -39,17 +39,24 @@ export const useLocalTheme = () => {
         themeRef.current = {...themeRef.current, [variableName]: variableValue};
     }, []);
 
+    const MemoRoot = useMemo(
+        () =>
+            // eslint-disable-next-line react/display-name
+            ({children, ...restProps}: Omit<LocalRootProps, 'setTheme'>) => (
+                <LocalRoot {...restProps} setTheme={setTheme} ref={elementRef}>
+                    {children}
+                </LocalRoot>
+            ),
+        [setTheme]
+    );
+
     return {
         /** Effect to apply new theme to LocalRoot */
         setTheme,
         /** Get current theme set for LocalRoot */
         getTheme,
         /** Wrapper component which creates DOM node to store theme data */
-        LocalRoot: ({children, ...restProps}: Omit<LocalRootProps, 'setTheme'>) => (
-            <LocalRoot {...restProps} setTheme={setTheme} ref={elementRef}>
-                {children}
-            </LocalRoot>
-        ),
+        LocalRoot: MemoRoot,
         /** React Mutable Ref object attached to LocalRoot */
         ref: elementRef,
         /** Get variable value within LocalRoot theme */
