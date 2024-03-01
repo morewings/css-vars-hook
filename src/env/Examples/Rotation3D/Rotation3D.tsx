@@ -1,4 +1,5 @@
 import type {FC, ChangeEvent} from 'react';
+import {useMemo} from 'react';
 import {useCallback, useLayoutEffect} from 'react';
 
 import {useLocalTheme} from '@/lib';
@@ -15,19 +16,19 @@ export const Rotation3D: FC = () => {
     const {LocalRoot, setVariable} = useLocalTheme();
     const handleXChange = useCallback(
         (event: ChangeEvent<HTMLInputElement>) => {
-            setVariable('x', `${event.target.value}deg`);
+            setVariable('rotateX', `${event.target.value}deg`);
         },
         [setVariable]
     );
     const handleYChange = useCallback(
         (event: ChangeEvent<HTMLInputElement>) => {
-            setVariable('y', `${event.target.value}deg`);
+            setVariable('rotateY', `${event.target.value}deg`);
         },
         [setVariable]
     );
     const handleZChange = useCallback(
         (event: ChangeEvent<HTMLInputElement>) => {
-            setVariable('z', `${event.target.value}deg`);
+            setVariable('rotateZ', `${event.target.value}deg`);
         },
         [setVariable]
     );
@@ -35,6 +36,15 @@ export const Rotation3D: FC = () => {
     useLayoutEffect(() => {
         renderCount += 1;
     });
+
+    const theme = useMemo(
+        () => ({
+            rotateX: `${initialX}deg`,
+            rotateY: `${initialY}deg`,
+            rotateZ: `${initialZ}deg`,
+        }),
+        []
+    );
 
     return (
         <div className={classes.box}>
@@ -107,13 +117,7 @@ export const Rotation3D: FC = () => {
                 </div>
                 <div className={classes.count}>Reconciliation count: {renderCount}</div>
             </div>
-            <LocalRoot
-                theme={{
-                    rotateX: `${initialX}deg`,
-                    rotateY: `${initialY}deg`,
-                    rotateZ: `${initialZ}deg`,
-                }}
-                className={classes.testingArea}>
+            <LocalRoot theme={theme} className={classes.testingArea}>
                 <Cube />
             </LocalRoot>
         </div>
