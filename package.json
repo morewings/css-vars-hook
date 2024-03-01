@@ -103,7 +103,7 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "semantic-release": "23.0.2",
-    "stylelint": "15.11.0",
+    "stylelint": "16.2.1",
     "stylelint-config-standard": "34.0.0",
     "stylelint-order": "6.0.4",
     "stylelint-prettier": "4.1.0",
