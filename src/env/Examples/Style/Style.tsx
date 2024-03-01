@@ -1,4 +1,5 @@
 import type {ChangeEvent, FC} from 'react';
+import {useMemo} from 'react';
 import {useCallback, useLayoutEffect} from 'react';
 
 import {useLocalTheme} from '@/lib';
@@ -44,6 +45,16 @@ export const Style: FC = () => {
     useLayoutEffect(() => {
         renderCount += 1;
     });
+
+    const theme = useMemo(
+        () => ({
+            width: `${initialWidth}px`,
+            height: `${initialHeight}px`,
+            radius: `${initialRadius}px`,
+            color: initialColor,
+        }),
+        []
+    );
 
     return (
         <div className={classes.box}>
@@ -128,14 +139,7 @@ export const Style: FC = () => {
                 </div>
                 <div className={classes.count}>Reconciliation count: {renderCount}</div>
             </div>
-            <LocalRoot
-                theme={{
-                    width: `${initialWidth}px`,
-                    height: `${initialHeight}px`,
-                    radius: `${initialRadius}px`,
-                    color: initialColor,
-                }}
-                className={classes.testingArea}>
+            <LocalRoot theme={theme} className={classes.testingArea}>
                 <div className={classes.demo}></div>
             </LocalRoot>
         </div>

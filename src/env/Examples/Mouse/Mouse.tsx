@@ -1,4 +1,5 @@
 import type {FC, MouseEvent} from 'react';
+import {useMemo} from 'react';
 import {useCallback, useLayoutEffect, useRef} from 'react';
 
 import {useLocalTheme} from '@/lib';
@@ -33,9 +34,11 @@ export const Mouse: FC = () => {
         renderCount += 1;
     });
 
+    const theme = useMemo(() => ({left: '0px', top: '0px'}), []);
+
     return (
         <div className={classes.box}>
-            <LocalRoot theme={{left: '0px', top: '0px'}} onMouseMove={handleMove} className={classes.trackingArea}>
+            <LocalRoot theme={theme} onMouseMove={handleMove} className={classes.trackingArea}>
                 <img
                     ref={trackerRef}
                     src={image as string}
