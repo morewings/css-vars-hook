@@ -26,10 +26,6 @@
 ```shell script
 npm install css-vars-hook
 ```
-Or
-```shell script
-yarn add css-vars-hook
-```
 
 ## Usage
 
@@ -39,7 +35,9 @@ yarn add css-vars-hook
 
 `useRootTheme` applies application level themes. API consists of two elements: the hook itself and `RootThemeProvider` component which acts as `:root` selector. Directly applying theme to the `:root` is not compatible with Server side rendering (SSR). See [API docs](https://github.com/morewings/css-vars-hook/blob/master/docs/css-vars-hook.useroottheme.md).
 
-### Set up a global theme
+## Manipulate theme
+
+### Set up
 
 In order to set global theming you need to wrap your application with `RootThemeProvider` on highest possible level.
 
@@ -61,6 +59,84 @@ export const App = () => (
     </RootThemeProvider>
 );
 ```
+
+### Memoize theme
+
+To avoid unnecessary reconciliations and re-renders theme object has to **preserve referential equality** during component lifecycle. 
+
+```tsx
+// Wrong!!! Component will rerender every time
+
+const ComponentA: FC = () => {
+    const theme = {
+        foo: 'bar'
+    }
+
+    return <RootThemeProvider theme={theme}>{/*...*/}</RootThemeProvider> 
+}
+
+// Wrong!!! Component will rerender every time
+
+const ComponentB: FC = () => {
+    return <RootThemeProvider theme={{ foo: 'bar' }}>{/*...*/}</RootThemeProvider>
+}
+
+// Correct!!! Theme will preserve untill one of its' properties change
+
+const ComponentC: FC<{foo: string}> = ({foo}) => {
+    
+    const theme = useMemo(() => ({foo}), [foo])
+    
+    return <RootThemeProvider theme={theme}>{/*...*/}</RootThemeProvider>
+}
+```
+
+### Change theme
+
+Theme changing methods (`setTheme`, `setVariable`, `removeVariable`) are implemented as **effects**. They will apply after component rerenders.
+
+```jsx
+// Component.jsx
+import React, { useEffect, useCallback } from "react";
+import { useRootTheme } from 'css-vars-hook';
+
+const Component = () => {
+  const theme = {
+    boxColor: 'red',
+    borderColor: 'green',
+  }
+  const { setTheme, setVariable, removeVariable } = useRootTheme();
+
+  // Set theme value inside useEffect hook
+  useEffect(() => {
+    // Theme changing effects can be applied like this. The change will happen after render.
+    setTheme(theme);
+  }, [theme, setTheme])
+
+  // Set theme value inside callback
+  const handleVariable = useCallback(() => {
+    setVariable('boxColor', 'pink');
+  }, [])
+
+  return <button onClick={handleVariable}>Change variable</button>;
+}
+```
+
+
+### Type safety
+
+Global theme type should be defined on a project level. You'll have to redeclare `ThemeType` export from `css-vars-hook`
+
+```ts
+// types.d.ts
+import theme from '@/theme';
+
+declare module 'css-vars-hook' {
+    // Provide your global theme type here
+    export type ThemeType = typeof theme;
+}
+```
+
 
 ### Consume the theme data
 
@@ -93,95 +169,6 @@ console.log(getVariable('boxColor')) // => 'purple'
 console.log(getTheme()) // => theme object
 ```
 
-### Change theme from inside
-
-Themes can be changed from inside the wrapped application during runtime. `useRootTheme` hook exposes set of effects to change the theme.
-
-Theme changing methods (`setTheme`, `setVariable`, `removeVariable`) are implemented as an **effect**, thus they don't trigger React reconciliation and rerender. Also, this allows to be SSR compatible and prevent Flash of unstyled content (FOUC).
-
-```jsx
-// Component.jsx
-import React, {useEffect, Fragment} from 'react';
-import {useRootTheme} from 'css-vars-hook';
-
-const Component = () => {
-    const theme = {
-        boxColor: 'red',
-        borderColor: 'green',
-    }
-    const {setTheme, setVariable, removeVariable} = useRootTheme();
-
-    // Wrong
-    // This will not work! setTheme is a side effect and will not be available during render stage
-    setTheme(theme);
-
-    // Correct
-    useEffect(() => {
-        // Theme changing effects can be applied like this. The change will happen after render.
-        setTheme(theme);
-    }, [theme, setTheme])
-
-    // Or like this. The change(s) will happen when user clicks the button.
-    const handleVariable = () => {
-        setVariable('boxColor', 'pink');
-    }
-
-    return (
-        <Fragment>
-            <button onClick={handleVariable}>Change variable</button>
-        </Fragment>
-    )
-}
-```
-
-### Change theme from outside
-
-Themes can also be applied outside the hook in an idiomatic React way. Please note, that this way will make application rerender at least once. This way changes **are preserved when component re-renders**.
-
-```jsx
-import React, {Fragment, useState, useCallback} from 'react';
-
-// useRootTheme hook will not work on this level. It uses `RootThemeProvider` 
-// context not yet available here.
-// So we implement stateful switch here.
-
-const [theme, setTheme] = useState({
-    brandColor: 'purple',
-});
-
-const setAltTheme = useCallback(() => {
-    setTheme({
-        brandColor: 'teal',
-    });
-}, [setTheme]);
-
-return (
-        <Fragment>
-            {/* Outside theme switcher control */}
-            <div>
-                <button onClick={setAltTheme}>Set alternative global theme</button>
-            </div>
-            <RootThemeProvider theme={theme}>
-                {/* Inside of the wrapped application */}
-            </RootThemeProvider>
-        </Fragment>
-);
-```
-
-### Type safety
-
-Global theme type should be defined on a project level. You'll have to redeclare `ThemeType` export from `css-vars-hook`
-
-```ts
-// types.d.ts
-import theme from '@/theme';
-
-declare module 'css-vars-hook' {
-    // Provide your global theme type here
-    export type ThemeType = typeof theme;
-}
-```
-
 ## `useLocalTheme`
 
 `useLocalTheme` applies theme locally to the wrapped React components. See [API docs](https://github.com/morewings/css-vars-hook/blob/master/docs/css-vars-hook.uselocaltheme.md).
@@ -191,12 +178,15 @@ declare module 'css-vars-hook' {
 In order to set local theme you need to wrap your component with `LocalRoot` component which is returned by `useLocalTheme` hook.
 
 ```jsx
-import {useLocalTheme} from 'css-vars-hook';
+import { useLocalTheme } from 'css-vars-hook';
+import { useCallback } from "react";
 
 const Component = () => {
-    const {LocalRoot, setTheme} = useLocalTheme();
-    const setDarkMode = setTheme({boxColor: 'darkYellow'});
-    return <LocalRoot theme={{boxColor: 'yellow'}}>{/*...*/}</LocalRoot>
+  const { LocalRoot, setTheme } = useLocalTheme();
+  const setDarkMode = useCallback(() => {
+    setTheme({boxColor: 'darkYellow'})
+  }, []);
+  return <LocalRoot theme={{ boxColor: 'yellow' }}>{/*...*/}</LocalRoot>
 }
 ```
 
@@ -211,9 +201,9 @@ import {useLocalTheme} from 'css-vars-hook';
 
 const Component = () => {
     const {LocalRoot: Button, setTheme} = useLocalTheme();
-    const setDarkMode = () => {
+    const setDarkMode = useCallback(() => {
       setTheme({boxColor: 'darkYellow'})
-    };
+    }, [])
     return (
       <Button 
         theme={{boxColor: 'yellow'}} 
