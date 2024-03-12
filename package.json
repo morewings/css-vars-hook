@@ -59,8 +59,8 @@
     "react-dom": ">=18.2.0"
   },
   "devDependencies": {
-    "@commitlint/cli": "19.0.3",
-    "@commitlint/config-conventional": "19.0.3",
+    "@commitlint/cli": "19.1.0",
+    "@commitlint/config-conventional": "19.1.0",
     "@semantic-release/commit-analyzer": "11.1.0",
     "@semantic-release/git": "10.0.1",
     "@semantic-release/github": "9.2.6",
@@ -78,7 +78,7 @@
     "@yelo/rollup-node-external": "^1.0.1",
     "alias-hq": "6.2.3",
     "commitizen": "4.3.0",
-    "commitlint": "19.0.3",
+    "commitlint": "19.1.0",
     "cz-conventional-changelog": "3.3.0",
     "classnames": "^2.5.1",
     "eslint": "8.57.0",
