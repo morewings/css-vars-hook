@@ -2,6 +2,7 @@
   "name": "css-vars-hook",
   "private": false,
   "version": "0.7.2",
+  "license": "MIT",
   "engines": {
     "node": ">=16"
   },
@@ -75,12 +76,12 @@
     "@typescript-eslint/eslint-plugin": "7.5.0",
     "@typescript-eslint/parser": "7.5.0",
     "@vitejs/plugin-react": "4.2.1",
-    "@yelo/rollup-node-external": "^1.0.1",
+    "@yelo/rollup-node-external": "1.0.1",
     "alias-hq": "6.2.3",
     "commitizen": "4.3.0",
     "commitlint": "19.2.1",
     "cz-conventional-changelog": "3.3.0",
-    "classnames": "^2.5.1",
+    "classnames": "2.5.1",
     "eslint": "8.57.0",
     "eslint-config-prettier": "9.1.0",
     "eslint-plugin-import": "2.29.1",
@@ -98,7 +99,7 @@
     "lint-staged": "15.2.2",
     "npm-run-all2": "6.1.2",
     "postcss": "8.4.38",
-    "postcss-preset-env": "^9.4.0",
+    "postcss-preset-env": "9.5.4",
     "prettier": "3.2.5",
     "react": "18.2.0",
     "react-dom": "18.2.0",
@@ -111,6 +112,6 @@
     "ts-node": "10.9.2",
     "typescript": "5.4.4",
     "vite": "5.2.8",
-    "vite-plugin-dts": "^3.7.3"
+    "vite-plugin-dts": "3.7.3"
   }
 }
