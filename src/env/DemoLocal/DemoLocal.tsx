@@ -50,6 +50,7 @@ export const DemoLocal = () => {
     return (
         <div className={classes.box}>
             <div>
+                <h2>Local theme demo</h2>
                 <fieldset className={classes.controls}>
                     <h3>theme 1</h3>
                     <pre>

@@ -103,18 +103,18 @@ const ComponentD: FC = () => {
 
 ### Change theme
 
-Theme changing methods (`setTheme`, `setVariable`, `removeVariable`) are implemented as **effects**. They will apply after component rerenders.
-
+Theme changing methods (`setTheme`, `setVariable`, `removeVariable`) are implemented as **effects**. They will apply after component re-render. You'll have to wrap the side effect with `useEffect` or put in inside callback to move it out of the rendering calculation.
 ```jsx
 // Component.jsx
 import React, { useEffect, useCallback } from "react";
 import { useRootTheme } from 'css-vars-hook';
 
+const theme = {
+  boxColor: 'red',
+  borderColor: 'green',
+}
+
 const Component = () => {
-  const theme = {
-    boxColor: 'red',
-    borderColor: 'green',
-  }
   const { setTheme, setVariable, removeVariable } = useRootTheme();
 
   // Set theme value inside useEffect hook
@@ -131,6 +131,22 @@ const Component = () => {
   return <button onClick={handleVariable}>Change variable</button>;
 }
 ```
+
+### Caveats
+
+```jsx
+//...
+const Component = () => {
+  const { setTheme } = useRootTheme();
+
+  // This will not work!
+  setTheme(theme)
+
+  //...
+}
+```
+
+The reason this code isn’t correct is that it tries to do something with the DOM node during rendering. In React, rendering should be a pure calculation of JSX and should not contain side effects like modifying the DOM. Moreover, when Component is called for the first time, its DOM does not exist yet, so there is no theme container to operate with.
 
 
 ### Type safety

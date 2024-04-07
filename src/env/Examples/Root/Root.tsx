@@ -41,6 +41,7 @@ export const Root = () => {
     return (
         <div className={classes.box}>
             <div>
+                <h2>Root theme demo</h2>
                 <fieldset className={classes.controls}>
                     <h3>theme 1</h3>
                     <pre>
