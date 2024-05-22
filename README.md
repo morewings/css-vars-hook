@@ -3,6 +3,7 @@
 [![npm](https://img.shields.io/npm/dm/css-vars-hook)](http://npm-stats.org/#/css-vars-hook)
 [![types included](https://img.shields.io/github/package-json/types/morewings/css-vars-hook)](https://github.com/morewings/css-vars-hook)
 [![npm bundle size](https://img.shields.io/bundlephobia/minzip/css-vars-hook)](https://bundlephobia.com/result?p=css-vars-hook)
+[![npm bundle size](https://deno.bundlejs.com/badge?q=css-vars-hook@latest&config={%22esbuild%22:{%22external%22:[%22react%22,%22react-dom%22]}})](https://bundlejs.com/?q=css-vars-hook@latest&config={%22esbuild%22:{%22external%22:[%22react%22,%22react-dom%22]}})
 
 # CSS Variables React hook
 
