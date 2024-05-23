@@ -18,9 +18,9 @@ import type {UnitType} from '../UnitType';
  *};
  * return <LocalRoot theme={{foo: 'bar'}} className="demo-local">//...
  */
-export const useLocalTheme = () => {
+export const useLocalTheme = <TElement extends HTMLElement>() => {
     const themeRef = useRef<Record<string, UnitType>>();
-    const elementRef = useRef<HTMLElement>(null);
+    const elementRef = useRef<TElement>(null);
 
     const setTheme = useCallback((nextTheme: Record<string, UnitType>) => {
         Object.keys(nextTheme).forEach((key: string) => {
