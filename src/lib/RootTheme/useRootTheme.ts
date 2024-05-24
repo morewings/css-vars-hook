@@ -1,4 +1,4 @@
-import {useCallback, useRef} from 'react';
+import {useCallback, useMemo, useRef} from 'react';
 import type {CSSProperties} from 'react';
 import type {ThemeType} from 'css-vars-hook';
 
@@ -49,7 +49,7 @@ export const useRootTheme = (
         themeRef.current = nextTheme;
     }, []);
 
-    const style = createStyleObject(themeRef.current);
+    const style = useMemo(() => createStyleObject(themeRef.current), []);
 
     return {
         /** Effect to apply new theme to the application */
