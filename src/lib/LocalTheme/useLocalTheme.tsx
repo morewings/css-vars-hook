@@ -32,7 +32,10 @@ export const useLocalTheme = <TElement extends HTMLElement>() => {
 
     const getTheme = useCallback(() => themeRef.current, []);
 
-    const getVariable = useCallback((variableName: string) => themeRef.current?.[variableName], []);
+    const getVariable = useCallback(
+        (variableName: string) => themeRef.current?.[variableName],
+        []
+    );
 
     const setVariable = useCallback((variableName: string, variableValue: UnitType) => {
         setCSSVariable(elementRef.current!)(variableName, variableValue);

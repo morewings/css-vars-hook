@@ -8,7 +8,8 @@ import {useRootContext} from './RootContext';
  * @see https://github.com/morewings/css-vars-hook#type-safety
  */
 export const useRootThemePublic = () => {
-    const {setTheme, getTheme, setVariable, getVariable, removeVariable} = useRootContext();
+    const {setTheme, getTheme, setVariable, getVariable, removeVariable} =
+        useRootContext();
     return {
         /** Effect to apply new theme to the application */
         setTheme,

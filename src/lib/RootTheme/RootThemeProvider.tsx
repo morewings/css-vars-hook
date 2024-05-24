@@ -10,7 +10,8 @@ import {useRootTheme} from './useRootTheme';
 /**
  * @public
  */
-export type RootThemeProviderProps = DataAttributes & LibraryProps & {children: ReactNode; theme: ThemeType};
+export type RootThemeProviderProps = DataAttributes &
+    LibraryProps & {children: ReactNode; theme: ThemeType};
 
 /**
  * @public
@@ -26,7 +27,8 @@ export const RootThemeProvider: FC<RootThemeProviderProps> = ({
     id = ROOT_ID,
     ...nativeProps
 }) => {
-    const {setTheme, style, getTheme, getVariable, setVariable, removeVariable} = useRootTheme(theme);
+    const {setTheme, style, getTheme, getVariable, setVariable, removeVariable} =
+        useRootTheme(theme);
 
     const {Provider} = RootContext;
 
