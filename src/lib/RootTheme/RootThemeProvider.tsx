@@ -10,8 +10,7 @@ import {useRootTheme} from './useRootTheme';
 /**
  * @public
  */
-export type RootThemeProviderProps = DataAttributes &
-    Omit<LibraryProps, 'id'> & {children: ReactNode; theme: ThemeType};
+export type RootThemeProviderProps = DataAttributes & LibraryProps & {children: ReactNode; theme: ThemeType};
 
 /**
  * @public
@@ -20,7 +19,13 @@ export type RootThemeProviderProps = DataAttributes &
  * @see ThemeType
  * @see https://github.com/morewings/css-vars-hook#type-safety
  */
-export const RootThemeProvider: FC<RootThemeProviderProps> = ({children, theme, className, ...nativeProps}) => {
+export const RootThemeProvider: FC<RootThemeProviderProps> = ({
+    children,
+    theme,
+    className,
+    id = ROOT_ID,
+    ...nativeProps
+}) => {
     const {setTheme, style, getTheme, getVariable, setVariable, removeVariable} = useRootTheme(theme);
 
     const {Provider} = RootContext;
@@ -36,7 +41,7 @@ export const RootThemeProvider: FC<RootThemeProviderProps> = ({children, theme, 
 
     return (
         <Provider value={actions}>
-            <div {...nativeProps} id={ROOT_ID} className={className} style={style}>
+            <div {...nativeProps} id={id} className={className} style={style}>
                 {children}
             </div>
         </Provider>
