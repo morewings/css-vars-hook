@@ -11,7 +11,11 @@ import {useRootTheme} from './useRootTheme';
  * @public
  */
 export type RootThemeProviderProps = DataAttributes &
-    Omit<LibraryProps, 'id'> & {children: ReactNode; theme: ThemeType};
+    Omit<LibraryProps, 'id'> & {
+        children: ReactNode;
+        theme: ThemeType;
+        transformCase?: boolean;
+    };
 
 /**
  * @public
@@ -20,13 +24,26 @@ export type RootThemeProviderProps = DataAttributes &
  * @see ThemeType
  * @see https://github.com/morewings/css-vars-hook#type-safety
  */
-export const RootThemeProvider: FC<RootThemeProviderProps> = ({children, theme, className, ...nativeProps}) => {
-    const {setTheme, style, getTheme, getVariable, setVariable, removeVariable} = useRootTheme(theme);
+export const RootThemeProvider: FC<RootThemeProviderProps> = ({
+    children,
+    theme,
+    className,
+    transformCase = true,
+    ...nativeProps
+}) => {
+    const {setTheme, style, getTheme, getVariable, setVariable, removeVariable} =
+        useRootTheme(theme, transformCase);
 
     const {Provider} = RootContext;
 
     const actions = useMemo(
-        () => ({setTheme, getTheme, getVariable, setVariable, removeVariable}),
+        () => ({
+            setTheme,
+            getTheme,
+            getVariable,
+            setVariable,
+            removeVariable,
+        }),
         [setTheme, getTheme, getVariable, setVariable, removeVariable]
     );
 

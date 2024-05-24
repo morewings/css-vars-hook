@@ -16,9 +16,7 @@
     "selector-no-vendor-prefix": true,
     "max-nesting-depth": 3,
     "selector-max-compound-selectors": 5,
-    "custom-property-pattern": ["^[a-z][a-zA-Z0-9]+$", {
-      "message":  "Expected \"%s\" variable name to be lower camelCase"
-    }],
+    "custom-property-pattern": null,
     "selector-class-pattern": ["^[a-z][a-zA-Z0-9]+$", {
       "message":  "Expected \"%s\" class name to be lower camelCase"
     }]

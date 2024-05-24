@@ -1,4 +1,5 @@
 import type {MutableRefObject, CSSProperties} from 'react';
+import type {ThemeType} from 'css-vars-hook';
 
 import {ROOT_ID} from './config';
 import type {UnitType} from './UnitType';
@@ -14,27 +15,30 @@ const normalizeUnit = (unit: UnitType) => {
  * @name setCSSVariable
  * @description Set CSS variable at the provided DOM node
  */
-export const setCSSVariable = (element: HTMLElement) => (variableName: string, value: UnitType) => {
-    element.style.setProperty(`--${variableName}`, normalizeUnit(value));
-};
+export const setCSSVariable =
+    (element: HTMLElement) => (variableName: string, value: UnitType) => {
+        element.style.setProperty(`--${variableName}`, normalizeUnit(value));
+    };
 
 /** @function
  * @name removeCSSVariable
  * @description Remove CSS variable from the provided DOM node
  */
-export const removeCSSVariable = (ref: MutableRefObject<HTMLElement>) => (variableName: string) => {
-    const element = ref.current;
-    element?.style?.removeProperty?.(`--${variableName}`);
-};
+export const removeCSSVariable =
+    (ref: MutableRefObject<HTMLElement>) => (variableName: string) => {
+        const element = ref.current;
+        element?.style?.removeProperty?.(`--${variableName}`);
+    };
 
 /** @function
  * @name getCSSVariable
  * @description Get CSS variable value at the provided DOM node
  */
-export const getCSSVariable = (ref: MutableRefObject<HTMLElement>) => (variableName: string) => {
-    const element = ref.current;
-    return element?.style?.getPropertyValue?.(`--${variableName}`);
-};
+export const getCSSVariable =
+    (ref: MutableRefObject<HTMLElement>) => (variableName: string) => {
+        const element = ref.current;
+        return element?.style?.getPropertyValue?.(`--${variableName}`);
+    };
 
 /** @function
  * @name createStyleObject
@@ -80,4 +84,54 @@ export const getRootVariable = (variableName: string): string => {
 export const removeRootVariable = (variableName: string) => {
     const root = getRootElement();
     root?.style?.removeProperty?.(`--${variableName}`);
+};
+
+/** @function
+ * @name stringToKebabCase
+ * @description Convert `fooBar` to `foo-bar`
+ */
+export const stringToKebabCase = (variableName: string) => {
+    return variableName
+        .split(/(?=[A-Z])/)
+        .join('-')
+        .toLowerCase();
+};
+
+/** @function
+ * @name stringToCamelCase
+ * @description Convert `foo-bar` to `fooBar`
+ */
+export const stringToCamelCase = (variableName: string) => {
+    return variableName
+        .toLowerCase()
+        .replace(/([-_][a-z])/g, group => group.toUpperCase().replace('-', ''));
+};
+
+/** @function
+ * @name renameKeys
+ * @description Rename Theme object keys using provided transformer function
+ */
+const renameKeys = (theme: ThemeType, tansformer: (a: string) => string) =>
+    Object.keys(theme).reduce(
+        (acc, key) => ({
+            ...acc,
+            ...{[tansformer(key)]: theme[key]},
+        }),
+        {}
+    );
+
+/** @function
+ * @name themeToCamelCase
+ * @description Convert {`foo-bar`: 'foo'} to {`fooBar`: 'foo'}
+ */
+export const themeToCamelCase = (theme: ThemeType): ThemeType => {
+    return renameKeys(theme, stringToCamelCase);
+};
+
+/** @function
+ * @name themeToKebabCase
+ * @description Convert {`fooBar`: 'foo'} to {`foo-bar`: 'foo'}
+ */
+export const themeToKebabCase = (theme: ThemeType): ThemeType => {
+    return renameKeys(theme, stringToKebabCase);
 };
