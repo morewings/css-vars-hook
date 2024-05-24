@@ -2,7 +2,12 @@ import {useCallback, useRef} from 'react';
 import type {CSSProperties} from 'react';
 import type {ThemeType} from 'css-vars-hook';
 
-import {createStyleObject, getRootVariable, removeRootVariable, setRootVariable} from '../utils';
+import {
+    createStyleObject,
+    getRootVariable,
+    removeRootVariable,
+    setRootVariable,
+} from '../utils';
 import type {HookInterface} from './HookInterfaceType';
 import type {UnitType} from '../UnitType';
 
@@ -10,7 +15,9 @@ import type {UnitType} from '../UnitType';
  * @private
  * Logic for root theme handling such as updates and CSS style creation
  */
-export const useRootTheme = (theme: ThemeType): HookInterface & {style: CSSProperties} => {
+export const useRootTheme = (
+    theme: ThemeType
+): HookInterface & {style: CSSProperties} => {
     const themeRef = useRef(theme);
 
     const setTheme = useCallback((nextTheme: ThemeType) => {
@@ -23,7 +30,10 @@ export const useRootTheme = (theme: ThemeType): HookInterface & {style: CSSPrope
 
     const getTheme = useCallback(() => themeRef.current, []);
 
-    const getVariable = useCallback((variableName: string) => getRootVariable(variableName), []);
+    const getVariable = useCallback(
+        (variableName: string) => getRootVariable(variableName),
+        []
+    );
     const setVariable = useCallback((variableName: string, value: UnitType) => {
         setRootVariable(variableName, value);
         themeRef.current = {

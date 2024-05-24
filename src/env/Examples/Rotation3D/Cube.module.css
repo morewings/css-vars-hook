@@ -15,7 +15,8 @@
 .cube {
     height: 200px;
     position: relative;
-    transform: translateZ(-100px) rotateY(var(--rotateY)) rotateX(var(--rotateX)) rotateZ(var(--rotateZ));
+    transform: translateZ(-100px) rotateY(var(--rotateY)) rotateX(var(--rotateX))
+        rotateZ(var(--rotateZ));
     transform-style: preserve-3d;
     width: 200px;
 }

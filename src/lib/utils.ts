@@ -14,27 +14,30 @@ const normalizeUnit = (unit: UnitType) => {
  * @name setCSSVariable
  * @description Set CSS variable at the provided DOM node
  */
-export const setCSSVariable = (element: HTMLElement) => (variableName: string, value: UnitType) => {
-    element.style.setProperty(`--${variableName}`, normalizeUnit(value));
-};
+export const setCSSVariable =
+    (element: HTMLElement) => (variableName: string, value: UnitType) => {
+        element.style.setProperty(`--${variableName}`, normalizeUnit(value));
+    };
 
 /** @function
  * @name removeCSSVariable
  * @description Remove CSS variable from the provided DOM node
  */
-export const removeCSSVariable = (ref: MutableRefObject<HTMLElement>) => (variableName: string) => {
-    const element = ref.current;
-    element?.style?.removeProperty?.(`--${variableName}`);
-};
+export const removeCSSVariable =
+    (ref: MutableRefObject<HTMLElement>) => (variableName: string) => {
+        const element = ref.current;
+        element?.style?.removeProperty?.(`--${variableName}`);
+    };
 
 /** @function
  * @name getCSSVariable
  * @description Get CSS variable value at the provided DOM node
  */
-export const getCSSVariable = (ref: MutableRefObject<HTMLElement>) => (variableName: string) => {
-    const element = ref.current;
-    return element?.style?.getPropertyValue?.(`--${variableName}`);
-};
+export const getCSSVariable =
+    (ref: MutableRefObject<HTMLElement>) => (variableName: string) => {
+        const element = ref.current;
+        return element?.style?.getPropertyValue?.(`--${variableName}`);
+    };
 
 /** @function
  * @name createStyleObject

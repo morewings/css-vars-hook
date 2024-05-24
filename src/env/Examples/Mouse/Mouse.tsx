@@ -25,7 +25,10 @@ export const Mouse: FC = () => {
                 event.clientX - ref.current!.getBoundingClientRect().left,
                 ref.current!.offsetWidth - trackerRef.current!.offsetWidth
             );
-            setTheme({left: `${Math.floor(offsetLeft)}px`, top: `${Math.floor(offsetTop)}px`});
+            setTheme({
+                left: `${Math.floor(offsetLeft)}px`,
+                top: `${Math.floor(offsetTop)}px`,
+            });
         },
         [setTheme, ref, trackerRef]
     );
@@ -38,7 +41,10 @@ export const Mouse: FC = () => {
 
     return (
         <div className={classes.box}>
-            <LocalRoot theme={theme} onMouseMove={handleMove} className={classes.trackingArea}>
+            <LocalRoot
+                theme={theme}
+                onMouseMove={handleMove}
+                className={classes.trackingArea}>
                 <img
                     ref={trackerRef}
                     src={image as string}
