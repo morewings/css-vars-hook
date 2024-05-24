@@ -5,7 +5,7 @@ name: Release
 
 on:
   push:
-    branches: [ master ]
+    branches: [master, beta, alpha]
 
 jobs:
   build-publish:
