@@ -1,4 +1,5 @@
 import type {MutableRefObject, CSSProperties} from 'react';
+import type {ThemeType} from 'css-vars-hook';
 
 import {ROOT_ID} from './config';
 import type {UnitType} from './UnitType';
@@ -43,9 +44,9 @@ export const getCSSVariable =
  * @name createStyleObject
  * @description Add `--` prefix to property names in theme object in order to make it applicable to DOM node
  */
-export const createStyleObject = (theme: Record<string, UnitType>): CSSProperties => {
+export const createStyleObject = (theme: ThemeType): CSSProperties => {
     const keys = Object.keys(theme);
-    const result = {} as Record<string, UnitType>;
+    const result = {} as ThemeType;
     keys.forEach(key => {
         result[`--${key}`] = theme[key];
     });

@@ -4,8 +4,9 @@ declare module '*.module.css' {
 }
 
 declare module 'css-vars-hook' {
+    import type {UnitType} from '@/lib';
     /** The most common theme type */
-    export type ThemeType = Record<string, string | number>;
+    export type ThemeType = Record<string, UnitType>;
 }
 
 declare module '*.png';
