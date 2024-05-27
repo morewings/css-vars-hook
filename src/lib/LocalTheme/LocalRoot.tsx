@@ -2,8 +2,8 @@ import type {HTMLAttributes, ReactNode} from 'react';
 import {createElement, forwardRef, useEffect, useMemo} from 'react';
 import type {ThemeType} from 'css-vars-hook';
 
-import {createStyleObject} from '../utils';
-import type {DataAttributes, LibraryProps} from '../NativeProps';
+import {createStyleObject} from '@/lib/utils';
+import type {DataAttributes, LibraryProps} from '@/lib/NativeProps';
 
 /**
  * @public

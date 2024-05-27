@@ -2,6 +2,8 @@ import {useCallback, useMemo, useRef} from 'react';
 import type {CSSProperties} from 'react';
 import type {ThemeType} from 'css-vars-hook';
 
+import type {UnitType} from '@/lib/UnitType';
+
 import {
     createStyleObject,
     getRootVariable,
@@ -9,45 +11,54 @@ import {
     setRootVariable,
 } from '../utils';
 import type {HookInterface} from './HookInterfaceType';
-import type {UnitType} from '../UnitType';
 
 /**
  * @private
  * Logic for root theme handling such as updates and CSS style creation
  */
 export const useRootTheme = (
-    theme: ThemeType
+    theme: ThemeType,
+    id: string
 ): HookInterface & {style: CSSProperties} => {
     const themeRef = useRef(theme);
 
-    const setTheme = useCallback((nextTheme: ThemeType) => {
-        Object.keys(nextTheme).forEach(key => {
-            setRootVariable(key, nextTheme[key]);
-        });
+    const setTheme = useCallback(
+        (nextTheme: ThemeType) => {
+            Object.keys(nextTheme).forEach(key => {
+                setRootVariable(id)(key, nextTheme[key]);
+            });
 
-        themeRef.current = nextTheme;
-    }, []);
+            themeRef.current = nextTheme;
+        },
+        [id]
+    );
 
     const getTheme = useCallback(() => themeRef.current, []);
 
     const getVariable = useCallback(
-        (variableName: string) => getRootVariable(variableName),
-        []
+        (variableName: string) => getRootVariable(id)(variableName),
+        [id]
     );
-    const setVariable = useCallback((variableName: string, value: UnitType) => {
-        setRootVariable(variableName, value);
-        themeRef.current = {
-            ...themeRef.current,
-            [variableName]: value,
-        };
-    }, []);
+    const setVariable = useCallback(
+        (variableName: string, value: UnitType) => {
+            setRootVariable(id)(variableName, value);
+            themeRef.current = {
+                ...themeRef.current,
+                [variableName]: value,
+            };
+        },
+        [id]
+    );
 
-    const removeVariable = useCallback((variableName: string) => {
-        removeRootVariable(variableName);
-        const nextTheme = {...themeRef.current};
-        delete nextTheme[variableName];
-        themeRef.current = nextTheme;
-    }, []);
+    const removeVariable = useCallback(
+        (variableName: string) => {
+            removeRootVariable(id)(variableName);
+            const nextTheme = {...themeRef.current};
+            delete nextTheme[variableName];
+            themeRef.current = nextTheme;
+        },
+        [id]
+    );
 
     const style = useMemo(() => createStyleObject(themeRef.current), []);
 
