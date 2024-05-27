@@ -1,8 +1,7 @@
 import type {MutableRefObject, CSSProperties} from 'react';
 import type {ThemeType} from 'css-vars-hook';
 
-import {ROOT_ID} from './config';
-import type {UnitType} from './UnitType';
+import type {UnitType} from '@/lib/UnitType';
 
 const normalizeUnit = (unit: UnitType) => {
     if (typeof unit === 'string') {
@@ -54,34 +53,31 @@ export const createStyleObject = (theme: ThemeType): CSSProperties => {
 };
 
 /** @function
- * @name getRootElement
- * @description Get theme root element in an SSR-safe way
- */
-export const getRootElement = (): HTMLElement => document.getElementById(ROOT_ID)!;
-
-/** @function
  * @name setRootVariable
  * @description Set CSS variable on theme root element
  */
-export const setRootVariable = (variableName: string, value: UnitType) => {
-    const root = getRootElement();
-    root?.style?.setProperty?.(`--${variableName}`, normalizeUnit(value));
-};
+export const setRootVariable =
+    (id: string) => (variableName: string, value: UnitType) => {
+        const root = document.getElementById(id)!;
+        root?.style?.setProperty?.(`--${variableName}`, normalizeUnit(value));
+    };
 
 /** @function
  * @name getRootVariable
  * @description Get CSS variable on theme root element
  */
-export const getRootVariable = (variableName: string): string => {
-    const root = getRootElement();
-    return root?.style?.getPropertyValue?.(`--${variableName}`);
-};
+export const getRootVariable =
+    (id: string) =>
+    (variableName: string): string => {
+        const root = document.getElementById(id)!;
+        return root?.style?.getPropertyValue?.(`--${variableName}`);
+    };
 
 /** @function
  * @name removeRootVariable
  * @description Remove CSS variable from theme root element
  */
-export const removeRootVariable = (variableName: string) => {
-    const root = getRootElement();
+export const removeRootVariable = (id: string) => (variableName: string) => {
+    const root = document.getElementById(id)!;
     root?.style?.removeProperty?.(`--${variableName}`);
 };

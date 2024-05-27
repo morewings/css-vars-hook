@@ -1,6 +1,6 @@
 import type {ThemeType} from 'css-vars-hook';
 
-import type {UnitType} from '../UnitType';
+import type {UnitType} from '@/lib/UnitType';
 
 /**
  * @public

@@ -1,8 +1,7 @@
 import type {FC, ReactNode} from 'react';
-import {useMemo, useEffect} from 'react';
+import {useMemo, useEffect, useId} from 'react';
 import type {ThemeType} from 'css-vars-hook';
 
-import {ROOT_ID} from '../config';
 import type {DataAttributes, LibraryProps} from '../NativeProps';
 import {RootContext} from './RootContext';
 import {useRootTheme} from './useRootTheme';
@@ -24,11 +23,13 @@ export const RootThemeProvider: FC<RootThemeProviderProps> = ({
     children,
     theme,
     className,
-    id = ROOT_ID,
+    id,
     ...nativeProps
 }) => {
+    const backupId = useId();
+    const rootId = id ? id : backupId;
     const {setTheme, style, getTheme, getVariable, setVariable, removeVariable} =
-        useRootTheme(theme);
+        useRootTheme(theme, rootId);
 
     const {Provider} = RootContext;
 
@@ -43,7 +44,7 @@ export const RootThemeProvider: FC<RootThemeProviderProps> = ({
 
     return (
         <Provider value={actions}>
-            <div {...nativeProps} id={id} className={className} style={style}>
+            <div {...nativeProps} id={rootId} className={className} style={style}>
                 {children}
             </div>
         </Provider>

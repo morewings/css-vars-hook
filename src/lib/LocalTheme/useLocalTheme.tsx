@@ -1,10 +1,11 @@
 import {useCallback, useRef, useMemo} from 'react';
 import type {ThemeType} from 'css-vars-hook';
 
-import {setCSSVariable} from '../utils';
+import {setCSSVariable} from '@/lib/utils';
+import type {UnitType} from '@/lib/UnitType';
+
 import type {LocalRootProps} from './LocalRoot';
 import {LocalRoot} from './LocalRoot';
-import type {UnitType} from '../UnitType';
 
 /**
  * @public

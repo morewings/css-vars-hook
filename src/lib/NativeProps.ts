@@ -5,7 +5,8 @@ export type DataAttributeKey = `data-${string}`;
 export type DataAttributes = Record<DataAttributeKey, string>;
 
 export type LibraryProps<TElement = HTMLDivElement> = AriaAttributes & {
-    id?: string;
+    /** Provide an id for Provider component */
+    id?: HTMLAttributes<TElement>['id'];
     /**
      * Set native ARIA role attribute
      * @see https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles
