@@ -6,20 +6,20 @@
 
 # CSS Variables React hook
 
-[css-vars-hook](https://github.com/morewings/css-vars-hook) contains React hooks to set and manipulate CSS custom properties from React component.
+[css-vars-hook](https://github.com/morewings/css-vars-hook) contains React hooks to set and manipulate CSS custom properties (variables) from React component within React components.
+
 
 [Demo](https://morewings.github.io/css-vars-hook/)
 
 [dev.to article](https://dev.to/morewings/how-to-use-css-vars-hook-to-manipulate-css-custom-properties-in-react-38dg)
 
-## Features
+## Highlights
 
-- Set, modify and delete [CSS Custom Properties](https://developer.mozilla.org/en-US/docs/Web/CSS/--*) inside React components.
-- Set up and manage CSS themes for the whole application.
-- Apply CSS themes (multiple variables) to any HTMLElement.
-- Written in Typescript.
-- Zero dependencies.
-- Small and fast.
+- **CSS Variables in React**: manage your component design in a fast and convenient way.
+- **Dynamic Theming**: create and manage themes for your application. Apply multiple CSS variables to any HTML element.
+- **TypeScript Support**: The library is written in TypeScript, offering type safety and enhancing developer experience.
+- **Zero Dependencies**: It operates independently without the need for additional libraries, ensuring a lightweight integration.
+- **Performance**: The hook is optimized for performance, with a small footprint that does not impact application speed.
 
 ## Install
 
@@ -29,7 +29,7 @@ npm install css-vars-hook
 
 ## Usage
 
-`css-vars-hook` exposes two hooks: `useRootTheme`, `useLocalTheme`.
+`css-vars-hook` exposes two hooks: `useRootTheme`, `useLocalTheme`. Both of them provide developer a bridge between **React Component state** and **CSS Custom Properties**.
 
 ## `useRootTheme`
 
@@ -62,7 +62,7 @@ export const App = () => (
 
 ### Memoize theme
 
-To avoid unnecessary reconciliations and re-renders theme object has to **preserve referential equality** during component lifecycle. 
+To avoid unnecessary reconciliations and re-renders theme object has to **preserve referential equality** during component lifecycle.
 
 ```tsx
 // Wrong!!! Component will rerender every time
@@ -72,7 +72,7 @@ const ComponentA: FC = () => {
         foo: 'bar'
     }
 
-    return <RootThemeProvider theme={theme}>{/*...*/}</RootThemeProvider> 
+    return <RootThemeProvider theme={theme}>{/*...*/}</RootThemeProvider>
 }
 
 // Wrong!!! Component will rerender every time
@@ -84,9 +84,9 @@ const ComponentB: FC = () => {
 // Correct!!! Theme will preserve untill one of its' properties change
 
 const ComponentC: FC<{foo: string}> = ({foo}) => {
-    
+
     const theme = useMemo(() => ({foo}), [foo])
-    
+
     return <RootThemeProvider theme={theme}>{/*...*/}</RootThemeProvider>
 }
 
@@ -235,9 +235,9 @@ const Component = () => {
       setTheme({boxColor: 'darkYellow'})
     }, [])
     return (
-      <Button 
-        theme={theme} 
-        as="button" 
+      <Button
+        theme={theme}
+        as="button"
         onClick={setDarkMode}>
         Set dark mode
       </Button>
