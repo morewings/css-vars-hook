@@ -35,7 +35,7 @@ npm install css-vars-hook
 
 ## `useRootTheme`
 
-`useRootTheme` applies application level themes. API consists of two elements: the hook itself and `RootThemeProvider` component which acts as `:root` selector. Directly applying theme to the `:root` is not compatible with Server side rendering (SSR). See [API docs](https://github.com/morewings/css-vars-hook/blob/master/docs/css-vars-hook.useroottheme.md).
+`useRootTheme` applies application level themes. API consists of two elements: the hook itself and `RootThemeProvider` component which acts as `:root` selector. Directly applying theme to the `:root` is not compatible with Server side rendering (SSR).
 
 ## Manipulate theme
 
