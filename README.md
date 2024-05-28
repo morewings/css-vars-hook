@@ -6,6 +6,8 @@
 
 # CSS Variables React hook
 
+[![NPM library Create React App template logo](./design/image.jpg)](#)
+
 [css-vars-hook](https://github.com/morewings/css-vars-hook) contains React hooks to set and manipulate CSS custom properties (variables).
 
 
