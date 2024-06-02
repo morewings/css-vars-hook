@@ -96,15 +96,12 @@ Set theme object externally to Component or wrap with `useMemo`.
 
 ```tsx
 // Correct!
-const Component: FC<{foo: string}> = ({foo}) => {
+const theme = {
+    foo: 'bar'
+}
 
-    const theme = {
-        foo: 'bar'
-    }
-
-    const Component: FC = () => {
-        return <RootThemeProvider theme={theme}>{/*...*/}</RootThemeProvider>
-    }
+const Component: FC = () => {
+    return <RootThemeProvider theme={theme}>{/*...*/}</RootThemeProvider>
 }
 ```
 
