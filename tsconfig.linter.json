@@ -9,8 +9,8 @@
     ".eslintrc.cjs",
     "templates/**/*.ts",
     "templates/**/*.tsx",
-    "commitlint.config.js",
-    "release.config.cjs"
+    "release.config.cjs",
+    "*.config.js"
   ],
   "exclude": ["./dist/**"]
 }
