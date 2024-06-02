@@ -1,4 +1,4 @@
-import type {FC, ChangeEvent} from 'react';
+import type {FC, ChangeEvent, ReactNode} from 'react';
 import {useMemo} from 'react';
 import {useCallback, useLayoutEffect} from 'react';
 
@@ -9,10 +9,34 @@ import classes from './Rotation3D.module.css';
 
 let renderCount = 0;
 
+const Control: FC<{
+    children: ReactNode;
+    label: string;
+    inputId: string;
+    optionsId: string;
+}> = ({children, label, inputId, optionsId}) => {
+    return (
+        <div className={classes.control}>
+            <label className={classes.label} htmlFor={inputId}>
+                {label}
+            </label>
+            {children}
+            <datalist id={optionsId} className={classes.scale}>
+                <option className={classes.mark} value="-180" label="-180°"></option>
+                <option className={classes.mark} value="-90" label="-90°"></option>
+                <option className={classes.mark} value="0" label="0°"></option>
+                <option className={classes.mark} value="90" label="90°"></option>
+                <option className={classes.mark} value="180" label="180°"></option>
+            </datalist>
+        </div>
+    );
+};
+
+const initialX = 0;
+const initialY = 0;
+const initialZ = 0;
+
 export const Rotation3D: FC = () => {
-    const initialX = 0;
-    const initialY = 0;
-    const initialZ = 0;
     const {LocalRoot, setVariable} = useLocalTheme();
     const handleXChange = useCallback(
         (event: ChangeEvent<HTMLInputElement>) => {
@@ -49,10 +73,7 @@ export const Rotation3D: FC = () => {
     return (
         <div className={classes.box}>
             <div>
-                <div className={classes.control}>
-                    <label className={classes.label} htmlFor="x-slider">
-                        Rotate X
-                    </label>
+                <Control label="Rotate X" inputId="x-slider" optionsId="x-values">
                     <input
                         defaultValue={0}
                         min={-180}
@@ -63,27 +84,8 @@ export const Rotation3D: FC = () => {
                         type="range"
                         onChange={handleXChange}
                     />
-                    <datalist id="x-values" className={classes.scale}>
-                        <option
-                            className={classes.mark}
-                            value="-180"
-                            label="-180°"></option>
-                        <option
-                            className={classes.mark}
-                            value="-90"
-                            label="-90°"></option>
-                        <option className={classes.mark} value="0" label="0°"></option>
-                        <option className={classes.mark} value="90" label="90°"></option>
-                        <option
-                            className={classes.mark}
-                            value="180"
-                            label="180°"></option>
-                    </datalist>
-                </div>
-                <div className={classes.control}>
-                    <label className={classes.label} htmlFor="y-slider">
-                        Rotate Y
-                    </label>
+                </Control>
+                <Control label="Rotate Y" inputId="y-slider" optionsId="y-values">
                     <input
                         defaultValue={0}
                         min={-180}
@@ -94,27 +96,8 @@ export const Rotation3D: FC = () => {
                         type="range"
                         onChange={handleYChange}
                     />
-                    <datalist id="y-values" className={classes.scale}>
-                        <option
-                            className={classes.mark}
-                            value="-180"
-                            label="-180°"></option>
-                        <option
-                            className={classes.mark}
-                            value="-90"
-                            label="-90°"></option>
-                        <option className={classes.mark} value="0" label="0°"></option>
-                        <option className={classes.mark} value="90" label="90°"></option>
-                        <option
-                            className={classes.mark}
-                            value="180"
-                            label="180°"></option>
-                    </datalist>
-                </div>
-                <div className={classes.control}>
-                    <label className={classes.label} htmlFor="z-slider">
-                        Rotate Z
-                    </label>
+                </Control>
+                <Control label="Rotate Z" inputId="z-slider" optionsId="z-values">
                     <input
                         defaultValue={0}
                         min={-180}
@@ -125,23 +108,7 @@ export const Rotation3D: FC = () => {
                         type="range"
                         onChange={handleZChange}
                     />
-                    <datalist id="z-values" className={classes.scale}>
-                        <option
-                            className={classes.mark}
-                            value="-180"
-                            label="-180°"></option>
-                        <option
-                            className={classes.mark}
-                            value="-90"
-                            label="-90°"></option>
-                        <option className={classes.mark} value="0" label="0°"></option>
-                        <option className={classes.mark} value="90" label="90°"></option>
-                        <option
-                            className={classes.mark}
-                            value="180"
-                            label="180°"></option>
-                    </datalist>
-                </div>
+                </Control>
                 <div className={classes.count}>Reconciliation count: {renderCount}</div>
             </div>
             <LocalRoot theme={theme} className={classes.testingArea}>
