@@ -56,3 +56,12 @@ jobs:
           pnpm install
           pnpm run build
           pnpm run semantic-release
+
+      - name: Test & publish code coverage
+        uses: paambaati/codeclimate-action@v6.0.0
+        env:
+          CC_TEST_REPORTER_ID: ${{secrets.CC_TEST_REPORTER_ID}}
+        with:
+          coverageCommand: pnpm run coverage
+          coverageLocations: |
+            ${{github.workspace}}/coverage/lcov.info:lcov

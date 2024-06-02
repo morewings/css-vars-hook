@@ -1,6 +1,6 @@
 import {Fragment, useState, useCallback} from 'react';
 
-import {RootThemeProvider} from '@/lib';
+import {RootThemeProvider} from '@/lib/RootTheme';
 import {Root} from '@/env/examples/Root';
 import {DemoLocal} from '@/env/examples/DemoLocal';
 import {Style} from '@/env/examples/Style';

@@ -1,0 +1,458 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`env > App renders  1`] = `
+<DocumentFragment>
+  <div>
+    <button>
+      Set global theme B
+    </button>
+    <button>
+      Set global theme C
+    </button>
+  </div>
+  <div
+    id=":r0:"
+    style="--boxColor: violet; --borderColor: purple;"
+  >
+    <div>
+      <div>
+        <div>
+          <div>
+            <label
+              for="width-slder"
+            >
+              Change width
+            </label>
+            <input
+              id="width-slder"
+              list="width-values"
+              max="200"
+              min="1"
+              type="range"
+              value="100"
+            />
+            <datalist
+              id="width-values"
+            >
+              <option
+                label="1"
+                value="1"
+              />
+              <option
+                label="50"
+                value="50"
+              />
+              <option
+                label="100"
+                value="100"
+              />
+              <option
+                label="150"
+                value="150"
+              />
+              <option
+                label="200"
+                value="200"
+              />
+            </datalist>
+          </div>
+          <div>
+            <label
+              for="height-slder"
+            >
+              Change height
+            </label>
+            <input
+              id="height-slder"
+              list="height-values"
+              max="200"
+              min="1"
+              type="range"
+              value="100"
+            />
+            <datalist
+              id="height-values"
+            >
+              <option
+                label="1"
+                value="1"
+              />
+              <option
+                label="50"
+                value="50"
+              />
+              <option
+                label="100"
+                value="100"
+              />
+              <option
+                label="150"
+                value="150"
+              />
+              <option
+                label="200"
+                value="200"
+              />
+            </datalist>
+          </div>
+          <div>
+            <label
+              for="radius-slder"
+            >
+              Change border-radius
+            </label>
+            <input
+              id="radius-slder"
+              list="radius-values"
+              max="100"
+              min="0"
+              type="range"
+              value="0"
+            />
+            <datalist
+              id="radius-values"
+            >
+              <option
+                label="0"
+                value="0"
+              />
+              <option
+                label="25"
+                value="25"
+              />
+              <option
+                label="50"
+                value="50"
+              />
+              <option
+                label="75"
+                value="75"
+              />
+              <option
+                label="100"
+                value="100"
+              />
+            </datalist>
+          </div>
+          <div>
+            <label
+              for="color-picker"
+            >
+              Change color
+            </label>
+            <input
+              id="color-picker"
+              type="color"
+              value="#FFC0CB"
+            />
+          </div>
+          <div>
+            Reconciliation count: 0
+          </div>
+        </div>
+        <div
+          style="--width: 100px; --height: 100px; --radius: 0px; --color: #FFC0CB;"
+        >
+          <div />
+        </div>
+      </div>
+      <div>
+        <div
+          style="--left: 0px; --top: 0px;"
+        >
+          <img
+            alt="Happy cursor friend"
+            src="default"
+            title="Happy cursor friend"
+          />
+        </div>
+        <div>
+          Reconciliation count: 0
+        </div>
+      </div>
+      <div>
+        <div>
+          <div>
+            <label
+              for="x-slider"
+            >
+              Rotate X
+            </label>
+            <input
+              id="x-slider"
+              list="x-values"
+              max="180"
+              min="-180"
+              type="range"
+              value="0"
+            />
+            <datalist
+              id="x-values"
+            >
+              <option
+                label="-180°"
+                value="-180"
+              />
+              <option
+                label="-90°"
+                value="-90"
+              />
+              <option
+                label="0°"
+                value="0"
+              />
+              <option
+                label="90°"
+                value="90"
+              />
+              <option
+                label="180°"
+                value="180"
+              />
+            </datalist>
+          </div>
+          <div>
+            <label
+              for="y-slider"
+            >
+              Rotate Y
+            </label>
+            <input
+              id="y-slider"
+              list="y-values"
+              max="180"
+              min="-180"
+              type="range"
+              value="0"
+            />
+            <datalist
+              id="y-values"
+            >
+              <option
+                label="-180°"
+                value="-180"
+              />
+              <option
+                label="-90°"
+                value="-90"
+              />
+              <option
+                label="0°"
+                value="0"
+              />
+              <option
+                label="90°"
+                value="90"
+              />
+              <option
+                label="180°"
+                value="180"
+              />
+            </datalist>
+          </div>
+          <div>
+            <label
+              for="z-slider"
+            >
+              Rotate Z
+            </label>
+            <input
+              id="z-slider"
+              list="z-values"
+              max="180"
+              min="-180"
+              type="range"
+              value="0"
+            />
+            <datalist
+              id="z-values"
+            >
+              <option
+                label="-180°"
+                value="-180"
+              />
+              <option
+                label="-90°"
+                value="-90"
+              />
+              <option
+                label="0°"
+                value="0"
+              />
+              <option
+                label="90°"
+                value="90"
+              />
+              <option
+                label="180°"
+                value="180"
+              />
+            </datalist>
+          </div>
+          <div>
+            Reconciliation count: 0
+          </div>
+        </div>
+        <div
+          style="--rotateX: 0deg; --rotateY: 0deg; --rotateZ: 0deg;"
+        >
+          <div>
+            <div>
+              <div
+                class=""
+              >
+                front
+              </div>
+              <div
+                class=""
+              >
+                back
+              </div>
+              <div
+                class=""
+              >
+                right
+              </div>
+              <div
+                class=""
+              >
+                left
+              </div>
+              <div
+                class=""
+              >
+                top
+              </div>
+              <div
+                class=""
+              >
+                bottom
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div>
+          <h2>
+            Root theme demo
+          </h2>
+          <fieldset>
+            <h3>
+              theme 1
+            </h3>
+            <pre>
+              boxColor: 'yellow'
+              <br />
+              borderColor: 'blue'
+            </pre>
+            <button
+              type="button"
+            >
+              Set theme 1
+            </button>
+            <h3>
+              theme 2
+            </h3>
+            <pre>
+              boxColor: 'pink'
+              <br />
+              borderColor: 'brown'
+            </pre>
+            <button
+              type="button"
+            >
+              Set theme 2
+            </button>
+            <br />
+            <h3>
+              Set single variable
+            </h3>
+            <pre>
+              borderColor: 'green'
+            </pre>
+            <button
+              type="button"
+            >
+              Set --borderColor
+            </button>
+          </fieldset>
+          <div>
+            Reconciliation count: 
+            <strong>
+              0
+            </strong>
+          </div>
+        </div>
+        <div>
+          <div />
+        </div>
+      </div>
+      <div>
+        <div>
+          <h2>
+            Local theme demo
+          </h2>
+          <fieldset>
+            <h3>
+              theme 1
+            </h3>
+            <pre>
+              boxColor: 'ivory'
+              <br />
+              borderColor: 'orange'
+            </pre>
+            <button
+              type="button"
+            >
+              Set external theme
+            </button>
+            <br />
+            <button
+              type="button"
+            >
+              Set theme 1
+            </button>
+            <h3>
+              theme 2
+            </h3>
+            <pre>
+              boxColor: 'black'
+              <br />
+              borderColor: 'magenta'
+            </pre>
+            <button
+              type="button"
+            >
+              Set theme 2
+            </button>
+            <br />
+            <h3>
+              Set single variable
+            </h3>
+            <pre>
+              borderColor: 'turquoise'
+            </pre>
+            <button
+              type="button"
+            >
+              Set --borderColor
+            </button>
+            <div>
+              Reconciliation count: 
+              <strong>
+                0
+              </strong>
+            </div>
+          </fieldset>
+        </div>
+        <div>
+          <div
+            style="--boxColor: ivory; --borderColor: orange;"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
