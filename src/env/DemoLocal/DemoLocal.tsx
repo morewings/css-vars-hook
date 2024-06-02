@@ -25,10 +25,7 @@ export const DemoLocal = () => {
     };
 
     const setExternal = () => {
-        setExternalTheme({
-            boxColor: 'black',
-            borderColor: 'magenta',
-        });
+        setExternalTheme(themeNeon);
     };
 
     const setThemeNeon = () => {
