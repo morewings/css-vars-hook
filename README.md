@@ -66,40 +66,55 @@ export const App = () => (
 
 To avoid unnecessary reconciliations and re-renders theme object has to **preserve referential equality** during component lifecycle.
 
-```tsx
-// Wrong!!! Component will rerender every time
+#### Wrong examples
 
-const ComponentA: FC = () => {
+Arbitrary objects are recreated every time React component reconciles. Avoid this when defining theme object.
+
+```tsx
+// Don't do this!!!
+const Component: FC = () => {
+    //...
     const theme = {
         foo: 'bar'
     }
 
     return <RootThemeProvider theme={theme}>{/*...*/}</RootThemeProvider>
 }
+```
 
-// Wrong!!! Component will rerender every time
-
-const ComponentB: FC = () => {
+```tsx
+// Don't do this!!!
+const Component: FC = () => {
+    //...
     return <RootThemeProvider theme={{ foo: 'bar' }}>{/*...*/}</RootThemeProvider>
 }
+```
 
-// Correct!!! Theme will preserve untill one of its' properties change
+#### Correct examples
 
-const ComponentC: FC<{foo: string}> = ({foo}) => {
+Set theme object externally to Component or wrap with `useMemo`.
+
+```tsx
+// Correct!
+const Component: FC<{foo: string}> = ({foo}) => {
+
+    const theme = {
+        foo: 'bar'
+    }
+
+    const Component: FC = () => {
+        return <RootThemeProvider theme={theme}>{/*...*/}</RootThemeProvider>
+    }
+}
+```
+
+```tsx
+// Correct! Theme will preserve until foo property change
+const Component: FC<{foo: string}> = ({foo}) => {
 
     const theme = useMemo(() => ({foo}), [foo])
 
     return <RootThemeProvider theme={theme}>{/*...*/}</RootThemeProvider>
-}
-
-// Correct!!! Theme is external and static in relation to component
-
-const themeD = {
-    foo: 'bar'
-}
-
-const ComponentD: FC = () => {
-    return <RootThemeProvider theme={themeD}>{/*...*/}</RootThemeProvider>
 }
 ```
 
@@ -210,11 +225,12 @@ import { useLocalTheme } from 'css-vars-hook';
 import { useCallback } from "react";
 
 const theme = { boxColor: 'yellow' };
+const darkTheme = {boxColor: 'darkYellow'};
 
 const Component = () => {
   const { LocalRoot, setTheme } = useLocalTheme();
   const setDarkMode = useCallback(() => {
-    setTheme({boxColor: 'darkYellow'})
+    setTheme(darkTheme)
   }, []);
   return <LocalRoot theme={theme}>{/*...*/}</LocalRoot>
 }
@@ -230,11 +246,12 @@ By default `LocalRoot` is rendered as a `div` HTMLElement. You can provide custo
 import {useLocalTheme} from 'css-vars-hook';
 
 const theme = {boxColor: 'yellow'};
+const darkTheme = {boxColor: 'darkYellow'};
 
 const Component = () => {
     const {LocalRoot: Button, setTheme} = useLocalTheme();
     const setDarkMode = useCallback(() => {
-      setTheme({boxColor: 'darkYellow'})
+      setTheme(darkTheme)
     }, [])
     return (
       <Button
