@@ -8,29 +8,32 @@ import {Style} from '../Examples/Style';
 import {Mouse} from '../Examples/Mouse';
 import {Rotation3D} from '../Examples/Rotation3D';
 import {GlobalThemeSwitch} from '../GlobalThemeSwitch';
-// import {Callbacks} from '../Examples/Callbacks';
 import classes from './App.module.css';
+
+const themeA = {
+    boxColor: 'violet',
+    borderColor: 'purple',
+};
 
 const themeB = {
     boxColor: 'violet',
     borderColor: 'purple',
 };
 
+const themeC = {
+    boxColor: 'teal',
+    borderColor: 'gold',
+};
+
 export const App = () => {
-    const [theme, setTheme] = useState({
-        boxColor: 'purple',
-        borderColor: 'violet',
-    });
+    const [theme, setTheme] = useState(themeA);
 
     const setThemeB = useCallback(() => {
         setTheme(themeB);
     }, [setTheme]);
 
     const setThemeC = useCallback(() => {
-        setTheme({
-            boxColor: 'teal',
-            borderColor: 'gold',
-        });
+        setTheme(themeC);
     }, [setTheme]);
 
     return (
