@@ -1,13 +1,13 @@
 import {Fragment, useState, useCallback} from 'react';
 
 import {RootThemeProvider} from '@/lib';
+import {Root} from '@/env/examples/Root';
+import {DemoLocal} from '@/env/examples/DemoLocal';
+import {Style} from '@/env/examples/Style';
+import {Mouse} from '@/env/examples/Mouse';
+import {Rotation3D} from '@/env/examples/Rotation3D';
+import {GlobalThemeSwitch} from '@/env/GlobalThemeSwitch';
 
-import {Root} from '../Examples/Root';
-import {DemoLocal} from '../DemoLocal';
-import {Style} from '../Examples/Style';
-import {Mouse} from '../Examples/Mouse';
-import {Rotation3D} from '../Examples/Rotation3D';
-import {GlobalThemeSwitch} from '../GlobalThemeSwitch';
 import classes from './App.module.css';
 
 const themeA = {
