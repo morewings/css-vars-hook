@@ -50,6 +50,7 @@
     "fix:style": "run-s 'lint:style --fix'",
     "lint:types": "tsc --pretty --noEmit",
     "test": "jest",
+    "coverage": "run-s 'test --coverage'",
     "preview": "vite preview",
     "commitlint": "commitlint",
     "semantic-release": "semantic-release",

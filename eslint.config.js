@@ -134,6 +134,7 @@ export default [
     {
         files: [
             '**/*.spec.*',
+            '**/libraryAPITestCase.tsx',
             '**/testUtils/*.{js,jsx,ts,tsx}',
             '*/*.{js,jsx,ts,tsx}',
             '**/setupTests.ts',

@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`lib > LocalRoot LocalRoot - Native API accepts ref as a Mutable Object 1`] = `<div />`;
+
+exports[`lib > LocalRoot LocalRoot - Native API accepts ref as a callback 1`] = `<div />`;
+
+exports[`lib > LocalRoot creates initial style based on \`theme\` prop 1`] = `"--foo: foo;"`;
+
+exports[`lib > LocalRoot respects \`as\` prop 1`] = `
+<DocumentFragment>
+  <button />
+</DocumentFragment>
+`;
+
+exports[`lib > LocalRoot respects \`as\` prop 2`] = `
+<DocumentFragment>
+  <main />
+</DocumentFragment>
+`;
+
+exports[`lib > LocalRoot sets and updates initial style, using \`setTheme\` callback when \`theme\` prop changes 1`] = `"--foo: foo;"`;
+
+exports[`lib > LocalRoot sets and updates initial style, using \`setTheme\` callback when \`theme\` prop changes 2`] = `"--bar: bar;"`;

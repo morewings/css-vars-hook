@@ -4,6 +4,8 @@
 [![types included](https://img.shields.io/github/package-json/types/morewings/css-vars-hook)](https://github.com/morewings/css-vars-hook)
 [![zero dependencies](https://img.shields.io/badge/zero-dependencies-teal)](https://github.com/morewings/css-vars-hook)
 [![npm bundle size](https://deno.bundlejs.com/badge?bundle&q=css-vars-hook@latest&config={"esbuild":{"external":["react","react-dom"]}})](https://bundlejs.com/?q=css-vars-hook@latest&config={"esbuild":{"external":["react","react-dom"]}})
+[![Maintainability](https://api.codeclimate.com/v1/badges/6e529032595f49447227/maintainability)](https://codeclimate.com/github/morewings/css-vars-hook/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/6e529032595f49447227/test_coverage)](https://codeclimate.com/github/morewings/css-vars-hook/test_coverage)
 
 # CSS Variables React hook
 
