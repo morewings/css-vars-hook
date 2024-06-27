@@ -24,13 +24,13 @@ jobs:
           access_token: ${{ github.token }}
 
       - name: Read .nvmrc
-        run: echo ::set-output name=NVMRC::$(cat .nvmrc)
+        run: echo "NVMRC=$(cat .nvmrc)" >> $GITHUB_ENV
         id: nvm
 
-      - name: Use Node.js ${{ steps.nvm.outputs.NVMRC }}
+      - name: Use Node.js ${{ env.NVMRC }}
         uses: actions/setup-node@v4
         with:
-          node-version: ${{ steps.nvm.outputs.NVMRC }}
+          node-version: ${{ env.NVMRC }}
 
       - name: Install pnpm
         uses: pnpm/action-setup@v4
