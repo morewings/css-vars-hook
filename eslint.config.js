@@ -128,6 +128,7 @@ export default [
                     args: 'after-used',
                 },
             ],
+            'react/prop-types': 0,
         },
     },
     /* Allow devDependencies imports for tests and config files */
