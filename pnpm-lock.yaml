@@ -61,7 +61,7 @@ importers:
         version: 8.8.0(eslint@9.12.0(jiti@1.21.0))(typescript@5.6.2)
       '@vitejs/plugin-react':
         specifier: 4.3.2
-        version: 4.3.2(vite@5.4.8(@types/node@20.11.21))
+        version: 4.3.2(vite@5.4.10(@types/node@20.11.21))
       '@yelo/rollup-node-external':
         specifier: 1.0.1
         version: 1.0.1
@@ -171,11 +171,11 @@ importers:
         specifier: 8.8.0
         version: 8.8.0(eslint@9.12.0(jiti@1.21.0))(typescript@5.6.2)
       vite:
-        specifier: 5.4.8
-        version: 5.4.8(@types/node@20.11.21)
+        specifier: 5.4.10
+        version: 5.4.10(@types/node@20.11.21)
       vite-plugin-dts:
         specifier: 4.2.3
-        version: 4.2.3(@types/node@20.11.21)(rollup@4.24.0)(typescript@5.6.2)(vite@5.4.8(@types/node@20.11.21))
+        version: 4.2.3(@types/node@20.11.21)(rollup@4.24.0)(typescript@5.6.2)(vite@5.4.10(@types/node@20.11.21))
 
 packages:
 
@@ -5799,8 +5799,8 @@ packages:
       vite:
         optional: true
 
-  vite@5.4.8:
-    resolution: {integrity: sha512-FqrItQ4DT1NC4zCUqMB4c4AZORMKIa0m8/URVCZ77OZ/QSNeJ54bU1vrFADbDsuwfIPcgknRkmqakQcgnL4GiQ==}
+  vite@5.4.10:
+    resolution: {integrity: sha512-1hvaPshuPUtxeQ0hsVH3Mud0ZanOLwVTneA1EgbAM5LhaZEqyPWGRQ7BtaMvUrTDeEaC8pxtj6a6jku3x4z6SQ==}
     engines: {node: ^18.0.0 || >=20.0.0}
     hasBin: true
     peerDependencies:
@@ -8384,14 +8384,14 @@ snapshots:
       '@typescript-eslint/types': 8.8.0
       eslint-visitor-keys: 3.4.3
 
-  '@vitejs/plugin-react@4.3.2(vite@5.4.8(@types/node@20.11.21))':
+  '@vitejs/plugin-react@4.3.2(vite@5.4.10(@types/node@20.11.21))':
     dependencies:
       '@babel/core': 7.25.7
       '@babel/plugin-transform-react-jsx-self': 7.25.7(@babel/core@7.25.7)
       '@babel/plugin-transform-react-jsx-source': 7.25.7(@babel/core@7.25.7)
       '@types/babel__core': 7.20.5
       react-refresh: 0.14.2
-      vite: 5.4.8(@types/node@20.11.21)
+      vite: 5.4.10(@types/node@20.11.21)
     transitivePeerDependencies:
       - supports-color
 
@@ -12559,7 +12559,7 @@ snapshots:
       spdx-correct: 3.2.0
       spdx-expression-parse: 3.0.1
 
-  vite-plugin-dts@4.2.3(@types/node@20.11.21)(rollup@4.24.0)(typescript@5.6.2)(vite@5.4.8(@types/node@20.11.21)):
+  vite-plugin-dts@4.2.3(@types/node@20.11.21)(rollup@4.24.0)(typescript@5.6.2)(vite@5.4.10(@types/node@20.11.21)):
     dependencies:
       '@microsoft/api-extractor': 7.47.7(@types/node@20.11.21)
       '@rollup/pluginutils': 5.1.0(rollup@4.24.0)
@@ -12572,13 +12572,13 @@ snapshots:
       magic-string: 0.30.11
       typescript: 5.6.2
     optionalDependencies:
-      vite: 5.4.8(@types/node@20.11.21)
+      vite: 5.4.10(@types/node@20.11.21)
     transitivePeerDependencies:
       - '@types/node'
       - rollup
       - supports-color
 
-  vite@5.4.8(@types/node@20.11.21):
+  vite@5.4.10(@types/node@20.11.21):
     dependencies:
       esbuild: 0.21.5
       postcss: 8.4.47
