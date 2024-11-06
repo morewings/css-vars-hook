@@ -60,8 +60,8 @@ importers:
         specifier: 8.8.0
         version: 8.8.0(eslint@9.12.0(jiti@1.21.0))(typescript@5.6.3)
       '@vitejs/plugin-react':
-        specifier: 4.3.2
-        version: 4.3.2(vite@5.4.10(@types/node@20.11.21))
+        specifier: 4.3.3
+        version: 4.3.3(vite@5.4.10(@types/node@20.11.21))
       '@yelo/rollup-node-external':
         specifier: 1.0.1
         version: 1.0.1
@@ -210,10 +210,6 @@ packages:
     resolution: {integrity: sha512-yJ474Zv3cwiSOO9nXJuqzvwEeM+chDuQ8GJirw+pZ91sCGCyOZ3dJkVE09fTV0VEVzXyLWhh3G/AolYTPX7Mow==}
     engines: {node: '>=6.9.0'}
 
-  '@babel/generator@7.24.6':
-    resolution: {integrity: sha512-S7m4eNa6YAPJRHmKsLHIDJhNAGNKoWNiWefz1MBbpnt8g9lvMDl1hir4P9bo/57bQEmuwEhnRU/AMWsD0G/Fbg==}
-    engines: {node: '>=6.9.0'}
-
   '@babel/generator@7.25.7':
     resolution: {integrity: sha512-5Dqpl5fyV9pIAD62yK9P7fcA768uVPUyrQmqpqstHWgMma4feF1x/oFysBCVZLY5wJ2GkMUCdsNDnGZrPoR6rA==}
     engines: {node: '>=6.9.0'}
@@ -305,16 +301,8 @@ packages:
     resolution: {integrity: sha512-CvLSkwXGWnYlF9+J3iZUvwgAxKiYzK3BWuo+mLzD/MDGOZDj7Gq8+hqaOkMxmJwmlv0iu86uH5fdADd9Hxkymw==}
     engines: {node: '>=6.9.0'}
 
-  '@babel/helper-string-parser@7.24.6':
-    resolution: {integrity: sha512-WdJjwMEkmBicq5T9fm/cHND3+UlFa2Yj8ALLgmoSQAJZysYbBjw+azChSGPN4DSPLXOcooGRvDwZWMcF/mLO2Q==}
-    engines: {node: '>=6.9.0'}
-
   '@babel/helper-string-parser@7.25.7':
     resolution: {integrity: sha512-CbkjYdsJNHFk8uqpEkpCvRs3YRp9tY6FmFY7wLMSYuGYkrdUi7r2lc4/wqsvlHoMznX3WJ9IP8giGPq68T/Y6g==}
-    engines: {node: '>=6.9.0'}
-
-  '@babel/helper-validator-identifier@7.24.6':
-    resolution: {integrity: sha512-4yA7s865JHaqUdRbnaxarZREuPTHrjpDT+pXoAZ1yhyo6uFnIEpS8VMu16siFOHDpZNKYv5BObhsB//ycbICyw==}
     engines: {node: '>=6.9.0'}
 
   '@babel/helper-validator-identifier@7.25.7':
@@ -344,11 +332,6 @@ packages:
   '@babel/highlight@7.25.7':
     resolution: {integrity: sha512-iYyACpW3iW8Fw+ZybQK+drQre+ns/tKpXbNESfrhNnPLIklLbXr7MYJ6gPEd0iETGLOK+SxMjVvKb/ffmk+FEw==}
     engines: {node: '>=6.9.0'}
-
-  '@babel/parser@7.24.6':
-    resolution: {integrity: sha512-eNZXdfU35nJC2h24RznROuOpO94h6x8sg9ju0tT9biNtLZ2vuP8SduLqqV+/8+cebSLV9SJEAN5Z3zQbJG/M+Q==}
-    engines: {node: '>=6.0.0'}
-    hasBin: true
 
   '@babel/parser@7.25.7':
     resolution: {integrity: sha512-aZn7ETtQsjjGG5HruveUK06cU3Hljuhd9Iojm4M8WWv3wLE6OkE5PWbDUkItmMgegmccaITudyuW5RPYrYlgWw==}
@@ -864,20 +847,12 @@ packages:
     resolution: {integrity: sha512-dkxf7+hn8mFBwKjs9bvBlArzLVxVbS8usaPUDd5p2a9JCL9tB8OaOVN1isD4+Xyk4ns89/xeOmbQvgdK7IIVdA==}
     engines: {node: '>=6.9.0'}
 
-  '@babel/template@7.24.6':
-    resolution: {integrity: sha512-3vgazJlLwNXi9jhrR1ef8qiB65L1RK90+lEQwv4OxveHnqC3BfmnHdgySwRLzf6akhlOYenT+b7AfWq+a//AHw==}
-    engines: {node: '>=6.9.0'}
-
   '@babel/template@7.25.7':
     resolution: {integrity: sha512-wRwtAgI3bAS+JGU2upWNL9lSlDcRCqD05BZ1n3X2ONLH1WilFP6O1otQjeMK/1g0pvYcXC7b/qVUB1keofjtZA==}
     engines: {node: '>=6.9.0'}
 
   '@babel/traverse@7.25.7':
     resolution: {integrity: sha512-jatJPT1Zjqvh/1FyJs6qAHL+Dzb7sTb+xr7Q+gM1b+1oBsMsQQ4FkVKb6dFlJvLlVssqkRzV05Jzervt9yhnzg==}
-    engines: {node: '>=6.9.0'}
-
-  '@babel/types@7.24.6':
-    resolution: {integrity: sha512-WaMsgi6Q8zMgMth93GvWPXkhAIEobfsIkLTacoVZoK1J0CevIPGYY2Vo5YvJGqyHqXM6P4ppOYGsIRU8MM9pFQ==}
     engines: {node: '>=6.9.0'}
 
   '@babel/types@7.25.7':
@@ -2101,8 +2076,8 @@ packages:
     resolution: {integrity: sha512-8mq51Lx6Hpmd7HnA2fcHQo3YgfX1qbccxQOgZcb4tvasu//zXRaA1j5ZRFeCw/VRAdFi4mRM9DnZw0Nu0Q2d1g==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
 
-  '@vitejs/plugin-react@4.3.2':
-    resolution: {integrity: sha512-hieu+o05v4glEBucTcKMK3dlES0OeJlD9YVOAPraVMOInBCwzumaIFiUjr4bHK7NPgnAHgiskUoceKercrN8vg==}
+  '@vitejs/plugin-react@4.3.3':
+    resolution: {integrity: sha512-NooDe9GpHGqNns1i8XDERg0Vsg5SSYRhRxxyTGogUdkdNt47jal+fbuYi+Yfq6pzRCKXyoPcWisfxE6RIM3GKA==}
     engines: {node: ^14.18.0 || >=16.0.0}
     peerDependencies:
       vite: ^4.2.0 || ^5.0.0
@@ -4036,11 +4011,6 @@ packages:
 
   jsesc@0.5.0:
     resolution: {integrity: sha512-uZz5UnB7u4T9LvwmFqXii7pZSouaRPorGs5who1Ip7VO0wxanFvBL7GkM6dTHlgX+jhBApRetaWpnDabOeTcnA==}
-    hasBin: true
-
-  jsesc@2.5.2:
-    resolution: {integrity: sha512-OYu7XEzjkCQ3C5Ps3QIZsQfNpqoJyZZA99wd9aWd05NCtC5pWOkShK2mkL6HXQR6/Cy2lbNdPlZBpuQHXE63gA==}
-    engines: {node: '>=4'}
     hasBin: true
 
   jsesc@3.0.2:
@@ -6070,13 +6040,6 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@babel/generator@7.24.6':
-    dependencies:
-      '@babel/types': 7.25.7
-      '@jridgewell/gen-mapping': 0.3.5
-      '@jridgewell/trace-mapping': 0.3.25
-      jsesc: 2.5.2
-
   '@babel/generator@7.25.7':
     dependencies:
       '@babel/types': 7.25.7
@@ -6214,11 +6177,7 @@ snapshots:
       '@babel/types': 7.25.7
     optional: true
 
-  '@babel/helper-string-parser@7.24.6': {}
-
   '@babel/helper-string-parser@7.25.7': {}
-
-  '@babel/helper-validator-identifier@7.24.6': {}
 
   '@babel/helper-validator-identifier@7.25.7': {}
 
@@ -6238,14 +6197,14 @@ snapshots:
 
   '@babel/highlight@7.24.2':
     dependencies:
-      '@babel/helper-validator-identifier': 7.24.6
+      '@babel/helper-validator-identifier': 7.25.7
       chalk: 2.4.2
       js-tokens: 4.0.0
       picocolors: 1.1.0
 
   '@babel/highlight@7.24.6':
     dependencies:
-      '@babel/helper-validator-identifier': 7.24.6
+      '@babel/helper-validator-identifier': 7.25.7
       chalk: 2.4.2
       js-tokens: 4.0.0
       picocolors: 1.1.0
@@ -6256,10 +6215,6 @@ snapshots:
       chalk: 2.4.2
       js-tokens: 4.0.0
       picocolors: 1.1.0
-
-  '@babel/parser@7.24.6':
-    dependencies:
-      '@babel/types': 7.24.6
 
   '@babel/parser@7.25.7':
     dependencies:
@@ -6947,12 +6902,6 @@ snapshots:
     dependencies:
       regenerator-runtime: 0.14.1
 
-  '@babel/template@7.24.6':
-    dependencies:
-      '@babel/code-frame': 7.25.7
-      '@babel/parser': 7.25.7
-      '@babel/types': 7.25.7
-
   '@babel/template@7.25.7':
     dependencies:
       '@babel/code-frame': 7.25.7
@@ -6970,12 +6919,6 @@ snapshots:
       globals: 11.12.0
     transitivePeerDependencies:
       - supports-color
-
-  '@babel/types@7.24.6':
-    dependencies:
-      '@babel/helper-string-parser': 7.24.6
-      '@babel/helper-validator-identifier': 7.24.6
-      to-fast-properties: 2.0.0
 
   '@babel/types@7.25.7':
     dependencies:
@@ -8196,24 +8139,24 @@ snapshots:
 
   '@types/babel__core@7.20.5':
     dependencies:
-      '@babel/parser': 7.24.6
-      '@babel/types': 7.24.6
+      '@babel/parser': 7.25.7
+      '@babel/types': 7.25.7
       '@types/babel__generator': 7.6.7
       '@types/babel__template': 7.4.4
       '@types/babel__traverse': 7.20.4
 
   '@types/babel__generator@7.6.7':
     dependencies:
-      '@babel/types': 7.24.6
+      '@babel/types': 7.25.7
 
   '@types/babel__template@7.4.4':
     dependencies:
       '@babel/parser': 7.25.7
-      '@babel/types': 7.24.6
+      '@babel/types': 7.25.7
 
   '@types/babel__traverse@7.20.4':
     dependencies:
-      '@babel/types': 7.24.6
+      '@babel/types': 7.25.7
 
   '@types/conventional-commits-parser@5.0.0':
     dependencies:
@@ -8416,7 +8359,7 @@ snapshots:
       '@typescript-eslint/types': 8.8.0
       eslint-visitor-keys: 3.4.3
 
-  '@vitejs/plugin-react@4.3.2(vite@5.4.10(@types/node@20.11.21))':
+  '@vitejs/plugin-react@4.3.3(vite@5.4.10(@types/node@20.11.21))':
     dependencies:
       '@babel/core': 7.25.7
       '@babel/plugin-transform-react-jsx-self': 7.25.7(@babel/core@7.25.7)
@@ -8739,7 +8682,7 @@ snapshots:
 
   babel-plugin-jest-hoist@29.6.3:
     dependencies:
-      '@babel/template': 7.24.6
+      '@babel/template': 7.25.7
       '@babel/types': 7.25.7
       '@types/babel__core': 7.20.5
       '@types/babel__traverse': 7.20.4
@@ -10662,10 +10605,10 @@ snapshots:
   jest-snapshot@29.7.0:
     dependencies:
       '@babel/core': 7.25.7
-      '@babel/generator': 7.24.6
+      '@babel/generator': 7.25.7
       '@babel/plugin-syntax-jsx': 7.23.3(@babel/core@7.25.7)
       '@babel/plugin-syntax-typescript': 7.23.3(@babel/core@7.25.7)
-      '@babel/types': 7.24.6
+      '@babel/types': 7.25.7
       '@jest/expect-utils': 29.7.0
       '@jest/transform': 29.7.0
       '@jest/types': 29.6.3
@@ -10808,8 +10751,6 @@ snapshots:
 
   jsesc@0.5.0:
     optional: true
-
-  jsesc@2.5.2: {}
 
   jsesc@3.0.2: {}
 
