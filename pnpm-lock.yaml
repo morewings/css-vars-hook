@@ -91,7 +91,7 @@ importers:
         version: 2.31.0(@typescript-eslint/parser@8.15.0(eslint@9.15.0(jiti@1.21.0))(typescript@5.6.3))(eslint@9.15.0(jiti@1.21.0))
       eslint-plugin-prettier:
         specifier: 5.2.1
-        version: 5.2.1(eslint-config-prettier@9.1.0(eslint@9.15.0(jiti@1.21.0)))(eslint@9.15.0(jiti@1.21.0))(prettier@3.3.3)
+        version: 5.2.1(eslint-config-prettier@9.1.0(eslint@9.15.0(jiti@1.21.0)))(eslint@9.15.0(jiti@1.21.0))(prettier@3.4.1)
       eslint-plugin-react:
         specifier: 7.37.2
         version: 7.37.2(eslint@9.15.0(jiti@1.21.0))
@@ -135,8 +135,8 @@ importers:
         specifier: 10.1.1
         version: 10.1.1(postcss@8.4.49)
       prettier:
-        specifier: 3.3.3
-        version: 3.3.3
+        specifier: 3.4.1
+        version: 3.4.1
       react:
         specifier: 18.3.1
         version: 18.3.1
@@ -157,7 +157,7 @@ importers:
         version: 6.0.4(stylelint@16.10.0(typescript@5.6.3))
       stylelint-prettier:
         specifier: 5.0.2
-        version: 5.0.2(prettier@3.3.3)(stylelint@16.10.0(typescript@5.6.3))
+        version: 5.0.2(prettier@3.4.1)(stylelint@16.10.0(typescript@5.6.3))
       ts-jest:
         specifier: 29.2.5
         version: 29.2.5(@babel/core@7.25.7)(@jest/transform@29.7.0)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.25.7))(jest@29.7.0(@types/node@20.11.21)(ts-node@10.9.2(@types/node@20.11.21)(typescript@5.6.3)))(typescript@5.6.3)
@@ -4947,8 +4947,8 @@ packages:
     resolution: {integrity: sha512-GbK2cP9nraSSUF9N2XwUwqfzlAFlMNYYl+ShE/V+H8a9uNl/oUqB1w2EL54Jh0OlyRSd8RfWYJ3coVS4TROP2w==}
     engines: {node: '>=6.0.0'}
 
-  prettier@3.3.3:
-    resolution: {integrity: sha512-i2tDNA0O5IrMO757lfrdQZCc2jPNDVntV0m/+4whiDfWaTKfMNgR7Qz0NAeGz/nRqF4m5/6CLzbP4/liHt12Ew==}
+  prettier@3.4.1:
+    resolution: {integrity: sha512-G+YdqtITVZmOJje6QkXQWzl3fSfMxFwm1tjTyo9exhkmWSqC4Yhd1+lug++IlR2mvRVAxEDDWYkQdeSztajqgg==}
     engines: {node: '>=14'}
     hasBin: true
 
@@ -9392,10 +9392,10 @@ snapshots:
       - eslint-import-resolver-webpack
       - supports-color
 
-  eslint-plugin-prettier@5.2.1(eslint-config-prettier@9.1.0(eslint@9.15.0(jiti@1.21.0)))(eslint@9.15.0(jiti@1.21.0))(prettier@3.3.3):
+  eslint-plugin-prettier@5.2.1(eslint-config-prettier@9.1.0(eslint@9.15.0(jiti@1.21.0)))(eslint@9.15.0(jiti@1.21.0))(prettier@3.4.1):
     dependencies:
       eslint: 9.15.0(jiti@1.21.0)
-      prettier: 3.3.3
+      prettier: 3.4.1
       prettier-linter-helpers: 1.0.0
       synckit: 0.9.1
     optionalDependencies:
@@ -11564,7 +11564,7 @@ snapshots:
     dependencies:
       fast-diff: 1.3.0
 
-  prettier@3.3.3: {}
+  prettier@3.4.1: {}
 
   pretty-format@27.5.1:
     dependencies:
@@ -12124,9 +12124,9 @@ snapshots:
       postcss-sorting: 8.0.2(postcss@8.4.49)
       stylelint: 16.10.0(typescript@5.6.3)
 
-  stylelint-prettier@5.0.2(prettier@3.3.3)(stylelint@16.10.0(typescript@5.6.3)):
+  stylelint-prettier@5.0.2(prettier@3.4.1)(stylelint@16.10.0(typescript@5.6.3)):
     dependencies:
-      prettier: 3.3.3
+      prettier: 3.4.1
       prettier-linter-helpers: 1.0.0
       stylelint: 16.10.0(typescript@5.6.3)
 
