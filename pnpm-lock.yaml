@@ -61,7 +61,7 @@ importers:
         version: 8.23.0(eslint@9.20.1(jiti@2.4.2))(typescript@5.7.3)
       '@vitejs/plugin-react':
         specifier: 4.3.4
-        version: 4.3.4(vite@6.2.5(@types/node@20.11.21)(jiti@2.4.2)(yaml@2.7.0))
+        version: 4.3.4(vite@6.2.6(@types/node@20.11.21)(jiti@2.4.2)(yaml@2.7.0))
       '@yelo/rollup-node-external':
         specifier: 1.0.1
         version: 1.0.1
@@ -171,11 +171,11 @@ importers:
         specifier: 8.23.0
         version: 8.23.0(eslint@9.20.1(jiti@2.4.2))(typescript@5.7.3)
       vite:
-        specifier: 6.2.5
-        version: 6.2.5(@types/node@20.11.21)(jiti@2.4.2)(yaml@2.7.0)
+        specifier: 6.2.6
+        version: 6.2.6(@types/node@20.11.21)(jiti@2.4.2)(yaml@2.7.0)
       vite-plugin-dts:
         specifier: 4.3.0
-        version: 4.3.0(@types/node@20.11.21)(rollup@4.39.0)(typescript@5.7.3)(vite@6.2.5(@types/node@20.11.21)(jiti@2.4.2)(yaml@2.7.0))
+        version: 4.3.0(@types/node@20.11.21)(rollup@4.39.0)(typescript@5.7.3)(vite@6.2.6(@types/node@20.11.21)(jiti@2.4.2)(yaml@2.7.0))
 
 packages:
 
@@ -2624,8 +2624,8 @@ packages:
   caniuse-lite@1.0.30001667:
     resolution: {integrity: sha512-7LTwJjcRkzKFmtqGsibMeuXmvFDfZq/nzIjnmgCGzKKRVzjD72selLDK1oPF/Oxzmt4fNcPvTDvGqSDG4tCALw==}
 
-  caniuse-lite@1.0.30001710:
-    resolution: {integrity: sha512-B5C0I0UmaGqHgo5FuqJ7hBd4L57A4dDD+Xi+XX1nXOoxGeDdY4Ko38qJYOyqznBVJEqON5p8P1x5zRR3+rsnxA==}
+  caniuse-lite@1.0.30001713:
+    resolution: {integrity: sha512-wCIWIg+A4Xr7NfhTuHdX+/FKh3+Op3LBbSp2N5Pfx6T/LhdQy3GTyoTg48BReaW/MyMNZAkTadsBtai3ldWK0Q==}
 
   chalk@2.4.2:
     resolution: {integrity: sha512-Mti+f9lpJNcwF4tWV8/OrTTtF1gZi+f8FqlyAdouralcFWFQWF2+NgCHShjkCb+IFBLq9buZwE1xckQU4peSuQ==}
@@ -3113,8 +3113,8 @@ packages:
     engines: {node: '>=0.10.0'}
     hasBin: true
 
-  electron-to-chromium@1.5.132:
-    resolution: {integrity: sha512-QgX9EBvWGmvSRa74zqfnG7+Eno0Ak0vftBll0Pt2/z5b3bEGYL6OUXLgKPtvx73dn3dvwrlyVkjPKRRlhLYTEg==}
+  electron-to-chromium@1.5.136:
+    resolution: {integrity: sha512-kL4+wUTD7RSA5FHx5YwWtjDnEEkIIikFgWHR4P6fqjw1PPLlqYkxeOb++wAauAssat0YClCy8Y3C5SxgSkjibQ==}
 
   electron-to-chromium@1.5.32:
     resolution: {integrity: sha512-M+7ph0VGBQqqpTT2YrabjNKSQ2fEl9PVx6AK3N558gDH9NO8O6XN9SXXFWRo9u9PbEg/bWq+tjXQr+eXmxubCw==}
@@ -6264,8 +6264,8 @@ packages:
       vite:
         optional: true
 
-  vite@6.2.5:
-    resolution: {integrity: sha512-j023J/hCAa4pRIUH6J9HemwYfjB5llR2Ps0CWeikOtdR8+pAURAk0DoJC5/mm9kd+UgdnIy7d6HE4EAvlYhPhA==}
+  vite@6.2.6:
+    resolution: {integrity: sha512-9xpjNl3kR4rVDZgPNdTL0/c6ao4km69a/2ihNQbcANz8RuCOK3hQBmLSJf3bRKVQjVMda+YvizNE8AwvogcPbw==}
     engines: {node: ^18.0.0 || ^20.0.0 || >=22.0.0}
     hasBin: true
     peerDependencies:
@@ -9121,14 +9121,14 @@ snapshots:
       '@typescript-eslint/types': 8.23.0
       eslint-visitor-keys: 4.2.0
 
-  '@vitejs/plugin-react@4.3.4(vite@6.2.5(@types/node@20.11.21)(jiti@2.4.2)(yaml@2.7.0))':
+  '@vitejs/plugin-react@4.3.4(vite@6.2.6(@types/node@20.11.21)(jiti@2.4.2)(yaml@2.7.0))':
     dependencies:
       '@babel/core': 7.26.0
       '@babel/plugin-transform-react-jsx-self': 7.25.9(@babel/core@7.26.0)
       '@babel/plugin-transform-react-jsx-source': 7.25.9(@babel/core@7.26.0)
       '@types/babel__core': 7.20.5
       react-refresh: 0.14.2
-      vite: 6.2.5(@types/node@20.11.21)(jiti@2.4.2)(yaml@2.7.0)
+      vite: 6.2.6(@types/node@20.11.21)(jiti@2.4.2)(yaml@2.7.0)
     transitivePeerDependencies:
       - supports-color
 
@@ -9552,8 +9552,8 @@ snapshots:
 
   browserslist@4.24.4:
     dependencies:
-      caniuse-lite: 1.0.30001710
-      electron-to-chromium: 1.5.132
+      caniuse-lite: 1.0.30001713
+      electron-to-chromium: 1.5.136
       node-releases: 2.0.19
       update-browserslist-db: 1.1.3(browserslist@4.24.4)
     optional: true
@@ -9618,7 +9618,7 @@ snapshots:
 
   caniuse-lite@1.0.30001667: {}
 
-  caniuse-lite@1.0.30001710:
+  caniuse-lite@1.0.30001713:
     optional: true
 
   chalk@2.4.2:
@@ -10081,7 +10081,7 @@ snapshots:
     dependencies:
       jake: 10.9.2
 
-  electron-to-chromium@1.5.132:
+  electron-to-chromium@1.5.136:
     optional: true
 
   electron-to-chromium@1.5.32: {}
@@ -13779,7 +13779,7 @@ snapshots:
       spdx-correct: 3.2.0
       spdx-expression-parse: 3.0.1
 
-  vite-plugin-dts@4.3.0(@types/node@20.11.21)(rollup@4.39.0)(typescript@5.7.3)(vite@6.2.5(@types/node@20.11.21)(jiti@2.4.2)(yaml@2.7.0)):
+  vite-plugin-dts@4.3.0(@types/node@20.11.21)(rollup@4.39.0)(typescript@5.7.3)(vite@6.2.6(@types/node@20.11.21)(jiti@2.4.2)(yaml@2.7.0)):
     dependencies:
       '@microsoft/api-extractor': 7.47.11(@types/node@20.11.21)
       '@rollup/pluginutils': 5.1.0(rollup@4.39.0)
@@ -13792,13 +13792,13 @@ snapshots:
       magic-string: 0.30.11
       typescript: 5.7.3
     optionalDependencies:
-      vite: 6.2.5(@types/node@20.11.21)(jiti@2.4.2)(yaml@2.7.0)
+      vite: 6.2.6(@types/node@20.11.21)(jiti@2.4.2)(yaml@2.7.0)
     transitivePeerDependencies:
       - '@types/node'
       - rollup
       - supports-color
 
-  vite@6.2.5(@types/node@20.11.21)(jiti@2.4.2)(yaml@2.7.0):
+  vite@6.2.6(@types/node@20.11.21)(jiti@2.4.2)(yaml@2.7.0):
     dependencies:
       esbuild: 0.25.2
       postcss: 8.5.3
