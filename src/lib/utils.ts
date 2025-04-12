@@ -1,7 +1,6 @@
 import type {MutableRefObject, CSSProperties} from 'react';
-import type {ThemeType} from 'css-vars-hook';
 
-import type {UnitType} from '@/lib/UnitType';
+import type {UnitType, Theme} from '@/lib/ThemeType.ts';
 
 const normalizeUnit = (unit: UnitType) => {
     if (typeof unit === 'string') {
@@ -13,9 +12,9 @@ const normalizeUnit = (unit: UnitType) => {
 /**
  * Add `--` prefix to property names in theme object in order to make it applicable to DOM node
  */
-export const createStyleObject = (theme: ThemeType): CSSProperties => {
+export const createStyleObject = (theme: Theme): CSSProperties => {
     const keys = Object.keys(theme);
-    const result = {} as ThemeType;
+    const result: Record<string, UnitType> = {};
     keys.forEach(key => {
         result[`--${key}`] = theme[key];
     });
@@ -25,7 +24,7 @@ export const createStyleObject = (theme: ThemeType): CSSProperties => {
 /**
  * Add `--` prefix to property names in theme object in order to make it applicable to DOM node
  */
-export const createStyleString = (theme: ThemeType) => {
+export const createStyleString = (theme: Theme) => {
     const keys = Object.keys(theme);
     let result = '';
     keys.forEach(key => {
@@ -37,7 +36,7 @@ export const createStyleString = (theme: ThemeType) => {
 /**
  * Set CSS theme at the provided DOM node
  */
-export const setCSSTheme = (element: HTMLElement) => (theme: ThemeType) => {
+export const setCSSTheme = (element: HTMLElement) => (theme: Theme) => {
     const style = createStyleString(theme);
     element?.setAttribute('style', style);
 };
@@ -71,7 +70,7 @@ export const getCSSVariable =
 /**
  * Set new theme be replacing `style` attribute content
  */
-export const setRootTheme = (id: string) => (theme: ThemeType) => {
+export const setRootTheme = (id: string) => (theme: Theme) => {
     const root = document.getElementById(id)!;
     const style = createStyleString(theme);
     root?.setAttribute('style', style);

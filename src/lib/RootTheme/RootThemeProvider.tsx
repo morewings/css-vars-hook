@@ -1,6 +1,7 @@
 import type {FC, ReactNode} from 'react';
 import {useMemo, useEffect, useId} from 'react';
-import type {ThemeType} from 'css-vars-hook';
+
+import type {Theme} from '@/lib/ThemeType.ts';
 
 import type {DataAttributes, LibraryProps} from '../NativeProps';
 import {RootContext} from './RootContext';
@@ -10,7 +11,7 @@ import {useRootTheme} from './useRootTheme';
  * @public
  */
 export type RootThemeProviderProps = DataAttributes &
-    LibraryProps & {children: ReactNode; theme: ThemeType};
+    LibraryProps & {children: ReactNode; theme: Theme};
 
 /**
  * @public

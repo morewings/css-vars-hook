@@ -1,9 +1,9 @@
 import type {HTMLAttributes, ReactNode} from 'react';
 import {createElement, forwardRef, useEffect, useMemo} from 'react';
-import type {ThemeType} from 'css-vars-hook';
 
 import {createStyleObject} from '@/lib/utils';
 import type {DataAttributes, LibraryProps} from '@/lib/NativeProps';
+import type {Theme} from '@/lib/ThemeType.ts';
 
 /**
  * @public
@@ -15,9 +15,9 @@ export type LocalRootProps = DataAttributes &
         /** Choose which HTMLElement to render as a root. div is default. */
         as?: string;
         /** Apply initial theme. */
-        theme?: ThemeType;
+        theme?: Theme;
         /** Provide theme setter function. */
-        setTheme?: (arg0: ThemeType) => void;
+        setTheme?: (arg0: Theme) => void;
     };
 
 export const LocalRoot = forwardRef<HTMLElement, LocalRootProps>((props, ref) => {
