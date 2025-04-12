@@ -12,7 +12,7 @@ exports[`env > App renders  1`] = `
   </div>
   <div
     id=":r0:"
-    style="--boxColor: violet; --borderColor: purple;"
+    style="--boxColor:violet;--borderColor:purple;"
   >
     <div>
       <div>
@@ -151,14 +151,14 @@ exports[`env > App renders  1`] = `
           </div>
         </div>
         <div
-          style="--width: 100px; --height: 100px; --radius: 0px; --color: #FFC0CB;"
+          style="--width:100px;--height:100px;--radius:0px;--color:#FFC0CB;"
         >
           <div />
         </div>
       </div>
       <div>
         <div
-          style="--left: 0px; --top: 0px;"
+          style="--left:0px;--top:0px;"
         >
           <img
             alt="Happy cursor friend"
@@ -294,7 +294,7 @@ exports[`env > App renders  1`] = `
           </div>
         </div>
         <div
-          style="--rotateX: 0deg; --rotateY: 0deg; --rotateZ: 0deg;"
+          style="--rotateX:0deg;--rotateY:0deg;--rotateZ:0deg;"
         >
           <div>
             <div>
@@ -402,11 +402,6 @@ exports[`env > App renders  1`] = `
               <br />
               borderColor: 'orange'
             </pre>
-            <button
-              type="button"
-            >
-              Set external theme
-            </button>
             <br />
             <button
               type="button"
@@ -448,7 +443,7 @@ exports[`env > App renders  1`] = `
         </div>
         <div>
           <div
-            style="--boxColor: ivory; --borderColor: orange;"
+            style="--boxColor:ivory;--borderColor:orange;"
           />
         </div>
       </div>
