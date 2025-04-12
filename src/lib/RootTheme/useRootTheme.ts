@@ -9,6 +9,7 @@ import {
     getRootVariable,
     removeRootVariable,
     setRootVariable,
+    setRootTheme,
 } from '../utils';
 import type {HookInterface} from './HookInterfaceType';
 
@@ -24,10 +25,7 @@ export const useRootTheme = (
 
     const setTheme = useCallback(
         (nextTheme: ThemeType) => {
-            Object.keys(nextTheme).forEach(key => {
-                setRootVariable(id)(key, nextTheme[key]);
-            });
-
+            setRootTheme(id)(nextTheme);
             themeRef.current = nextTheme;
         },
         [id]

@@ -1,7 +1,7 @@
 import {useCallback, useRef, useMemo} from 'react';
 import type {ThemeType} from 'css-vars-hook';
 
-import {setCSSVariable} from '@/lib/utils';
+import {setCSSVariable, setCSSTheme} from '@/lib/utils';
 import type {UnitType} from '@/lib/UnitType';
 
 import type {LocalRootProps} from './LocalRoot';
@@ -25,9 +25,7 @@ export const useLocalTheme = <TElement extends HTMLElement>() => {
     const elementRef = useRef<TElement>(null);
 
     const setTheme = useCallback((nextTheme: ThemeType) => {
-        Object.keys(nextTheme).forEach((key: string) => {
-            setCSSVariable(elementRef.current!)(key, nextTheme[key]);
-        });
+        setCSSTheme(elementRef.current!)(nextTheme);
 
         themeRef.current = nextTheme;
     }, []);

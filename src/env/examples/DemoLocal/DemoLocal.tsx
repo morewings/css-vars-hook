@@ -1,4 +1,4 @@
-import {useLayoutEffect, useState} from 'react';
+import {useLayoutEffect} from 'react';
 
 import {useLocalTheme} from '@/lib';
 
@@ -14,18 +14,12 @@ const themeNeon = {
 let renderCount = 0;
 
 export const DemoLocal = () => {
-    const [externalTheme, setExternalTheme] = useState(themeIvory);
-
     const {setTheme, getTheme, LocalRoot, getVariable, setVariable} = useLocalTheme();
 
     const setThemeIvory = () => {
         setTheme(themeIvory);
         console.log('root theme', getTheme());
         console.log('boxColor', getVariable('boxColor'));
-    };
-
-    const setExternal = () => {
-        setExternalTheme(themeNeon);
     };
 
     const setThemeNeon = () => {
@@ -55,9 +49,6 @@ export const DemoLocal = () => {
                         <br />
                         borderColor: &apos;orange&apos;
                     </pre>
-                    <button type="button" onClick={setExternal}>
-                        Set external theme
-                    </button>
                     <br />
                     <button type="button" onClick={setThemeIvory}>
                         Set theme 1
@@ -84,7 +75,7 @@ export const DemoLocal = () => {
                 </fieldset>
             </div>
             <div className={classes.testingArea}>
-                <LocalRoot theme={externalTheme} className={classes.demoComponent} />
+                <LocalRoot theme={themeIvory} className={classes.demoComponent} />
             </div>
         </div>
     );
