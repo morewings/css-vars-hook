@@ -1,8 +1,7 @@
 import {useCallback, useMemo, useRef} from 'react';
 import type {CSSProperties} from 'react';
-import type {ThemeType} from 'css-vars-hook';
 
-import type {UnitType} from '@/lib/UnitType';
+import type {UnitType, Theme} from '@/lib/ThemeType.ts';
 
 import {
     createStyleObject,
@@ -18,13 +17,13 @@ import type {HookInterface} from './HookInterfaceType';
  * Logic for root theme handling such as updates and CSS style creation
  */
 export const useRootTheme = (
-    theme: ThemeType,
+    theme: Theme,
     id: string
 ): HookInterface & {style: CSSProperties} => {
     const themeRef = useRef(theme);
 
     const setTheme = useCallback(
-        (nextTheme: ThemeType) => {
+        (nextTheme: Theme) => {
             setRootTheme(id)(nextTheme);
             themeRef.current = nextTheme;
         },

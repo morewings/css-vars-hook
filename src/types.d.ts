@@ -3,12 +3,6 @@ declare module '*.module.css' {
     export default classes;
 }
 
-declare module 'css-vars-hook' {
-    import type {UnitType} from '@/lib';
-    /** The most common theme type */
-    export type ThemeType = Record<string, UnitType>;
-}
-
 declare module '*.png';
 declare module '*.svg';
 declare module '*.jpeg';
