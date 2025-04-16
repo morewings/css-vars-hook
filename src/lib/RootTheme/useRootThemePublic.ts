@@ -1,3 +1,5 @@
+import type {Theme} from '@/lib/ThemeType.ts';
+
 import {useRootContext} from './RootContext';
 
 /**
@@ -7,9 +9,9 @@ import {useRootContext} from './RootContext';
  * @see ThemeType
  * @see https://github.com/morewings/css-vars-hook#type-safety
  */
-export const useRootThemePublic = () => {
+export const useRootThemePublic = <TTheme extends Theme>() => {
     const {setTheme, getTheme, setVariable, getVariable, removeVariable} =
-        useRootContext();
+        useRootContext<TTheme>();
     return {
         /** Effect to apply new theme to the application */
         setTheme,

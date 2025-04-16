@@ -4,12 +4,17 @@ import {useRootTheme} from '@/lib';
 
 import classes from './Root.module.css';
 
-const themeYellow = {
+type Theme = {
+    boxColor: string;
+    borderColor: string;
+};
+
+const themeYellow: Theme = {
     boxColor: 'yellow',
     borderColor: 'blue',
 };
 
-const themePink = {
+const themePink: Theme = {
     boxColor: 'pink',
     borderColor: 'brown',
 };
@@ -17,7 +22,7 @@ const themePink = {
 let renderCount = 0;
 
 export const Root = () => {
-    const {setTheme, getTheme, setVariable} = useRootTheme();
+    const {setTheme, getTheme, setVariable} = useRootTheme<Theme>();
 
     const setThemePink = () => {
         setTheme(themePink);
