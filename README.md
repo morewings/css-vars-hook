@@ -168,15 +168,28 @@ The reason this code isn’t correct is that it tries to do something with the D
 
 ### Type safety
 
-Global theme type should be defined on a project level. You'll have to redeclare `ThemeType` export from `css-vars-hook`
+Developers can provide theme type to `useRootTheme` hook as a TypeScript Generic.
 
-```ts
-// types.d.ts
-import theme from '@/theme';
+```tsx
+import { FC } from "react";
 
-declare module 'css-vars-hook' {
-    // Provide your global theme type here
-    export type ThemeType = typeof theme;
+type Theme = {
+    boxColor: 'yellow' | 'blue';
+    borderColor: string;
+};
+
+const themeYellow: Theme = {
+    boxColor: 'yellow',
+    borderColor: 'blue',
+};
+
+const Component: FC = () => {
+    const {setTheme, getTheme, setVariable} = useRootTheme<Theme>();
+    const doSomething = () => {
+        // theme value will be properly typed this way
+        console.log('root theme', getTheme().boxColor);
+    };
+    //...
 }
 ```
 

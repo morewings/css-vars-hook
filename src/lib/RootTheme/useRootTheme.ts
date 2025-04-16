@@ -16,14 +16,14 @@ import type {HookInterface} from './HookInterfaceType';
  * @private
  * Logic for root theme handling such as updates and CSS style creation
  */
-export const useRootTheme = (
-    theme: Theme,
+export const useRootTheme = <TTheme extends Theme>(
+    theme: TTheme,
     id: string
-): HookInterface & {style: CSSProperties} => {
+): HookInterface<TTheme> & {style: CSSProperties} => {
     const themeRef = useRef(theme);
 
     const setTheme = useCallback(
-        (nextTheme: Theme) => {
+        (nextTheme: TTheme) => {
             setRootTheme(id)(nextTheme);
             themeRef.current = nextTheme;
         },
