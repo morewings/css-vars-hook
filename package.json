@@ -75,7 +75,7 @@
     "@types/jest": "29.5.14",
     "@types/lodash": "4.17.16",
     "@types/react": "18.3.20",
-    "@types/react-dom": "18.3.6",
+    "@types/react-dom": "18.3.7",
     "@typescript-eslint/eslint-plugin": "8.23.0",
     "@typescript-eslint/parser": "8.23.0",
     "@vitejs/plugin-react": "4.3.4",
