@@ -2,14 +2,14 @@ import {resolve} from 'path';
 
 import {defineConfig} from 'vite';
 import react from '@vitejs/plugin-react';
-import hq from 'alias-hq';
+import {kitchen} from 'alias-kitchen';
 import external from '@yelo/rollup-node-external';
 import dts from 'vite-plugin-dts';
 import postcssPresetEnv from 'postcss-preset-env';
 
 export default defineConfig({
     resolve: {
-        alias: hq.get('rollup'),
+        alias: kitchen({recipe: 'vite'}),
     },
     plugins: [react(), dts({rollupTypes: true})],
     build: {

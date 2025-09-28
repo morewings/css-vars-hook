@@ -140,7 +140,7 @@ export default [
             '*/*.{js,jsx,ts,tsx}',
             '**/setupTests.ts',
             '**/*.stories.*',
-            '*.config.{js,ts}',
+            '*.config.**{js,ts}',
             '**/env/**/*.*',
         ],
         plugins: {
