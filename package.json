@@ -80,7 +80,7 @@
     "@typescript-eslint/parser": "8.23.0",
     "@vitejs/plugin-react": "4.3.4",
     "@yelo/rollup-node-external": "1.0.1",
-    "alias-kitchen": "0.1.2",
+    "alias-kitchen": "0.2.4",
     "classnames": "2.5.1",
     "commitizen": "4.3.1",
     "commitlint": "19.8.1",
