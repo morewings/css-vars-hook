@@ -57,6 +57,7 @@ export const useRootTheme = <TTheme extends Theme>(
         [id]
     );
 
+    // eslint-disable-next-line react-hooks/refs
     const style = useMemo(() => createStyleObject(themeRef.current), []);
 
     return {

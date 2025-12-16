@@ -8,8 +8,8 @@ import {LocalRoot} from './LocalRoot';
 
 /**
  * @public
- * React hook to apply multiple CSS variables to generated local root element (LocalRoot) and manipulate them.
- * Theme type is inferred from provided theme parameter.
+ * React hook to apply multiple CSS variables to a generated local root element (LocalRoot) and manipulate them.
+ * Theme type is inferred from the provided theme parameter.
  * @example
  * const {setTheme, getTheme, LocalRoot, getVariable, setVariable} = useLocalTheme();
  * const setThemeIvory = () => {
@@ -20,7 +20,7 @@ import {LocalRoot} from './LocalRoot';
  * return <LocalRoot theme={{foo: 'bar'}} className="demo-local">//...
  */
 export const useLocalTheme = <TElement extends HTMLElement>() => {
-    const themeRef = useRef<Theme>();
+    const themeRef = useRef<Theme>({});
     const elementRef = useRef<TElement>(null);
 
     const setTheme = useCallback((nextTheme: Theme) => {
@@ -55,13 +55,13 @@ export const useLocalTheme = <TElement extends HTMLElement>() => {
     return {
         /** Effect to apply new theme to LocalRoot */
         setTheme,
-        /** Get current theme set for LocalRoot */
+        /** Get the current theme set for LocalRoot */
         getTheme,
-        /** Wrapper component which creates DOM node to store theme data */
+        /** Wrapper component which creates a DOM node to store theme data */
         LocalRoot: MemoRoot,
         /** React Mutable Ref object attached to LocalRoot */
         ref: elementRef,
-        /** Get variable value within LocalRoot theme */
+        /** Get variable value within the LocalRoot theme */
         getVariable,
         /** Effect to set new variable value within LocalRoot theme */
         setVariable,
