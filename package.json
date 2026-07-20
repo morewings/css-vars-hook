@@ -82,7 +82,7 @@
     "@yelo/rollup-node-external": "1.0.1",
     "alias-kitchen": "0.2.4",
     "classnames": "2.5.1",
-    "commitizen": "4.3.1",
+    "commitizen": "4.3.2",
     "commitlint": "20.2.0",
     "cz-conventional-changelog": "3.3.0",
     "eslint": "9.39.2",
